@@ -3,11 +3,10 @@ package de.timweb.android.activity;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class MainActivity extends Activity {
-	
-    @Override
+public class StatisticsActivity extends Activity{
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.statistics);
     }
 }
