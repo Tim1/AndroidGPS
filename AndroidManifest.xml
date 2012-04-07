@@ -22,6 +22,7 @@
         <activity android:name="RunningActivity"></activity>
         <activity android:name="StatisticsActivity"></activity>
         <activity android:name="PreferencesActivity"></activity>
+        <service android:name="de.timweb.android.util.GPSService"></service>
     </application>
 
 </manifest>
