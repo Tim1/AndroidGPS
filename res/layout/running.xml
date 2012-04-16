@@ -8,12 +8,33 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Running Activity" />
-
-    <Button
-        android:id="@+id/but_preferences"
+     
+     
+     <Button
+        android:id="@+id/but_jogging"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="PreferencesAcitivty"
+        android:text="Jogging Modus"
         android:onClick="onButtonClick" />
+    <Button
+        android:id="@+id/but_bycycle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Bycyle/Inliner Modus"
+        android:onClick="onButtonClick" />
+
+    <Button
+        android:id="@+id/but_walk"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Walk Modus" 
+        android:onClick="onButtonClick"/>
+    
+    <Button
+        android:id="@+id/but_daily"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Daily Modus" 
+        android:onClick="onButtonClick"/>
 
 </LinearLayout>

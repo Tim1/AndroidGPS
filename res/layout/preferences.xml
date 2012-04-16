@@ -8,5 +8,18 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Preferences Activity" />
+    
+      <Button
+        android:id="@+id/but_GPS"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS"
+        android:onClick="onButtonClick" />
+    <Button
+        android:id="@+id/but_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Style"
+        android:onClick="onButtonClick" />
 
 </LinearLayout>
