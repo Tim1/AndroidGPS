@@ -1,0 +1,27 @@
+<resources>
+
+    <string-array name="db_create">
+        <item >
+            create table gps_track(
+				_id integer primary key autoincrement,
+				track_date date default CURRENT_DATE,
+				track_distance integer,
+				track_time integer
+			)
+            
+        </item>
+        <item >
+            create table gps_location(
+				_id integer primary key autoincrement,
+				track integer not NULL,
+				time integer,
+				accuracy real,
+				longitude real,
+				latitude real,
+				altitude real,
+				speed real
+			)
+        </item>
+    </string-array>
+
+</resources>
