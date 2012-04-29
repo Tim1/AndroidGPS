@@ -3,5 +3,10 @@
 
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">PROJEKT GPS-Stats</string>
+    <string name="db_name">DB_gpsdata</string>
+    <string name="db_version">1</string>
+    <string name="db_insert_location">
+        INSERT INTO gps_location VALUES (?,?,?,?,?,?,?) 
+    </string>
 
 </resources>
