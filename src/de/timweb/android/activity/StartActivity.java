@@ -22,6 +22,10 @@ public class StartActivity extends Activity {
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
 			break;
+			
+		case R.id.but_GPSTest:
+			startActivity(new Intent(this, GPSTestActivity.class));
+			break;
 		}
 
 	}

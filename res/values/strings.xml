@@ -6,7 +6,13 @@
     <string name="db_name">DB_gpsdata</string>
     <string name="db_version">1</string>
     <string name="db_insert_location">
-        INSERT INTO gps_location VALUES (?,?,?,?,?,?,?) 
+        INSERT INTO gps_location VALUES (NULL,?,?,?,?,?,?,?) 
+    </string>
+    <string name="db_select_location">
+        SELECT time, accuracy, longitue, latitude, altitude, speed FROM gps_location WHERE track = 
+    </string>
+    <string name="db_delete_location">
+        DELETE FROM gps_location WHERE track = 
     </string>
 
 </resources>

@@ -5,6 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="7" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -19,10 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name="ChooseTrackActivity"></activity>
+        <activity android:name="GPSTestActivity"></activity>
         <activity android:name="RunningActivity"></activity>
         <activity android:name="StatisticsActivity"></activity>
         <activity android:name="PreferencesActivity"></activity>
-        <service android:name="de.timweb.android.util.GPSService"></service>
+        <service android:name="de.timweb.android.util.GPSManager"></service>
     </application>
 
 </manifest>

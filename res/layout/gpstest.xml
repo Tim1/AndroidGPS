@@ -7,26 +7,33 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="StartAcitity" />
+        android:text="Running Activity" />
 
     <Button
-        android:id="@+id/but_running"
+        android:id="@+id/but_gps_start"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="RunningAcitvity"
-        android:onClick="onButtonClick" />
-    <Button
-        android:id="@+id/but_chooseTrack"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="ChooseTrackActitity"
-        android:onClick="onButtonClick" />
+        android:onClick="onButtonClick"
+        android:text="startGPS" />
 
     <Button
-        android:id="@+id/but_GPSTest"
+        android:id="@+id/but_gps_stop"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="GPSTestActivity"
-        android:onClick="onButtonClick" />
+        android:onClick="onButtonClick"
+        android:text="stopGPS" />
+
+    <Button
+        android:id="@+id/but_gps_delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="deleteLocation" />
+    <Button
+        android:id="@+id/but_gps_show"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="showGPS" />
 
 </LinearLayout>
