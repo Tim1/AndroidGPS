@@ -3,10 +3,11 @@
     <string-array name="db_create">
         <item >
             create table gps_track(
-				_id integer primary key autoincrement,
-				track_date date default CURRENT_DATE,
-				track_distance integer,
-				track_time integer
+				_id integer primary key,
+				track_date integer,
+				track_distance real,
+				track_time integer,
+				steps integer
 			)
             
         </item>

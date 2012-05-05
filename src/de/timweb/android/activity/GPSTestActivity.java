@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import de.timweb.android.util.GPSManager;
+import de.timweb.android.util.TrackManager;
 
 public class GPSTestActivity extends Activity {
 
-	private static GPSManager gpsmanager;
+	private static TrackManager gpsmanager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class GPSTestActivity extends Activity {
 		setContentView(R.layout.gpstest);
 
 		if(gpsmanager == null)
-			gpsmanager = new GPSManager(this, 0);
+			gpsmanager = new TrackManager(this);
 		if(gpsmanager.isRunning())
 			setProgressBarIndeterminateVisibility(true);
 	}
@@ -25,17 +25,19 @@ public class GPSTestActivity extends Activity {
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_gps_start:
-			if (!gpsmanager.isRunning())
-				gpsmanager.start();
+			gpsmanager.start();
 			setProgressBarIndeterminateVisibility(true);
 			break;
+		case R.id.but_gps_pause:
+			gpsmanager.pause();
+			setProgressBarIndeterminateVisibility(false);
+			break;
 		case R.id.but_gps_stop:
-			if (gpsmanager.isRunning())
-				gpsmanager.stop();
+			gpsmanager.stop();
 			setProgressBarIndeterminateVisibility(false);
 			break;
 		case R.id.but_gps_delete:
-			gpsmanager.deleteTrack();
+			gpsmanager.deleteCurrentTrack();
 			break;
 		case R.id.but_gps_show:
 			gpsmanager.show();

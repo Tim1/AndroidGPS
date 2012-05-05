@@ -2,13 +2,16 @@ package de.timweb.android.util;
 
 import java.util.ArrayList;
 
+import de.timweb.android.activity.R;
+
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.location.Location;
+import android.widget.Toast;
 
 /**
  * repraesentiert eine komplett zurueckgelegte Strecke
- * @author Tim
- *
  */
 public class Track {
 	private int _id;
@@ -46,6 +49,23 @@ public class Track {
 		}
 		
 		locations.add(location);
+	}
+	
+	public void writeToDatabase(Context context, SQLiteDatabase database){
+		
+		
+		SQLiteStatement sql = database.compileStatement(context.getResources().getString(
+				R.string.db_insert_track));
+		
+		sql.bindLong(1, _id);
+		sql.bindLong(2, starttime);
+		sql.bindDouble(3, distance);
+		sql.bindLong(4, System.currentTimeMillis()-starttime);
+		sql.bindLong(5, steps);
+		
+		sql.executeInsert();
+		
+		Toast.makeText(context, "wrote Track", Toast.LENGTH_SHORT).show();
 	}
 	
 	/**

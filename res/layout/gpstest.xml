@@ -17,6 +17,13 @@
         android:text="startGPS" />
 
     <Button
+        android:id="@+id/but_gps_pause"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="pauseGPS" />
+
+    <Button
         android:id="@+id/but_gps_stop"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
