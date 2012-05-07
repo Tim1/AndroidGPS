@@ -4,16 +4,23 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Toast;
 import de.timweb.android.activity.R;
 
 public class TrackManager {
-	private LocationListener listener;
-	private LocationManager locationManager;
-	private SQLiteDatabase database;
+	private LocationListenerImpl mLocationListener;
+	private SensorEventListener mSensorListener; 
+	private LocationManager mLocationManager;
+	private SensorManager mSensorManager;
+	private SQLiteDatabase mDatabase;
 	private SQLiteStatement sql;
 	private Context context;
 	
@@ -25,13 +32,18 @@ public class TrackManager {
 	public TrackManager(Context context) {
 		this.context = context;
 		
-		listener = new LocationListener();
+
 		dbManager = new DatabaseManager(context);
-		database = dbManager.getWritableDatabase();
-		
-		locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-		sql = database.compileStatement(context.getResources().getString(
+		mDatabase = dbManager.getWritableDatabase();
+		sql = mDatabase.compileStatement(context.getResources().getString(
 				R.string.db_insert_location));
+		
+		mLocationListener = new LocationListenerImpl();
+		mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+		
+		mSensorListener = new SensorEventListenerImpl();
+		mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+		
 	}
 	
 	public synchronized void setTrack(int trackid){
@@ -49,22 +61,26 @@ public class TrackManager {
 	public synchronized void show(){
 		if(trackid == -1)
 			return;
-		Toast.makeText(context, "Distance: "+ (float)track.getDistance() +" m", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "Distance: "+ (float)track.getDistance() +" m\nSteps: "+track.getSteps(), Toast.LENGTH_SHORT).show();
 	}
 	
 	/**
-	 * startet (erneut) das GPS-Tracking
+	 * startet (erneut) das GPS-Tracking.
+	 * Legt einen neuen Track an, wenn es noch nicht laeuft.
 	 */
 	public synchronized void start() {
 		if(trackid == -1 && !isRunning){
 			setTrack(getNextTrackID());
 			Toast.makeText(context, "start Track "+trackid, Toast.LENGTH_SHORT).show();
 		}
-		
 		if(trackid == -1 || isRunning)
 			return;
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-				5000, 0, listener);
+		
+		mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				3000, 0, mLocationListener);
+		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(SensorManager.SENSOR_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
+		
+		
 		isRunning = true;
 		Toast.makeText(context, "GPS started", Toast.LENGTH_SHORT).show();
 	}
@@ -74,8 +90,9 @@ public class TrackManager {
 	public synchronized void pause() {
 		if(trackid == -1 || !isRunning)
 			return;
-		locationManager.removeUpdates(listener);
-		database.close();
+		mLocationManager.removeUpdates(mLocationListener);
+		mSensorManager.unregisterListener(mSensorListener);
+		mDatabase.close();
 		isRunning = false;
 		Toast.makeText(context, "GPS paused", Toast.LENGTH_SHORT).show();
 	}
@@ -87,11 +104,12 @@ public class TrackManager {
 		if(trackid == -1)
 			return;
 		isRunning = false;
-		locationManager.removeUpdates(listener);
+		mLocationManager.removeUpdates(mLocationListener);
+		mSensorManager.unregisterListener(mSensorListener);
 		
-		if(!database.isOpen())
-			database = dbManager.getWritableDatabase();
-		track.writeToDatabase(context, database);
+		if(!mDatabase.isOpen())
+			mDatabase = dbManager.getWritableDatabase();
+		track.writeToDatabase(context, mDatabase);
 		track = null;
 		trackid = -1;
 	}
@@ -101,10 +119,10 @@ public class TrackManager {
 		if(trackid == -1)
 			return;
 		
-		if(!database.isOpen())
-			database = dbManager.getWritableDatabase();
+		if(!mDatabase.isOpen())
+			mDatabase = dbManager.getWritableDatabase();
 		
-		database.execSQL(context.getResources().getString(R.string.db_delete_location)+trackid);
+		mDatabase.execSQL(context.getResources().getString(R.string.db_delete_location)+trackid);
 		
 		track = new Track(trackid);
 		Toast.makeText(context, "reset Track "+trackid, Toast.LENGTH_SHORT).show();
@@ -116,7 +134,7 @@ public class TrackManager {
 	
 	private int getNextTrackID(){
 		String sql =  context.getResources().getString(R.string.db_select_track_maxid);
-		Cursor cursor = database.rawQuery(sql, null);
+		Cursor cursor = mDatabase.rawQuery(sql, null);
 		
 		int result = -1;
 		if(cursor.moveToFirst()){
@@ -127,7 +145,23 @@ public class TrackManager {
 		return result;
 	}
 	
- 	private class LocationListener implements android.location.LocationListener{
+	private class SensorEventListenerImpl implements SensorEventListener{
+
+		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+			
+		}
+
+		public void onSensorChanged(SensorEvent event) {
+			//TODO: platzhalter
+			if(Math.random() > 0.9)
+				track.addStep();
+			
+		}
+		
+	}
+	
+	
+ 	private class LocationListenerImpl implements LocationListener{
 
  		public synchronized void onLocationChanged(Location location) {
  			if(trackid == -1)

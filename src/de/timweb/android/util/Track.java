@@ -45,7 +45,7 @@ public class Track {
 		if(locations.size() > 0){
 			distance += locations.get(locations.size()-1).distanceTo(location);
 		}else{
-			starttime = location.getTime();
+			starttime = System.currentTimeMillis();
 		}
 		
 		locations.add(location);
@@ -97,4 +97,7 @@ public class Track {
 		return steps;
 	}
 
+	public void addStep(){
+		steps++;
+	}
 }
