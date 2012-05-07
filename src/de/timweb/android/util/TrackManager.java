@@ -153,7 +153,7 @@ public class TrackManager {
 
 		public void onSensorChanged(SensorEvent event) {
 			//TODO: platzhalter
-			if(Math.random() > 0.9)
+			if(Math.random() > 0.9 && trackid != -1)
 				track.addStep();
 			
 		}
