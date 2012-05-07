@@ -1,35 +1,37 @@
 package de.timweb.android.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import android.view.Gravity;
+
 public class StartActivity extends Activity {
 
-	
-	private Spinner s;
+	String selected;
+	ListView lv;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
-		s = (Spinner) findViewById(R.id.spinner_modus);
-			ArrayAdapter adapter = ArrayAdapter.createFromResource(this,
-					R.array.runningmode, android.R.layout.simple_spinner_item);
-			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-			s.setAdapter(adapter);
 	}
 
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
-		case R.id.but_running:
-			startActivity(new Intent(this, RunningActivity.class));
-			break;
 
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
@@ -40,10 +42,37 @@ public class StartActivity extends Activity {
 			break;
 
 		case R.id.but_go:
-			//info vom spinner muss an runningactivity üebrgeben werden.
-			Intent intent = new Intent(this,RunningActivity.class);
-			intent.putExtra("modus", s.getSelectedItemId());
-			startActivity(intent);
+
+			final Intent intent = new Intent(StartActivity.this,
+					RunningActivity.class);
+
+			Builder builder = new Builder(this);
+			builder.setTitle("Choose Modus")
+					.setSingleChoiceItems(R.array.runningmode, 0,new DialogInterface.OnClickListener() {
+
+								public void onClick(DialogInterface dialog,int which) {
+
+									// selected =getResources().getStringArray(R.array.runningmode)[which];//scheint nciht zu klappen -.-
+									lv = ((AlertDialog) dialog).getListView();
+									lv.setTag(new Integer(which));
+
+								}
+
+							})
+					.setPositiveButton(android.R.string.ok,new DialogInterface.OnClickListener() {
+
+								public void onClick(DialogInterface dialog,int which) {
+
+									lv = ((AlertDialog) dialog).getListView();
+									Integer selected = (Integer) lv.getTag();
+
+									intent.putExtra("modus", selected);
+									startActivity(intent);
+								}
+							}).setNegativeButton(android.R.string.cancel, null)
+					.show();
+
+			break;
 		}
 	}
 

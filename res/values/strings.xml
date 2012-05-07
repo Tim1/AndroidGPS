@@ -3,6 +3,6 @@
 
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">PROJEKT GPS-Stats</string>
-    <string name="spinner_modus">Running Modus</string>
+    <string name="main_no_items">No orders to display</string>
 
 </resources>
