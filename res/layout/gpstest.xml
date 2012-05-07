@@ -2,41 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:padding="10dp" >
+    android:orientation="vertical" >
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="StartActivity" />
+        android:text="Running Activity" />
 
     <Button
-        android:id="@+id/but_chooseTrack"
+        android:id="@+id/but_gps_start"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="ChooseTrackActitity" />
+        android:text="startGPS" />
 
     <Button
-        android:id="@+id/but_preferences"
+        android:id="@+id/but_gps_pause"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="PreferencesActivity" />
+        android:text="pauseGPS" />
 
     <Button
-        android:id="@+id/but_GPSTest"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="GPSTestActivity"
-        android:onClick="onButtonClick" />
-
-    <Button
-        android:id="@+id/but_go"
+        android:id="@+id/but_gps_stop"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="GO" />
+        android:text="stopGPS" />
 
+    <Button
+        android:id="@+id/but_gps_delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="deleteLocation" />
+    <Button
+        android:id="@+id/but_gps_show"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="showGPS" />
 
 </LinearLayout>

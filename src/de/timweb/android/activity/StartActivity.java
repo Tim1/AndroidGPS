@@ -2,22 +2,12 @@ package de.timweb.android.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import android.view.Gravity;
 
 public class StartActivity extends Activity {
 
@@ -36,13 +26,16 @@ public class StartActivity extends Activity {
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
 			break;
+			
+		case R.id.but_GPSTest:
+			startActivity(new Intent(this, GPSTestActivity.class));
+			break;
 
 		case R.id.but_preferences:
 			startActivity(new Intent(this, PreferencesActivity.class));
 			break;
 
 		case R.id.but_go:
-
 			final Intent intent = new Intent(StartActivity.this,
 					RunningActivity.class);
 

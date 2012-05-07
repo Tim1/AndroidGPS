@@ -12,23 +12,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import de.timweb.android.util.Track;
 
 public class ChooseTrackActivity extends ListActivity {
 
 	
 	
 	private ProgressDialog m_ProgressDialog = null;
-    private ArrayList<Order> m_orders = null;
-    private OrderAdapter m_adapter;
+    private ArrayList<Track> mTracks = null;
+    private TrackAdapter m_adapter;
     private Runnable viewOrders;
 	
-    private class OrderAdapter extends ArrayAdapter<Order> {
+    private class TrackAdapter extends ArrayAdapter<Track> {
 
-        private ArrayList<Order> items;
-
-        public OrderAdapter(Context context, int textViewResourceId, ArrayList<Order> items) {
+        public TrackAdapter(Context context, int textViewResourceId, ArrayList<Track> items) {
                 super(context, textViewResourceId, items);
-                this.items = items;
         }
 
         @Override
@@ -38,14 +36,14 @@ public class ChooseTrackActivity extends ListActivity {
                     LayoutInflater vi = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     v = vi.inflate(R.layout.row, null);
                 }
-                Order o = items.get(position);
-                if (o != null) {
+                Track track = mTracks.get(position);
+                if (track != null) {
                         TextView tt = (TextView) v.findViewById(R.id.toptext);
                         TextView bt = (TextView) v.findViewById(R.id.bottomtext);
                         if (tt != null) {
-                              tt.setText("Name: "+o.getOrderName());                            }
+                              tt.setText("Date: "+track.getDate());                            }
                         if(bt != null){
-                              bt.setText("Status: "+ o.getOrderStatus());
+                              bt.setText("Status: "+ track.getModus());
                         }
                 }
                 return v;
@@ -56,8 +54,8 @@ public class ChooseTrackActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.choosetrack);
-        m_orders = new ArrayList<Order>();
-        this.m_adapter = new OrderAdapter(this, R.layout.row, m_orders);
+        mTracks = new ArrayList<Track>();
+        this.m_adapter = new TrackAdapter(this, R.layout.row, mTracks);
                 setListAdapter(this.m_adapter);
        
         viewOrders = new Runnable(){
@@ -74,17 +72,13 @@ public class ChooseTrackActivity extends ListActivity {
 	
 	private void getOrders(){
         try{
-            m_orders = new ArrayList<Order>();
-            Order o1 = new Order();
-            o1.setOrderName("SF services");
-            o1.setOrderStatus("Pending");
-            Order o2 = new Order();
-            o2.setOrderName("SF Advertisement");
-            o2.setOrderStatus("Completed");
-            m_orders.add(o1);
-            m_orders.add(o2);
+            mTracks = new ArrayList<Track>();
+            Track o1 = new Track(0);
+            Track o2 = new Track(1);
+            mTracks.add(o1);
+            mTracks.add(o2);
                Thread.sleep(2000);
-            Log.i("ARRAY", ""+ m_orders.size());
+            Log.i("ARRAY", ""+ mTracks.size());
           } catch (Exception e) {
             Log.e("BACKGROUND_PROC", e.getMessage());
           }
@@ -95,10 +89,10 @@ public class ChooseTrackActivity extends ListActivity {
 	private Runnable returnRes = new Runnable() {
 
         public void run() {
-            if(m_orders != null && m_orders.size() > 0){
+            if(mTracks != null && mTracks.size() > 0){
                 m_adapter.notifyDataSetChanged();
-                for(int i=0;i<m_orders.size();i++)
-                m_adapter.add(m_orders.get(i));
+                for(int i=0;i<mTracks.size();i++)
+                m_adapter.add(mTracks.get(i));
             }
             m_ProgressDialog.dismiss();
             m_adapter.notifyDataSetChanged();

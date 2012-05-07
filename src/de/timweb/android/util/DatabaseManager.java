@@ -2,30 +2,28 @@ package de.timweb.android.util;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import de.timweb.android.activity.R;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 	private Context context;
-	private String name = "DB_NAME";
-	private int version = 1;
 
-	public DatabaseManager(Context context, String name, CursorFactory factory,
-			int version) {
-		super(context, name, factory, version);
+	public DatabaseManager(Context context) {
+		super(context, 
+				context.getResources().getString(R.string.db_name),null,
+				Integer.parseInt(context.getResources().getString(R.string.db_version)));
+
 		this.context = context;
-		this.name = name;
-		this.version = version;
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase arg0) {
-		// TODO Auto-generated method stub
-
+	public void onCreate(SQLiteDatabase database) {
+		for(String sql : context.getResources().getStringArray(R.array.db_create))
+			database.execSQL(sql);
 	}
 
 	@Override
-	public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+	public void onUpgrade(SQLiteDatabase database, int oldversion, int newversion) {
 		// TODO Auto-generated method stub
 
 	}
