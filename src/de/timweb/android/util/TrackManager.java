@@ -167,18 +167,8 @@ public class TrackManager {
  			if(trackid == -1)
  				return;
  			
- 			sql.clearBindings();
 
- 			sql.bindLong(1, trackid);
- 			sql.bindLong(2, location.getTime());
- 			sql.bindDouble(3, location.getAccuracy());
- 			sql.bindDouble(4, location.getLongitude());
- 			sql.bindDouble(5, location.getLatitude());
- 			sql.bindDouble(6, location.getAccuracy());
- 			sql.bindDouble(7, location.getSpeed());
-
- 			track.addLocation(location);
- 			sql.executeInsert();
+ 			track.addLocation(location,sql);
 // 			Toast.makeText(context, "insert SQL", Toast.LENGTH_SHORT).show();
  		}
 

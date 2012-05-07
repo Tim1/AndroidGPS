@@ -21,74 +21,96 @@ public class Track {
 	private double altitudeDiff;
 
 	ArrayList<Location> locations = new ArrayList<Location>();
-	
+
 	public Track(int id) {
 		this._id = id;
 	}
-	
-	public void updateTrack(Context context){
-		ArrayList<Location> locations = LocationReader.getLocations(context, _id);
-		
-		//zurueckgelegte Strecke berechnen
+
+	public void updateTrack(Context context) {
+		ArrayList<Location> locations = LocationReader.getLocations(context,
+				_id);
+
+		// zurueckgelegte Strecke berechnen
 		distance = 0;
-		if(locations.size() > 1){
+		if (locations.size() > 1) {
 			Location first = locations.get(0);
-			for(Location second :locations ){
+			for (Location second : locations) {
 				distance += second.distanceTo(first);
 				first = second;
 			}
 		}
 	}
-	
-	public void addLocation(Location location) {
-		
-		if(locations.size() > 0){
-			distance += locations.get(locations.size()-1).distanceTo(location);
-		}else{
+
+	public void addLocation(Location location, SQLiteStatement sql) {
+
+		if (locations.size() > 0) {
+			float distanceToLast = locations.get(locations.size() - 1)
+					.distanceTo(location);
+			if(distanceToLast < location.getAccuracy())//sehr kleine Entfernungen nicht berücksichtigen
+				return;
+			
+			distance += locations.get(locations.size() - 1)
+					.distanceTo(location);
+		} else {
 			starttime = System.currentTimeMillis();
 		}
-		
+
+		sql.clearBindings();
+
+		sql.bindLong(1, _id);
+		sql.bindLong(2, location.getTime());
+		sql.bindDouble(3, location.getAccuracy());
+		sql.bindDouble(4, location.getLongitude());
+		sql.bindDouble(5, location.getLatitude());
+		sql.bindDouble(6, location.getAccuracy());
+		sql.bindDouble(7, location.getSpeed());
+
+		sql.executeInsert();
+
 		locations.add(location);
 	}
-	
-	public void writeToDatabase(Context context, SQLiteDatabase database){
-		
-		
-		SQLiteStatement sql = database.compileStatement(context.getResources().getString(
-				R.string.db_insert_track));
-		
+
+	public void writeToDatabase(Context context, SQLiteDatabase database) {
+
+		SQLiteStatement sql = database.compileStatement(context.getResources()
+				.getString(R.string.db_insert_track));
+
 		sql.bindLong(1, _id);
 		sql.bindLong(2, starttime);
 		sql.bindDouble(3, distance);
-		sql.bindLong(4, System.currentTimeMillis()-starttime);
+		sql.bindLong(4, System.currentTimeMillis() - starttime);
 		sql.bindLong(5, steps);
-		
+
 		sql.executeInsert();
-		
+
 		Toast.makeText(context, "wrote Track", Toast.LENGTH_SHORT).show();
 	}
-	
+
 	/**
 	 * @return distance of track in meter
 	 */
 	public double getDistance() {
 		return distance;
 	}
+
 	public long getStarttime() {
 		return starttime;
 	}
+
 	/**
 	 * @return time in ms
 	 */
 	public long getTime() {
-		return System.currentTimeMillis()-starttime;
+		return System.currentTimeMillis() - starttime;
 	}
+
 	/**
 	 * @return Hoehenunterschied in m
 	 */
 	public double getAltitudeDiff() {
 		return altitudeDiff;
 	}
+
 	/**
 	 * 
 	 * @return Schrittanzahl
@@ -97,7 +119,7 @@ public class Track {
 		return steps;
 	}
 
-	public void addStep(){
+	public void addStep() {
 		steps++;
 	}
 }
