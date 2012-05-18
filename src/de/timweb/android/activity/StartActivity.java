@@ -1,5 +1,7 @@
 package de.timweb.android.activity;
 
+import de.timweb.android.activity.test.GPSTestActivity;
+import de.timweb.android.activity.test.SensorTestActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -34,7 +36,11 @@ public class StartActivity extends Activity {
 		case R.id.but_preferences:
 			startActivity(new Intent(this, PreferencesActivity.class));
 			break;
-
+			
+		case R.id.but_SENSORTest:
+			startActivity(new Intent(this, SensorTestActivity.class));
+			break;
+			
 		case R.id.but_go:
 			final Intent intent = new Intent(StartActivity.this,
 					RunningActivity.class);

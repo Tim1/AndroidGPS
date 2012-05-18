@@ -17,7 +17,7 @@ import de.timweb.android.activity.R;
 
 public class TrackManager {
 	private LocationListenerImpl mLocationListener;
-	private SensorEventListener mSensorListener; 
+	public SensorEventListenerImpl mSensorListener; 
 	private LocationManager mLocationManager;
 	private SensorManager mSensorManager;
 	private SQLiteDatabase mDatabase;
@@ -28,6 +28,8 @@ public class TrackManager {
 	private int trackid = -1;
 	private Track track;
 	private DatabaseManager dbManager;
+	
+	private int steps;
 		
 	public TrackManager(Context context) {
 		this.context = context;
@@ -44,6 +46,8 @@ public class TrackManager {
 		mSensorListener = new SensorEventListenerImpl();
 		mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 		
+		//FIXME: Debugging für sensorentest
+		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 	}
 	
 	public synchronized void setTrack(int trackid){
@@ -145,19 +149,45 @@ public class TrackManager {
 		return result;
 	}
 	
-	private class SensorEventListenerImpl implements SensorEventListener{
-
+	public class SensorEventListenerImpl implements SensorEventListener{
+		private static final float SCHWELLE = 3;
+		private float max;
+		private float alpha = 0.8f;
+		private float gravity;
+		private float accl;
+		
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
 			
 		}
 
 		public void onSensorChanged(SensorEvent event) {
-			//TODO: platzhalter
-			if(Math.random() > 0.9 && trackid != -1)
-				track.addStep();
+			if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER)
+                return;
+
 			
+			gravity = alpha  * gravity + (1 - alpha) * event.values[1];
+			accl = event.values[1] - gravity;
+
+			if(accl > SCHWELLE){
+				if(accl > max)
+					max = accl;
+			}else{
+				if(max > 0){
+					steps++;
+					track.addStep();
+				}
+				max = 0;
+			}
 		}
 		
+		@Deprecated
+		public String getAccl() {
+			return accl+"";
+		}
+		@Deprecated
+		public String getSteps() {
+			return steps+"";
+		}
 	}
 	
 	

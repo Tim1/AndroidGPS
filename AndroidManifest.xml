@@ -20,10 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name="ChooseTrackActivity"></activity>
-        <activity android:name="GPSTestActivity"></activity>
+        <activity android:name=".test.GPSTestActivity"></activity>
+        <activity android:name=".test.SensorTestActivity"
+            android:screenOrientation= "portrait"></activity>
         <activity android:name="RunningActivity"></activity>
         <activity android:name="PreferencesActivity"></activity>
-        <service android:name="de.timweb.android.util.TrackManager"></service>
     </application>
 
 </manifest>

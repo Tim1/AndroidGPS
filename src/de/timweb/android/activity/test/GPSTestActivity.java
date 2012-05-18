@@ -1,9 +1,12 @@
-package de.timweb.android.activity;
+package de.timweb.android.activity.test;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import de.timweb.android.activity.R;
+import de.timweb.android.activity.R.id;
+import de.timweb.android.activity.R.layout;
 import de.timweb.android.util.TrackManager;
 
 /**
