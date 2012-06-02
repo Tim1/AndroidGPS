@@ -2,10 +2,9 @@
 <resources>
 
     <string-array name="runningmode">
-        <item>Jogging</item>
-        <item>Bycycle/Inline</item>
-        <item>Walk</item>
-        <item>Daily</item>
+        <item>Joggen</item>
+        <item>Fahrrad/Inline</item>
+        <item>Wandern</item>
     </string-array>
 
 

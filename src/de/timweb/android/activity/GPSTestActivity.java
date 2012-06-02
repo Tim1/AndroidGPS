@@ -14,7 +14,7 @@ import de.timweb.android.util.TrackManager;
 @Deprecated
 public class GPSTestActivity extends Activity {
 
-	private static TrackManager gpsmanager;
+	private static TrackManager trackmanager;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -22,31 +22,31 @@ public class GPSTestActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.gpstest);
 
-		if(gpsmanager == null)
-			gpsmanager = new TrackManager(this);
-		if(gpsmanager.isRunning())
+		if(trackmanager == null)
+			trackmanager = new TrackManager(this);
+		if(trackmanager.isRunning())
 			setProgressBarIndeterminateVisibility(true);
 	}
 
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_gps_start:
-			gpsmanager.start();
+			trackmanager.start();
 			setProgressBarIndeterminateVisibility(true);
 			break;
 		case R.id.but_gps_pause:
-			gpsmanager.pause();
+			trackmanager.pause();
 			setProgressBarIndeterminateVisibility(false);
 			break;
 		case R.id.but_gps_stop:
-			gpsmanager.stop();
+			trackmanager.stop();
 			setProgressBarIndeterminateVisibility(false);
 			break;
 		case R.id.but_gps_delete:
-			gpsmanager.deleteCurrentTrack();
+			trackmanager.deleteCurrentTrack();
 			break;
 		case R.id.but_gps_show:
-			gpsmanager.show();
+			trackmanager.show();
 			break;
 		}
 	}

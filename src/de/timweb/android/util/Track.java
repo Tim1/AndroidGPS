@@ -28,6 +28,15 @@ public class Track {
 
 	ArrayList<Location> locations = new ArrayList<Location>();
 
+	public Track(int id, double distance, int steps){
+		this._id = id;
+		this.distance = distance;
+		this.steps = steps;
+		/*
+		 * date, time fehlen
+		 * */
+	}
+	
 	public Track(int id) {
 		this._id = id;
 	}
@@ -148,4 +157,8 @@ public class Track {
 	public int getModus() {
 		return MODE_JOGGING;
 	}
+
+	public int getID() {
+		return _id;
+	}	
 }

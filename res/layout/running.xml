@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Running Activity\n" />
+        android:text="@string/tv_txt_run_activity" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -19,7 +19,7 @@
             android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time: "
+            android:text="@string/tv_txt_time"
             android:textSize="25dip" />
 
         <Chronometer
@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_time"
-            android:text="Chronometer"
             android:textSize="25dip"
             android:textStyle="bold" />
 
@@ -36,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_time"
-            android:text="Distance: "
+            android:text="@string/tv_txt_distance"
             android:textSize="25dip" />
 
         <TextView
@@ -53,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_distance"
-            android:text="Steps:  "
+            android:text="@string/tv_txt_steps"
             android:textSize="25dip" />
 
         <TextView
@@ -65,35 +64,14 @@
             android:text="0 Steps"
             android:textSize="25dip" />
 
-        <!-- View als MagicTrick eingesetzt. -->
-
-        <View
-            android:id="@+id/strut"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true" />
-
         <Button
             android:id="@+id/but_start_pause"
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/strut"
             android:onClick="onButtonClick"
-            android:text="Start" />
-
-        <Button
-            android:id="@+id/but_pref"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="5dp"
-            android:layout_toRightOf="@+id/strut"
-            android:onClick="onButtonClick"
-            android:text="Preferences" />
+            android:text="@string/bt_txt_start" />
 
         <ImageView
             android:id="@+id/im_modus"
