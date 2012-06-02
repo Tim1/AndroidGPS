@@ -64,7 +64,7 @@ public class GoogleMapsDrawPathActivity extends MapActivity {
 		mc.setZoom(15);// Initializing the MapController and setting the map to
 				// center at the
 		// defined GeoPoint
-
+ 
 		mapOverlays = mapView.getOverlays();
 		projection = mapView.getProjection();
 
