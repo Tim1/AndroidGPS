@@ -14,11 +14,12 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.timweb.android.util.TrackManager;
 
 public class RunningActivity extends Activity {
-	private static TrackManager gpsmanager;
-	
+	private static TrackManager trackmanager;
+
 	private Button buttonSS;
 	private Chronometer chro;
 	private long eclipsedTime = 0;
@@ -28,10 +29,10 @@ public class RunningActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.running);
-		
-		if(gpsmanager == null)
-			gpsmanager = new TrackManager(this);
-		if(gpsmanager.isRunning())
+
+		if (trackmanager == null)
+			trackmanager = new TrackManager(this);
+		if (trackmanager.isRunning())
 			setProgressBarIndeterminateVisibility(true);
 
 		switch (getIntent().getIntExtra("modus", 0)) {
@@ -68,20 +69,22 @@ public class RunningActivity extends Activity {
 		chro = (Chronometer) findViewById(R.id.chronometer1);
 		final TextView tv_distance = (TextView) findViewById(R.id.tv_distanceEdit);
 		final TextView tv_steps = (TextView) findViewById(R.id.tv_stepEdit);
-//		Toast.makeText(this, getIntent().getIntExtra("modus", 0) + "",
-//				Toast.LENGTH_SHORT).show();
+		// Toast.makeText(this, getIntent().getIntExtra("modus", 0) + "",
+		// Toast.LENGTH_SHORT).show();
 
 		chro.addTextChangedListener(new TextWatcher() {
-			
-			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				tv_distance.setText((float)(gpsmanager.getTrack().getDistance()/1000)+" m");
-				tv_steps.setText(gpsmanager.getTrack().getSteps()+"");
+
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				tv_distance.setText((float) (trackmanager.getTrack()
+						.getDistance() / 1000) + " m");
+				tv_steps.setText(trackmanager.getTrack().getSteps() + "");
 			}
-			
+
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 			}
-			
+
 			public void afterTextChanged(Editable s) {
 			}
 		});
@@ -90,26 +93,22 @@ public class RunningActivity extends Activity {
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_start_pause:
-			if (buttonSS.getText() == "Pause") {
-				gpsmanager.stop();
+			if (buttonSS.getText() == getString(R.string.bt_txt_pause)) {
+				trackmanager.stop();
 				setProgressBarIndeterminateVisibility(false);
-				
-				
+
 				eclipsedTime = SystemClock.elapsedRealtime() - chro.getBase();
 				chro.stop();
-				buttonSS.setText("Start");
+				buttonSS.setText(getString(R.string.bt_txt_start));
 			} else {
-				gpsmanager.start();
+				trackmanager.start();
 				setProgressBarIndeterminateVisibility(true);
-				
+
 				chro.setBase(SystemClock.elapsedRealtime() - eclipsedTime);
 				chro.start();
-				buttonSS.setText("Pause");
+				buttonSS.setText(getString(R.string.bt_txt_pause));
 			}
 			break;
-
-		case R.id.but_pref:
-			startActivity(new Intent(this, PreferencesActivity.class));
 
 		default:
 			break;
@@ -119,10 +118,10 @@ public class RunningActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 		Builder builder = new Builder(this);
-		builder.setTitle("Close")
+		builder.setTitle(R.string.close)
 				.setIcon(android.R.drawable.ic_dialog_info)
-				.setMessage("Are you sure you want to quit?")
-				.setPositiveButton(android.R.string.ok,
+				.setMessage(R.string.sure_to_close)
+				.setPositiveButton(android.R.string.yes,
 						new DialogInterface.OnClickListener() {
 
 							public void onClick(DialogInterface dialog,
@@ -130,8 +129,8 @@ public class RunningActivity extends Activity {
 								finish();
 
 							}
-						}).setNegativeButton(android.R.string.cancel, null)
-				.show();
+						}).setNegativeButton(android.R.string.no, null).show();
 
 	}
+
 }

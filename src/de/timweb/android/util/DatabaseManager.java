@@ -5,6 +5,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import de.timweb.android.activity.R;
 
+
+/*
+ * Mit DatabaseManager werden die Datenbanken definiert und erstellt, gemanaged eben.
+ * Es ist nicht die Dantenbank an sich ! Datenbanken werden nur durch diese Klasse verwaltet,
+ * deswegen acuh database als parameter in den Methoden !
+ * */
+
+
 public class DatabaseManager extends SQLiteOpenHelper {
 	private Context context;
 

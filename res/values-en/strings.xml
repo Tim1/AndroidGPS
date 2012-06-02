@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">PROJEKT GPS-Stats</string>
+
+    <!-- StartActivity -->
+    <string name="choose_modus">Choose Modus</string>
+    <string name="tv_txt_start_activity">StartActivity</string>
+    <string name="bt_txt_choose_track">ChooseTracks</string>
+    <string name="bt_txt_preferences">Preferences</string>
+    <string name="bt_txt_GPS_test">GPS TestActivity</string>
+    <string name="bt_txt_go">Let\'s go!</string>
+
+    <!-- Running Activity -->
+    <string name="close">Exit</string>
+    <string name="sure_to_close">Are you sure you want to exit?</string>
+    <string name="bt_txt_start">Start</string>
+    <string name="bt_txt_pause">Pause</string>
+    <string name="bt_txt_pref">Preferences</string>
+    <string name="tv_txt_run_activity">Running Activity\n</string>
+    <string name="tv_txt_time">Time:\t</string>
+    <string name="tv_txt_distance">Distance:\t</string>
+    <string name="tv_txt_steps">Steps:\t</string>
+
+    <!-- Preferences Activity -->
+    <string name="tv_txt_pref_act">Preferences\n</string>
+    <string name="tv_txt_pref_GPS">GPS</string>
+    <string name="tv_txt_GPS_note">Note that the itensity influences your acc!\n</string>
+    <string name="tv_txt_pref_Style">Style</string>
+    <string name="rb_txt_style_1">Style 1</string>
+    <string name="rb_txt_style_2">Style 2</string>
+    <string name="rb_txt_lang_de">German</string>
+    <string name="rb_txt_lang_en">English</string>
+    <string name="tv_txt_language">Language</string>
+
+    <!-- ChooseTrack Activity -->
+    <string name="tv_txt_date">Date</string>
+    <string name="tv_txt_status">Status</string>
+    <string name="pd_txt_please_wait">Pleas wait</string>
+    <string name="pd_txt_loading_data">loading Data...</string>
+    <string name="main_no_items">No Tracks available.</string>
+
+    <!-- db strings liegen im default value !!! -->
+
+</resources>
