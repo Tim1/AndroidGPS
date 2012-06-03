@@ -13,7 +13,7 @@ import android.view.View;
 
 public class GraphLiveView extends View {
 	private Paint mPaint = new Paint();
-	private String text;
+	private String text = "";
 
 	
 	private float minValue = 0;
