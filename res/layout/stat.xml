@@ -61,7 +61,7 @@
             android:id="@+id/googlemap"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:apiKey="0reu96sOfndeMRTpnBCDwvQTD0DmtOH1ID4dJoQ"
+            android:apiKey="@string/apiKey"
             android:clickable="true" />
     </FrameLayout>
 

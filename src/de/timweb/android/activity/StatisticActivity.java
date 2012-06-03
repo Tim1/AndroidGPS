@@ -46,7 +46,9 @@ public class StatisticActivity extends MapActivity {
 		if (mLocations.size() >= 2) {
 			mapView = (MapView) findViewById(R.id.googlemap);
 			mapView.setBuiltInZoomControls(true);
-
+			mapView.setSatellite(true);
+			
+			
 			gP = new GeoPoint((int) (mLocations.get(0).getLatitude() * 1e6),
 					(int) (mLocations.get(0).getLongitude() * 1e6));
 
