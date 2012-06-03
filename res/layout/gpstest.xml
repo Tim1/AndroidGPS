@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Running Activity" />
+
+    <Button
+        android:id="@+id/but_gps_start"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="startGPS" />
+
+    <Button
+        android:id="@+id/but_gps_pause"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="pauseGPS" />
+
+    <Button
+        android:id="@+id/but_gps_stop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="stopGPS" />
+
+    <Button
+        android:id="@+id/but_gps_delete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="deleteLocation" />
+    <Button
+        android:id="@+id/but_gps_show"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="showGPS" />
+
+</LinearLayout>
