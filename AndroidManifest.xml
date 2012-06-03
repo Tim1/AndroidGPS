@@ -37,7 +37,7 @@
             <service android:name="de.timweb.android.util.TrackManager" >
             </service>
         </activity>
-         <activity android:name="GoogleMapsDrawPathActivity" >
+         <activity android:name=".StatisticActivity" >
         </activity>
     </application>
 

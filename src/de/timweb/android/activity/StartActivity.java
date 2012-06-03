@@ -85,6 +85,7 @@ public class StartActivity extends Activity {
 			break;
 		}
 	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -95,4 +96,7 @@ public class StartActivity extends Activity {
 		 * */
 		setContentView(R.layout.start);
 	}
+
+
+
 }

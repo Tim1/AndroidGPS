@@ -82,7 +82,7 @@ public class TrackManager {
 		
 		
 		isRunning = true;
-		Toast.makeText(context, "GPS started", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "GPS started:"+trackid, Toast.LENGTH_SHORT).show();
 	}
 	/**
 	 * pausiert das GPS-Tracking
@@ -125,7 +125,7 @@ public class TrackManager {
 		mDatabase.execSQL(context.getResources().getString(R.string.db_delete_location)+trackid);
 		
 		track = new Track(trackid);
-		Toast.makeText(context, "reset Track "+trackid, Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, "reset Track ", Toast.LENGTH_SHORT).show();
 	}
 
 	public boolean isRunning() {
