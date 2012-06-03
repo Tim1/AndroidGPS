@@ -3,6 +3,13 @@ package de.timweb.android.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.location.Location;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
@@ -12,14 +19,6 @@ import com.google.android.maps.Projection;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.MyOverlay;
 import de.timweb.android.util.Track;
-import de.timweb.android.util.TrackManager;
-
-import android.location.Location;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 public class StatisticActivity extends MapActivity {
 	/** Called when the activity is first created. */
