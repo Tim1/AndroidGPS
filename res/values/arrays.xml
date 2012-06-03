@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="runningmode">
+        <item>Joggen</item>
+        <item>Fahrrad</item>
+        <item>Wandern</item>
+    </string-array>
+    <string-array name="db_dropTable">
+        <item>                            DROP TABLE gps_location</item>
+        <item>                DROP TABLE gps_track</item>
+
+    </string-array>
+    <string-array name="db_create">
+        <item>                create table gps_track(
+                                    _id integer primary key,
+                                    track_date integer,
+                                    track_distance real,
+                                    track_time integer,
+                                    modus integer,
+                                    steps integer
+                            )</item>
+        <item>                create table gps_location(
+                                    _id integer primary key autoincrement,
+                                    track integer not NULL,
+                                    time integer,
+                                    accuracy real,
+                                    longitude real,
+                                    latitude real,
+                                    altitude real,
+                                    speed real
+                            )</item>
+    </string-array>
+</resources>
