@@ -21,6 +21,7 @@
         </activity>
         <activity android:name="ChooseTrackActivity"></activity>
         <activity android:name=".test.GPSTestActivity"></activity>
+        <activity android:name=".test.DrawTestActivity"></activity>
         <activity android:name=".test.SensorTestActivity"
             android:screenOrientation= "portrait"></activity>
         <activity android:name="RunningActivity"></activity>

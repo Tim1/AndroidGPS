@@ -4,7 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import de.timweb.android.activity.R;
-import de.timweb.android.util.TrackManager;
+import de.timweb.android.track.Track;
+import de.timweb.android.track.TrackManager;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,13 +47,12 @@ public class SensorTestActivity extends Activity{
 		};
 		Timer t = new Timer();
 		t.schedule(timer, 1000, 200);
-		
 	}
 	
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_gps_start:
-			gpsmanager.start();
+			gpsmanager.start(Track.MODE_JOGGING);
 			setProgressBarIndeterminateVisibility(true);
 			break;
 		case R.id.but_gps_stop:

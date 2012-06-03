@@ -7,7 +7,8 @@ import android.view.Window;
 import de.timweb.android.activity.R;
 import de.timweb.android.activity.R.id;
 import de.timweb.android.activity.R.layout;
-import de.timweb.android.util.TrackManager;
+import de.timweb.android.track.Track;
+import de.timweb.android.track.TrackManager;
 
 /**
  * nur für Debuggingzwecke
@@ -34,7 +35,7 @@ public class GPSTestActivity extends Activity {
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_gps_start:
-			gpsmanager.start();
+			gpsmanager.start(Track.MODE_JOGGING);
 			setProgressBarIndeterminateVisibility(true);
 			break;
 		case R.id.but_gps_pause:

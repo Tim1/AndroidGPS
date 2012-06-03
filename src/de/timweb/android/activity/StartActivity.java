@@ -1,5 +1,6 @@
 package de.timweb.android.activity;
 
+import de.timweb.android.activity.test.DrawTestActivity;
 import de.timweb.android.activity.test.GPSTestActivity;
 import de.timweb.android.activity.test.SensorTestActivity;
 import android.app.Activity;
@@ -20,6 +21,11 @@ public class StartActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
+		
+//		GPS starten
+//		Intent intent = new Intent(
+//				android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//		startActivity(intent);
 	}
 
 	public void onButtonClick(View view) {
@@ -39,6 +45,10 @@ public class StartActivity extends Activity {
 			
 		case R.id.but_SENSORTest:
 			startActivity(new Intent(this, SensorTestActivity.class));
+			break;
+			
+		case R.id.but_DRAWTest:
+			startActivity(new Intent(this, DrawTestActivity.class));
 			break;
 			
 		case R.id.but_go:

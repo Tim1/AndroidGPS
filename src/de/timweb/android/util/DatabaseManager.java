@@ -24,8 +24,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldversion, int newversion) {
-		// TODO Auto-generated method stub
-
+		for(String sql : context.getResources().getStringArray(R.array.db_dropTable))
+			database.execSQL(sql);
+		onCreate(database);
 	}
 
 }

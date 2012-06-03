@@ -32,6 +32,12 @@
         android:text="GPSTestActivity" />
 
     <Button
+        android:id="@+id/but_DRAWTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:text="DrawTest" />
+    <Button
         android:id="@+id/but_SENSORTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

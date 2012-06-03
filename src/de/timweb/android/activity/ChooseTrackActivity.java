@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import de.timweb.android.util.Track;
+import de.timweb.android.track.Track;
 
 public class ChooseTrackActivity extends ListActivity {
 
@@ -73,10 +73,10 @@ public class ChooseTrackActivity extends ListActivity {
 	private void getOrders(){
         try{
             mTracks = new ArrayList<Track>();
-            Track o1 = new Track(0);
-            Track o2 = new Track(1);
-            mTracks.add(o1);
-            mTracks.add(o2);
+//            Track o1 = new Track(0,0);
+//            Track o2 = new Track(1,0);
+//            mTracks.add(o1);
+//            mTracks.add(o2);
                Thread.sleep(2000);
             Log.i("ARRAY", ""+ mTracks.size());
           } catch (Exception e) {

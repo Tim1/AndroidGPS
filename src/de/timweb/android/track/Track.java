@@ -1,4 +1,4 @@
-package de.timweb.android.util;
+package de.timweb.android.track;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,49 +17,75 @@ public class Track {
 	public static final int MODE_JOGGING = 0;
 	public static final int MODE_BYCYCLE = 1;
 	public static final int MODE_WALK = 2;
-	public static final int MODE_DAILY = 3;
-	
-	
+	public static final int MODE_ALL = 3;
+
 	private int _id;
+	private int modus;
 	private int steps;
 	private double distance;
 	private long starttime;
+	private long elapsedTime;
 	private double altitudeDiff;
+	private double currentSpeed;
+	private Statistics stats = new Statistics();
 
 	ArrayList<Location> locations = new ArrayList<Location>();
 
-	public Track(int id) {
-		this._id = id;
+	/**
+	 * Konstruktor fuer "LiteTrack" (keine Statistiken erstellen etc.)
+	 * 
+	 * @param id
+	 * @param date
+	 *            Starttime des Tracks
+	 * @param distance
+	 *            in m
+	 */
+	Track(int id, long date, float distance) {
+		this(id, date, distance, 0, 0, 0);
 	}
 
-	public void updateTrack(Context context) {
-		ArrayList<Location> locations = LocationReader.getLocations(context,
-				_id);
-
-		// zurueckgelegte Strecke berechnen
-		distance = 0;
-		if (locations.size() > 1) {
-			Location first = locations.get(0);
-			for (Location second : locations) {
-				distance += second.distanceTo(first);
-				first = second;
-			}
-		}
+	private Track(int id,long date, float distance,long time,int modus, int steps){
+		this._id = id;
+		this.starttime = date;
+		this.distance = distance;
+		this.elapsedTime = time;
+		this.modus = modus;
+		this.steps = steps;
+	}
+	
+	Track(int id, int modus) {
+		this._id = id;
+		starttime = System.currentTimeMillis();
 	}
 
 	public void addLocation(Location location, SQLiteStatement sql) {
 
+		float distanceDelta = 0;
 		if (locations.size() > 0) {
-			float distanceToLast = locations.get(locations.size() - 1)
-					.distanceTo(location);
-			if(distanceToLast < location.getAccuracy())//sehr kleine Entfernungen nicht berücksichtigen
+			float distanceToLast = locations.get(locations.size() - 1).distanceTo(
+					location);
+			// sehr kleine Entfernungen nicht berücksichtigen
+			if (distanceToLast < location.getAccuracy())
 				return;
-			
-			distance += locations.get(locations.size() - 1)
-					.distanceTo(location);
+
+			distanceDelta = locations.get(locations.size() - 1)
+			.distanceTo(location);
+			distance += distanceDelta;
 		} else {
-			starttime = System.currentTimeMillis();
+			// starttime = System.currentTimeMillis();
 		}
+		
+		currentSpeed = location.getSpeed();
+
+		stats.addStepDistance(steps, distanceDelta);
+		stats.addSpeed(location.getSpeed());
+		stats.addAltitude((float) location.getAltitude());
+		stats.addDistance(distanceDelta);
+
+		locations.add(location);
+
+		if (sql == null)
+			return;
 
 		sql.clearBindings();
 
@@ -73,7 +99,6 @@ public class Track {
 
 		sql.executeInsert();
 
-		locations.add(location);
 	}
 
 	public void writeToDatabase(Context context, SQLiteDatabase database) {
@@ -85,7 +110,8 @@ public class Track {
 		sql.bindLong(2, starttime);
 		sql.bindDouble(3, distance);
 		sql.bindLong(4, System.currentTimeMillis() - starttime);
-		sql.bindLong(5, steps);
+		sql.bindLong(5, modus);
+		sql.bindLong(6, steps);
 
 		sql.executeInsert();
 
@@ -99,8 +125,30 @@ public class Track {
 		return distance;
 	}
 
+	public double getCurrentSpeed() {
+		return currentSpeed;
+	}
+
 	public long getStarttime() {
 		return starttime;
+	}
+
+	public String getElapsedTime() {
+		long secTotal = 0;		
+		if(elapsedTime != 0)
+			secTotal = elapsedTime;
+		else
+			secTotal = (System.currentTimeMillis() - starttime)/1000;
+		
+		long hours = secTotal / (60*60);
+		long mins = (secTotal-(hours*60*60)) / 60;
+		long secs = (secTotal-(hours*60*60) - (mins*60));
+
+		String strHour = hours < 10 ? "0"+hours : ""+hours;
+		String strMins = mins < 10 ? "0"+mins : ""+mins;
+		String strSecs = secs < 10 ? "0"+secs : ""+secs;
+		
+		return strHour+":"+strMins+":"+strSecs;
 	}
 
 	/**
@@ -131,21 +179,25 @@ public class Track {
 
 	public String getDate() {
 		String result = "";
-		
+
 		final Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(starttime);
-		
-		result += cal.get(Calendar.DAY_OF_MONTH)+".";
-		result += cal.get(Calendar.MONTH) +".";
-		result += cal.get(Calendar.YEAR)+ " ";
-		
-		result += cal.get(Calendar.HOUR_OF_DAY)+":";
+
+		result += cal.get(Calendar.DAY_OF_MONTH) + ".";
+		result += cal.get(Calendar.MONTH) + ".";
+		result += cal.get(Calendar.YEAR) + " ";
+
+		result += cal.get(Calendar.HOUR_OF_DAY) + ":";
 		result += cal.get(Calendar.MINUTE);
-		
+
 		return result;
 	}
 
 	public int getModus() {
-		return MODE_JOGGING;
+		return modus;
+	}
+
+	public Statistics getStatistics() {
+		return stats;
 	}
 }

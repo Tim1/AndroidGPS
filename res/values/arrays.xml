@@ -9,6 +9,15 @@
     </string-array>
 
 
+    <string-array name="db_dropTable">
+        <item >
+			DROP TABLE gps_location
+        </item>
+        <item >
+            DROP TABLE gps_track
+        </item>
+    </string-array>
+    
     <string-array name="db_create">
         <item >
             create table gps_track(
@@ -16,6 +25,7 @@
 				track_date integer,
 				track_distance real,
 				track_time integer,
+				modus integer,
 				steps integer
 			)
             

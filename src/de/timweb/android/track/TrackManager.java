@@ -1,4 +1,6 @@
-package de.timweb.android.util;
+package de.timweb.android.track;
+
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -14,6 +16,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Toast;
 import de.timweb.android.activity.R;
+import de.timweb.android.util.DatabaseManager;
+import de.timweb.android.util.LocationReader;
 
 public class TrackManager {
 	private LocationListenerImpl mLocationListener;
@@ -46,16 +50,14 @@ public class TrackManager {
 		mSensorListener = new SensorEventListenerImpl();
 		mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 		
-		//FIXME: Debugging für sensorentest
-		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 	}
 	
-	public synchronized void setTrack(int trackid){
+	private synchronized void setTrack(int trackid, int modus){
 		if(isRunning)
 			throw new IllegalStateException("Another Track("+this.trackid+") is still running!");
 		
 		this.trackid = trackid;
-		track = new Track(trackid);
+		track = new Track(trackid,modus);
 	}
 	
 
@@ -71,10 +73,11 @@ public class TrackManager {
 	/**
 	 * startet (erneut) das GPS-Tracking.
 	 * Legt einen neuen Track an, wenn es noch nicht laeuft.
+	 * @param modus Modus des Tracks (Track.MODE_JOGGING etc.)
 	 */
-	public synchronized void start() {
+	public synchronized void start(int modus) {
 		if(trackid == -1 && !isRunning){
-			setTrack(getNextTrackID());
+			setTrack(getNextTrackID(),modus);
 			Toast.makeText(context, "start Track "+trackid, Toast.LENGTH_SHORT).show();
 		}
 		if(trackid == -1 || isRunning)
@@ -82,8 +85,7 @@ public class TrackManager {
 		
 		mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				3000, 0, mLocationListener);
-		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(SensorManager.SENSOR_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
-		
+		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 		
 		isRunning = true;
 		Toast.makeText(context, "GPS started", Toast.LENGTH_SHORT).show();
@@ -118,7 +120,10 @@ public class TrackManager {
 		trackid = -1;
 	}
 	
-
+	@Deprecated
+	/**
+	 * nur noch für debugginggründe
+	 */
 	public synchronized void deleteCurrentTrack() {
 		if(trackid == -1)
 			return;
@@ -128,7 +133,7 @@ public class TrackManager {
 		
 		mDatabase.execSQL(context.getResources().getString(R.string.db_delete_location)+trackid);
 		
-		track = new Track(trackid);
+		track = new Track(trackid,Track.MODE_JOGGING);
 		Toast.makeText(context, "reset Track "+trackid, Toast.LENGTH_SHORT).show();
 	}
 
@@ -157,7 +162,6 @@ public class TrackManager {
 		private float accl;
 		
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
-			
 		}
 
 		public void onSensorChanged(SensorEvent event) {
@@ -196,10 +200,7 @@ public class TrackManager {
  		public synchronized void onLocationChanged(Location location) {
  			if(trackid == -1)
  				return;
- 			
-
  			track.addLocation(location,sql);
-// 			Toast.makeText(context, "insert SQL", Toast.LENGTH_SHORT).show();
  		}
 
  		public synchronized void onProviderDisabled(String provider) {
@@ -216,8 +217,71 @@ public class TrackManager {
  		
  	}
 
-
 	public Track getTrack() {
 		return track;
+	}
+	
+	/**
+	 * generiert ein Track mit der angegeben ID aus der Datenbank alle
+	 * Statstiken werden mitgeneriert
+	 * 
+	 * @param id
+	 *            des Tracks (aus Datenbank)
+	 * @return generierter vollwertiger Track (mit allen Statistiken)
+	 */
+	public static Track generateFromDatabase(Context context, int id) {
+		Track result = null;
+
+		DatabaseManager dbManager = new DatabaseManager(context);
+		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
+		String sql = context.getString(R.string.db_select_track)+id;
+
+		Cursor cursor = mDatabase.rawQuery(sql, null);
+
+		while (cursor.moveToNext()) {
+			result = new Track(cursor.getInt(0), cursor.getLong(1), cursor
+					.getFloat(2));
+		}
+
+		cursor.close();
+		mDatabase.close();
+		
+
+		ArrayList<Location> loc = LocationReader.getLocations(context, id);
+
+		for (Location l : loc)
+			result.addLocation(l, null);
+
+		return result;
+	}
+
+	/**
+	 * erstellt leichtgewichtige Trackobjekte aller vorhanden Tracks aus der
+	 * Datenbank Statisiken & Co. werden NICHT mitgeneriert und können nicht
+	 * verwendet werden
+	 * 
+	 * @param modusfilter
+	 *            Filter um nach veschieden Modi zu sortieren
+	 *            (Track.MODE_JOGGING etc.)
+	 * @return
+	 */
+	public static ArrayList<Track> getLiteTrackArray(Context context,
+			int modusfilter, int max) {
+		ArrayList<Track> result = new ArrayList<Track>();
+
+		DatabaseManager dbManager = new DatabaseManager(context);
+		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
+		String sql = context.getString(R.string.db_select_alltrack);
+
+		Cursor cursor = mDatabase.rawQuery(sql, null);
+
+		while (cursor.moveToNext()) {
+			result.add(new Track(cursor.getInt(0), cursor.getLong(1), cursor
+					.getFloat(2)));
+		}
+
+		cursor.close();
+		mDatabase.close();
+		return result;
 	}
 }
