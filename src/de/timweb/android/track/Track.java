@@ -127,10 +127,22 @@ public class Track {
 		return distance;
 	}
 	
+	/**
+	 * @return zurueckgelegte Distanz (Format: "12.345 km")
+	 */
 	public String getFormatedDistance(){
-		NumberFormat format = new DecimalFormat("#0.00");
+		NumberFormat format = new DecimalFormat("#0.000");
 		
-		return format.format(distance)+" m";
+		return format.format(distance/1000)+" km";
+	}
+	
+	/**
+	 * @return momentane Geschwinigkeit (Format: "12.3 km/h")
+	 */
+	public String getFormatedSpeed(){
+		NumberFormat format = new DecimalFormat("#0.0");
+		
+		return format.format(currentSpeed*3.6)+ " km/h";
 	}
 	
 	public int getID() {
@@ -196,7 +208,7 @@ public class Track {
 		cal.setTimeInMillis(starttime);
 
 		result += cal.get(Calendar.DAY_OF_MONTH) + ".";
-		result += cal.get(Calendar.MONTH) + ".";
+		result += (cal.get(Calendar.MONTH)+1) + ".";
 		result += cal.get(Calendar.YEAR) + " ";
 
 		result += cal.get(Calendar.HOUR_OF_DAY) + ":";
