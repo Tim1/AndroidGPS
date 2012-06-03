@@ -27,7 +27,7 @@ public class GPSTestActivity extends Activity {
 		setContentView(R.layout.gpstest);
 
 		if(gpsmanager == null)
-			gpsmanager = new TrackManager(this);
+			gpsmanager = new TrackManager();
 		if(gpsmanager.isRunning())
 			setProgressBarIndeterminateVisibility(true);
 	}

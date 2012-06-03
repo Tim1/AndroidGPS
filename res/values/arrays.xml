@@ -2,46 +2,33 @@
 <resources>
 
     <string-array name="runningmode">
-        <item>Jogging</item>
-        <item>Bycycle/Inline</item>
-        <item>Walk</item>
-        <item>Daily</item>
+        <item>Joggen</item>
+        <item>Fahrrad</item>
+        <item>Wandern</item>
     </string-array>
-
-
     <string-array name="db_dropTable">
-        <item >
-			DROP TABLE gps_location
-        </item>
-        <item >
-            DROP TABLE gps_track
-        </item>
-    </string-array>
-    
-    <string-array name="db_create">
-        <item >
-            create table gps_track(
-				_id integer primary key,
-				track_date integer,
-				track_distance real,
-				track_time integer,
-				modus integer,
-				steps integer
-			)
-            
-        </item>
-        <item >
-            create table gps_location(
-				_id integer primary key autoincrement,
-				track integer not NULL,
-				time integer,
-				accuracy real,
-				longitude real,
-				latitude real,
-				altitude real,
-				speed real
-			)
-        </item>
-    </string-array>
+        <item>                            DROP TABLE gps_location</item>
+        <item>                DROP TABLE gps_track</item>
 
+    </string-array>
+    <string-array name="db_create">
+        <item>                create table gps_track(
+                                    _id integer primary key,
+                                    track_date integer,
+                                    track_distance real,
+                                    track_time integer,
+                                    modus integer,
+                                    steps integer
+                            )</item>
+        <item>                create table gps_location(
+                                    _id integer primary key autoincrement,
+                                    track integer not NULL,
+                                    time integer,
+                                    accuracy real,
+                                    longitude real,
+                                    latitude real,
+                                    altitude real,
+                                    speed real
+                            )</item>
+    </string-array>
 </resources>

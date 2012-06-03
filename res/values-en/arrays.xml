@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="runningmode">
+        <item>Jogging</item>
+        <item>Bycycle/Inline</item>
+        <item>Walk</item>
+    </string-array>
+
+<!-- die create table anweisung liegt im default, die muss nicht etra neu angelegt werden oder ? -->
+  
+</resources>

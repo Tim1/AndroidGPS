@@ -1,5 +1,7 @@
 package de.timweb.android.track;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -16,7 +18,7 @@ import de.timweb.android.activity.R;
 public class Track {
 	public static final int MODE_JOGGING = 0;
 	public static final int MODE_BYCYCLE = 1;
-	public static final int MODE_WALK = 2;
+	public static final int MODE_CAR = 2;
 	public static final int MODE_ALL = 3;
 
 	private int _id;
@@ -123,6 +125,16 @@ public class Track {
 	 */
 	public double getDistance() {
 		return distance;
+	}
+	
+	public String getFormatedDistance(){
+		NumberFormat format = new DecimalFormat("#0.00");
+		
+		return format.format(distance)+" m";
+	}
+	
+	public int getID() {
+		return _id;
 	}
 
 	public double getCurrentSpeed() {

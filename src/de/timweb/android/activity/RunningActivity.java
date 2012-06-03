@@ -5,7 +5,6 @@ import java.util.Timer;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -29,7 +28,7 @@ public class RunningActivity extends Activity {
 		setContentView(R.layout.running);
 
 		if (trackmanager == null)
-			trackmanager = new TrackManager(this);
+			trackmanager = new TrackManager();
 		if (trackmanager.isRunning())
 			setProgressBarIndeterminateVisibility(true);
 
@@ -87,10 +86,6 @@ public class RunningActivity extends Activity {
 				buttonSS.setText("Stop");
 			}
 			break;
-
-		case R.id.but_pref:
-			startActivity(new Intent(this, PreferencesActivity.class));
-
 		default:
 			break;
 		}

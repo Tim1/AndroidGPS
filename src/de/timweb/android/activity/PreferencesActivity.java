@@ -1,10 +1,15 @@
 package de.timweb.android.activity;
 
+import java.util.Locale;
+
 import android.app.Activity;
+import android.app.backup.RestoreObserver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,54 +22,79 @@ public class PreferencesActivity extends Activity {
 
 	private SharedPreferences pref;
 	private SharedPreferences.Editor editor;
-	
-	
+
+	private DisplayMetrics dm;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.preferences);
-		
+
 		pref = getSharedPreferences("PreferencesActivity", MODE_PRIVATE);
 		editor = pref.edit();
-		 ((SeekBar)findViewById(R.id.seekBar1)).setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-			
-			public void onStopTrackingTouch(SeekBar seekBar) {
-				
-			}
-			
-			public void onStartTrackingTouch(SeekBar seekBar) {
-				
-			}
-			
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				editor.putInt("seekBar", progress);
-				editor.commit();
-				((TextView)findViewById(R.id.tv_progress)).setText(""+pref.getInt("seekBar", 0));
+		dm = getResources().getDisplayMetrics();
 
-			}
-		});
-		
+		((SeekBar) findViewById(R.id.seekBar1))
+				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+
+					public void onStopTrackingTouch(SeekBar seekBar) {
+
+					}
+
+					public void onStartTrackingTouch(SeekBar seekBar) {
+
+					}
+
+					public void onProgressChanged(SeekBar seekBar,
+							int progress, boolean fromUser) {
+						editor.putInt("seekBar", progress);
+						editor.commit();
+						((TextView) findViewById(R.id.tv_progress)).setText(""
+								+ pref.getInt("seekBar", 0));
+
+					}
+				});
+
 	}
 
-	public void onButtonClick(View view) {}
+	public void onButtonClick(View view) {
+	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		((RadioGroup)findViewById(R.id.radioGroup1)).check(pref.getInt("style", 0));
-		((SeekBar)findViewById(R.id.seekBar1)).setProgress(pref.getInt("seekBar", 0));
+		((RadioGroup) findViewById(R.id.radioGroup_Style)).check(pref.getInt(
+				"style", 0));
+		((SeekBar) findViewById(R.id.seekBar1)).setProgress(pref.getInt(
+				"seekBar", 0));
+		((RadioGroup) findViewById(R.id.radioGroup_Language)).check(pref
+				.getInt("language", 0));
 	}
-
-	
 
 	public void onRadioButtonClicked(View v) {
-		editor.putInt("style", ((RadioGroup)findViewById(R.id.radioGroup1)).getCheckedRadioButtonId());
-		editor.commit();
-	}
-	
 
-	
-	
+		editor.putInt("style",
+				((RadioGroup) findViewById(R.id.radioGroup_Style))
+						.getCheckedRadioButtonId());
+		editor.putInt("language",
+				((RadioGroup) findViewById(R.id.radioGroup_Language))
+						.getCheckedRadioButtonId());
+		editor.commit();
+		setLanguage();
+	}
+
+	private void setLanguage() {
+		android.content.res.Configuration conf = getResources()
+				.getConfiguration();
+
+		if (pref.getInt("language", 0) == R.id.rb_Lan_de) {
+			conf.locale = new Locale(Locale.GERMAN.toString());
+		}
+		if (pref.getInt("language", 0) == R.id.rb_Lan_en) {
+
+			conf.locale = new Locale(Locale.ENGLISH.toString());
+		}
+		getResources().updateConfiguration(conf, dm);
+	}
 
 }

@@ -26,7 +26,7 @@ public class TrackManager {
 	private SensorManager mSensorManager;
 	private SQLiteDatabase mDatabase;
 	private SQLiteStatement sql;
-	private Context context;
+	private static Context context;
 	
 	private boolean isRunning = false;
 	private int trackid = -1;
@@ -35,8 +35,9 @@ public class TrackManager {
 	
 	private int steps;
 		
-	public TrackManager(Context context) {
-		this.context = context;
+	
+	public TrackManager() {
+//		this.context = context;
 		
 
 		dbManager = new DatabaseManager(context);
@@ -266,7 +267,7 @@ public class TrackManager {
 	 * @return
 	 */
 	public static ArrayList<Track> getLiteTrackArray(Context context,
-			int modusfilter, int max) {
+			int modusfilter) {
 		ArrayList<Track> result = new ArrayList<Track>();
 
 		DatabaseManager dbManager = new DatabaseManager(context);
@@ -283,5 +284,16 @@ public class TrackManager {
 		cursor.close();
 		mDatabase.close();
 		return result;
+	}
+	
+	public static void setContext(Context context){
+		TrackManager.context = context;
+	}
+
+	public static void deleteTrack(int trackid) {
+		DatabaseManager dbManager = new DatabaseManager(context);
+		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
+		SQLiteStatement sql = mDatabase.compileStatement(context.getResources().getString(R.string.db_delte_track)+trackid);
+		sql.execute();
 	}
 }

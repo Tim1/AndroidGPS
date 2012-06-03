@@ -28,7 +28,7 @@ public class SensorTestActivity extends Activity{
 		
 		setContentView(R.layout.sensortest);
 		if(gpsmanager == null)
-			gpsmanager = new TrackManager(this);
+			gpsmanager = new TrackManager();
 		
 		tv1 = (TextView) findViewById(R.id.tv_sensor);
 		tv2 = (TextView) findViewById(R.id.tv_sensor_steps);
