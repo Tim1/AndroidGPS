@@ -122,7 +122,7 @@
             android:visibility="gone" >
         </view>
 
-        <!-- ENDE                         GraphLiveView -->
+        <!-- ENDE GraphLiveView -->
 
 
         <!-- View als MagicTrick eingesetzt. -->

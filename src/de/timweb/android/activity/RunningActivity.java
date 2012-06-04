@@ -40,7 +40,7 @@ public class RunningActivity extends Activity {
 		setIcon(modus);
 
 		buttonSS = (Button) findViewById(R.id.but_start_pause);
-		
+
 		timerTask = new RunningUpdaterTask(this, trackmanager);
 		timer = new Timer();
 	}
@@ -56,7 +56,8 @@ public class RunningActivity extends Activity {
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_bike));
-			((TextView) findViewById(R.id.tv_stepEdit)).setVisibility(View.INVISIBLE);
+			((TextView) findViewById(R.id.tv_stepEdit))
+					.setVisibility(View.INVISIBLE);
 			break;
 		case 2:
 			((ImageView) findViewById(R.id.im_modus))
@@ -77,7 +78,7 @@ public class RunningActivity extends Activity {
 			if (buttonSS.getText() == "Stop") {
 				trackmanager.stop();
 				timer.cancel();
-				
+
 				setProgressBarIndeterminateVisibility(false);
 
 				buttonSS.setText("Start");
@@ -92,18 +93,16 @@ public class RunningActivity extends Activity {
 			break;
 		case R.id.but_left:
 			graphView--;
-			if(graphView == -1)
+			if (graphView == -1)
 				graphView = 3;
 			switchGraphView();
 			break;
 		case R.id.but_right:
-			graphView = ++graphView %4;
+			graphView = ++graphView % 4;
 			switchGraphView();
 			break;
 		}
 	}
-	
-	
 
 	private void switchGraphView() {
 		switch (graphView) {
@@ -115,14 +114,16 @@ public class RunningActivity extends Activity {
 			break;
 		case 1:
 			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
-			findViewById(R.id.view_graphview_Height).setVisibility(View.VISIBLE);
+			findViewById(R.id.view_graphview_Height)
+					.setVisibility(View.VISIBLE);
 			findViewById(R.id.view_graphview_Distance).setVisibility(View.GONE);
 			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
 			break;
 		case 2:
 			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
 			findViewById(R.id.view_graphview_Height).setVisibility(View.GONE);
-			findViewById(R.id.view_graphview_Distance).setVisibility(View.VISIBLE);
+			findViewById(R.id.view_graphview_Distance).setVisibility(
+					View.VISIBLE);
 			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
 			break;
 		case 3:
@@ -132,16 +133,16 @@ public class RunningActivity extends Activity {
 			findViewById(R.id.view_graphview_Steps).setVisibility(View.VISIBLE);
 			break;
 		}
-		
+
 	}
 
 	@Override
 	public void onBackPressed() {
-		if(!trackmanager.isRunning()){
+		if (!trackmanager.isRunning()) {
 			finish();
 			return;
 		}
-			
+
 		Builder builder = new Builder(this);
 		builder.setTitle("Close")
 				.setIcon(android.R.drawable.ic_dialog_info)

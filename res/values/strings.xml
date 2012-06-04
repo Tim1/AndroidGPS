@@ -14,15 +14,20 @@
 
     <!-- Running Activity -->
     <string name="close">Beenden</string>
-    <string name="sure_to_close">Sind Sie sicher, dass Sie die Einheit beenden möchten?</string>
+    <string name="sure_to_close">Speichern der Einheit bevor Beenden?</string>
     <string name="bt_txt_start">Starten</string>
     <string name="bt_txt_pause">Pause</string>
     <string name="bt_txt_pref">Einstellungen</string>
     <string name="tv_txt_run_activity">Running Activity\n</string>
-    <string name="tv_txt_time">Zeit</string>
-    <string name="tv_txt_distance">Distanz</string>
-    <string name="tv_txt_steps">Schritte</string>
-
+    <string name="tv_txt_time">Zeit: \u0020</string>
+    <string name="tv_txt_distance">Distanz:\u0020</string>
+    <string name="tv_txt_steps">Schritte:\u0020</string>
+   		 <string name="bt_txt_stop">Stop</string>
+    	<string name="tv_txt_speed">Geschw.:\u0020</string>
+    	<string name="di_save">Speichern</string>
+    	<string name="di_drop">Löschen</string>
+    	<string name="di_back">Zurück</string>
+    	
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Einstellungen\n</string>
     <string name="tv_txt_pref_GPS">GPS</string>
@@ -33,14 +38,35 @@
     <string name="rb_txt_lang_de">Deutsch</string>
     <string name="rb_txt_lang_en">Englisch</string>
     <string name="tv_txt_language">Sprache</string>
-
+    
     <!-- ChooseTrack Activity -->
     <string name="tv_txt_date">Datum</string>
     <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Bitte Warten</string>
     <string name="pd_txt_loading_data">Daten werden geladen...</string>
-    <string name="main_no_items">Kein Tracks vorhanden.</string>
+    <string name="main_no_items">Kein Tracks vorhanden</string>
 
+    <!-- Statistic Activity -->
+        <string name="toast_no_locations_found">Keine Locations gefunden</string>
+        <string name="delete_track">Track Löschen</string>
+        <string name="sure_to_delete_track">Wollen Sie den Track wirklich löschen?</string>
+        <string name="menu_title_delete">Löschen</string>
+        <string name="menu_title_write_note">Notiz schreiben</string>
+        <string name="di_delete">Löschen</string>
+        
+                
+        
+    <!-- Track Manager -->
+       <string name="toast_track_deleted">Track gelöscht</string>
+       <string name="toast_track_record_start">Beginn der Aufnahme vom Track\u0020</string>
+       <string name="toast_gps_start">GPS gestartet</string>
+       <string name="toast_gps_pause">GPS pausiert</string>
+            
+            
+      <!-- Track -->
+         <string name="toast_track_wrote">Track in Datenbank geschrieben</string>
+      
+    
     <!-- db strings -->
     <string name="db_name">DB_gpsdata</string>
     <string name="db_version">2</string>
@@ -57,14 +83,15 @@
         SELECT max(_id) FROM gps_track
     </string>
     <string name="db_select_alltrack">
-        SELECT _id,track_date,track_distance,modus,track_time FROM gps_track
+        SELECT _id,track_date,track_distance,track_time,modus FROM gps_track
     </string>
     <string name="db_select_track">
-        SELECT _id,track_date,track_distance,modus,track_time FROM gps_track WHERE _id =
+        SELECT _id,track_date,track_distance,track_time,modus,steps FROM gps_track WHERE _id =
     </string>
     <string name="db_delete_location">
         DELETE FROM gps_location WHERE track = 
     </string>
 
-    <string name="db_delte_track">        DELETE FROM gps_track WHERE _id = </string>
+    <string name="db_delete_track">        DELETE FROM gps_track WHERE _id = </string>
+    
 </resources>

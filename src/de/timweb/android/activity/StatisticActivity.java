@@ -3,8 +3,12 @@ package de.timweb.android.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.location.Location;
 import android.os.Bundle;
+import android.text.Layout;
+import android.text.StaticLayout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +20,7 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Projection;
 
+import de.timweb.android.activity.R.layout;
 import de.timweb.android.track.TrackManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.MyOverlay;
@@ -40,7 +45,7 @@ public class StatisticActivity extends MapActivity {
 		
 	}
 
-	public void setUpGoogleMap(){
+	public void setUpGoogleMap() {
 		mLocations = LocationReader.getLocations(this,
 				getIntent().getIntExtra("_id", 0));
 		if (mLocations.size() >= 2) {
@@ -62,11 +67,10 @@ public class StatisticActivity extends MapActivity {
 			myoverlay = new MyOverlay(mLocations, projection, this);
 			mapOverlays.add(myoverlay);
 		} else
-			Toast.makeText(this, "no locations found", Toast.LENGTH_SHORT)
+			Toast.makeText(this, R.string.toast_no_locations_found, Toast.LENGTH_SHORT)
 					.show();
 	}
-	
-	
+
 	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
@@ -84,20 +88,31 @@ public class StatisticActivity extends MapActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_statistic_delete:
-			Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show();
-			TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
-//			Track.deleteTrack(this, getIntent().getIntExtra("_id", 0));
-			Toast.makeText(this, "Track "+getIntent().getIntExtra("_id", 0)+" deleted.", Toast.LENGTH_SHORT);
-			finish();
+			
+			Builder builder = new Builder(this);
+			builder.setTitle(R.string.delete_track)
+					.setIcon(android.R.drawable.ic_dialog_info)
+					.setMessage(R.string.sure_to_delete_track)
+					.setPositiveButton(R.string.di_delete,
+							new DialogInterface.OnClickListener() {
+
+								public void onClick(DialogInterface dialog,
+										int which) {
+									TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
+									finish();
+								}
+							}).setNegativeButton(android.R.string.cancel, null)
+					.show();
+			
+			
 			break;
 		case R.id.menu_statistic_write_note:
-			Toast.makeText(this, "Write Note", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
 			break;
 		default:
 			break;
 		}
 		return true;
 	}
-	
-	
+
 }

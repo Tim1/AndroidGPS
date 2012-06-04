@@ -4,7 +4,7 @@
     <string-array name="runningmode">
         <item>Joggen</item>
         <item>Fahrrad</item>
-        <item>Wandern</item>
+        <item>Auto</item>
     </string-array>
     <string-array name="db_dropTable">
         <item>                            DROP TABLE gps_location</item>

@@ -14,14 +14,19 @@
 
     <!-- Running Activity -->
     <string name="close">Exit</string>
-    <string name="sure_to_close">Are you sure you want to exit?</string>
+    <string name="sure_to_close">Save the Track before exit?</string>
     <string name="bt_txt_start">Start</string>
     <string name="bt_txt_pause">Pause</string>
     <string name="bt_txt_pref">Preferences</string>
     <string name="tv_txt_run_activity">Running Activity\n</string>
-    <string name="tv_txt_time">Time:\t</string>
-    <string name="tv_txt_distance">Distance:\t</string>
-    <string name="tv_txt_steps">Steps:\t</string>
+    <string name="tv_txt_time">Time:\u0020</string>
+    <string name="tv_txt_distance">Distance:\u0020</string>
+    <string name="tv_txt_steps">Steps:\u0020</string>
+        <string name="bt_txt_stop">Stop</string>
+    	<string name="tv_txt_speed">Speed:\u0020</string>
+    	<string name="di_save">Save</string>
+    	<string name="di_drop">Delete</string>
+    	<string name="di_back">Back</string>
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Preferences\n</string>
@@ -39,8 +44,28 @@
     <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Pleas wait</string>
     <string name="pd_txt_loading_data">loading Data...</string>
-    <string name="main_no_items">No Tracks available.</string>
+    <string name="main_no_items">No Tracks available</string>
 
+     <!-- Statistic Activity -->
+        <string name="toast_no_locations_found">No Locations found</string>
+        <string name="delete_track">Delete Track</string>
+        <string name="sure_to_delete_track">Are you sure you want to delete the track?</string>
+     	<string name="menu_title_delete">delete</string>
+        <string name="menu_title_write_note">write note</string>
+        <string name="di_delete">Delete</string>
+        
+        
+        <!-- Track Manager -->
+        <string name="toast_track_deleted">Track deleted</string>
+        <string name="toast_track_record_start">Start recording Track No\u0020</string>
+        <string name="toast_gps_start">GPS started</string>
+        <string name="toast_gps_pause">GPS paused</string>
+    
+        
+        <!-- Track -->
+         <string name="toast_track_wrote">Track wrote in database</string>   
+        
+        
     <!-- db strings liegen im default value !!! -->
 
 </resources>
