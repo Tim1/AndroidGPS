@@ -45,22 +45,8 @@ public class ChooseTrackActivity extends ListActivity {
 				v = vi.inflate(R.layout.row, null);
 			}
 			Track track = mTracks.get(position);
-
 			if (track != null) {
-				int modus = track.getModus();
-				ImageView iv = (ImageView) v.findViewById(R.id.ic_listview);
-				switch (modus) {
-				case Track.MODE_JOGGING:
-					iv.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_jogging));
-				case Track.MODE_BYCYCLE:
-					iv.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_bike));
-				case Track.MODE_CAR:
-					iv.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_car));
-				}
-
+				setIcon((ImageView) v.findViewById(R.id.ic_listview),track.getModus());
 				TextView tt = (TextView) v.findViewById(R.id.tv_date);
 				if (tt != null)
 					tt.setText(track.getDate());
@@ -75,6 +61,23 @@ public class ChooseTrackActivity extends ListActivity {
 
 			}
 			return v;
+		}
+	}
+	
+	public void setIcon(ImageView iv, int modus){
+		switch (modus) {
+		case Track.MODE_JOGGING:
+			iv.setImageDrawable(getResources().getDrawable(
+					R.drawable.ic_jogging));
+			break;
+		case Track.MODE_BYCYCLE:
+			iv.setImageDrawable(getResources().getDrawable(
+					R.drawable.ic_bike));
+			break;
+		case Track.MODE_CAR:
+			iv.setImageDrawable(getResources().getDrawable(
+					R.drawable.ic_car));
+			break;
 		}
 	}
 
@@ -136,17 +139,10 @@ public class ChooseTrackActivity extends ListActivity {
 	}
 
 	@Override
-	protected void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-		// setUpList();
-	}
-
-	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
 		super.onRestart();
-		setUpList(); // kklappt, aber onResume() nicht...wo ist mein fehler ?
+		setUpList();
 	}
 
 }

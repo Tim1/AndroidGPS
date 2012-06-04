@@ -21,6 +21,11 @@ public class RunningUpdaterTask extends TimerTask{
 	private TrackManager trackmanager;
 	private TextView tv_time;
 
+	/**
+	 * pauseieren muss implementiert werden für den zeitverlauf
+	 * */
+	
+	
 	public RunningUpdaterTask(Activity activity,TrackManager trackmanager) {
 		this.activity = activity;
 		this.trackmanager = trackmanager;

@@ -42,8 +42,8 @@ public class Track {
 	 * @param distance
 	 *            in m
 	 */
-	Track(int id, long date, float distance) {
-		this(id, date, distance, 0, 0, 0);
+	Track(int id, long date, float distance,long time, int modus) {
+		this(id, date, distance, time, modus, 0);
 	}
 
 	private Track(int id,long date, float distance,long time,int modus, int steps){
@@ -57,6 +57,7 @@ public class Track {
 	
 	Track(int id, int modus) {
 		this._id = id;
+		this.modus = modus;
 		starttime = System.currentTimeMillis();
 	}
 
@@ -117,7 +118,7 @@ public class Track {
 
 		sql.executeInsert();
 
-		Toast.makeText(context, "wrote Track", Toast.LENGTH_SHORT).show();
+		Toast.makeText(context, R.string.toast_track_wrote, Toast.LENGTH_SHORT).show();
 	}
 
 	/**

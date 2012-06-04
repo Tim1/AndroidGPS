@@ -20,12 +20,14 @@ public class RunningActivity extends Activity {
 	private RunningUpdaterTask timerTask;
 	private Button buttonSS;
 	private int modus;
+	private boolean trackIsStarted;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.running);
+		trackIsStarted = false;
 
 		if (trackmanager == null)
 			trackmanager = new TrackManager();
@@ -36,11 +38,10 @@ public class RunningActivity extends Activity {
 		setIcon(modus);
 
 		buttonSS = (Button) findViewById(R.id.but_start_pause);
-		
+
 		timerTask = new RunningUpdaterTask(this, trackmanager);
 		Timer timer = new Timer();
 		timer.schedule(timerTask, 1000, 1000);
-		
 	}
 
 	private void setIcon(int modus) {
@@ -54,38 +55,36 @@ public class RunningActivity extends Activity {
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_bike));
-			((TextView) findViewById(R.id.tv_step)).setVisibility(View.INVISIBLE);
-			((TextView) findViewById(R.id.tv_stepEdit)).setVisibility(View.INVISIBLE);
+			((TextView) findViewById(R.id.tv_step))
+					.setVisibility(View.INVISIBLE);
+			((TextView) findViewById(R.id.tv_stepEdit))
+					.setVisibility(View.INVISIBLE);
 			break;
 		case 2:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_jogging));
-			break;
-		case 3:
-			((ImageView) findViewById(R.id.im_modus))
-					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_car));
 			break;
+
 		}
 	}
 
 	public void onButtonClick(View view) {
+		trackIsStarted = true;
 		switch (view.getId()) {
 		case R.id.but_start_pause:
-			if (buttonSS.getText() == "Stop") {
-				trackmanager.stop();
+			if (buttonSS.getText() == getString(R.string.bt_txt_pause)) {
+				trackmanager.pause();
 				setProgressBarIndeterminateVisibility(false);
-
-				buttonSS.setText("Start");
+				buttonSS.setText(getString(R.string.bt_txt_start));
 			} else {
-				timerTask.reset();
+
 				trackmanager.start(modus);
 				setProgressBarIndeterminateVisibility(true);
-
-				buttonSS.setText("Stop");
+				buttonSS.setText(getString(R.string.bt_txt_pause));
 			}
 			break;
+
 		default:
 			break;
 		}
@@ -93,25 +92,37 @@ public class RunningActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		if(!trackmanager.isRunning()){
-			finish();
-			return;
-		}
-			
-		Builder builder = new Builder(this);
-		builder.setTitle("Close")
-				.setIcon(android.R.drawable.ic_dialog_info)
-				.setMessage("Are you sure you want to quit?")
-				.setPositiveButton(android.R.string.ok,
-						new DialogInterface.OnClickListener() {
+		//nötig, was, wenn backtaste gdrückt, dann könnte löschmethode ausgefürht werden->exceptions
+		if (trackIsStarted == true) {
+			//besser ein .setItemList ?
+			Builder builder = new Builder(this);
+			builder.setTitle(R.string.close)
+					.setIcon(android.R.drawable.ic_dialog_info)
+					.setMessage(R.string.sure_to_close)
+					.setPositiveButton(R.string.di_save,
+							new DialogInterface.OnClickListener() {
 
-							public void onClick(DialogInterface dialog,
-									int which) {
-								trackmanager.stop();
-								finish();
-							}
-						}).setNegativeButton(android.R.string.cancel, null)
-				.show();
+								public void onClick(DialogInterface dialog,
+										int which) {
+									timerTask.reset();
+									trackmanager.stop();
+									finish();
+								}
+							})
+					.setNegativeButton(R.string.di_drop,
+							new DialogInterface.OnClickListener() {
+
+								public void onClick(DialogInterface dialog,
+										int which) {
+									timerTask.reset();
+									trackmanager.deleteTrack(TrackManager
+											.getTrack().getID());
+									finish();
+								}
+							}).setNeutralButton(R.string.di_back, null)
+							.show();
+		} else
+			super.onBackPressed();
 
 	}
 }

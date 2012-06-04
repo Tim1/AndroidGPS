@@ -3,10 +3,11 @@
 
     <item
         android:id="@+id/menu_statistic_delete"
-        android:icon="@drawable/ic_jogging"
-        android:title="Delete"/>
+        android:icon="@drawable/ic_menu_delete"
+        android:title="@string/menu_title_delete"/>
     <item
         android:id="@+id/menu_statistic_write_note"
-        android:title="Write Note"/>
+        android:icon="@drawable/ic_menu_write_note"
+        android:title="@string/menu_title_write_note"/>
 
 </menu>

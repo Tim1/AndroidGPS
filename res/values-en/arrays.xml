@@ -3,10 +3,9 @@
 
     <string-array name="runningmode">
         <item>Jogging</item>
-        <item>Bycycle/Inline</item>
-        <item>Walk</item>
+        <item>Bycycle</item>
+        <item>Car</item>
     </string-array>
 
-<!-- die create table anweisung liegt im default, die muss nicht etra neu angelegt werden oder ? -->
   
 </resources>

@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/ic_car" />
+            android:src="@drawable/ic_launcher" />
 
         <TextView
             android:id="@+id/tv_time"
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_time"
-            android:text="Speed: "
+            android:text="@string/tv_txt_speed"
             android:textSize="25dip" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_speed"
-            android:text="Distance: "
+            android:text="@string/tv_txt_distance"
             android:textSize="25dip" />
 
         <TextView
@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/tv_step"
             android:layout_toRightOf="@+id/tv_step"
-            android:text="0 Steps"
+            android:text="0"
             android:textSize="25dip" />
 
         <!-- GraphLiveView -->
@@ -133,23 +133,18 @@
 
         <!-- ENDE                         GraphLiveView -->
 
-
-        <!-- View als MagicTrick eingesetzt. -->
-
-        <View
-            android:id="@+id/strut"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true" />
-
         <Button
             android:id="@+id/but_start_pause"
             android:layout_width="fill_parent"
             android:layout_height="70dp"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/strut"
             android:layout_margin="5dp"
             android:onClick="onButtonClick"
             android:text="@string/bt_txt_start" />
+
+        
     </RelativeLayout>
 
 </LinearLayout>
