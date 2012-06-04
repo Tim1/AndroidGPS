@@ -133,32 +133,35 @@
             android:layout_height="0dp"
             android:layout_centerHorizontal="true" />
 
-        <Button
+        <ImageButton
             android:id="@+id/but_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
+            android:background="#00000000"
             android:onClick="onButtonClick"
-            android:text="(--" />
+            android:src="@drawable/ic_left" />
 
-        <Button
+        <ImageButton
             android:id="@+id/but_start_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:background="#00000000"
             android:onClick="onButtonClick"
-            android:text="start" />
+            android:src="@drawable/ic_play" />
 
-        <Button
+        <ImageButton
             android:id="@+id/but_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:background="#00000000"
             android:onClick="onButtonClick"
-            android:text="--)" />
+            android:src="@drawable/ic_right" />
     </RelativeLayout>
 
 </LinearLayout>

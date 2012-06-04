@@ -5,11 +5,11 @@ import java.util.Timer;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import de.timweb.android.track.TrackManager;
@@ -20,9 +20,10 @@ public class RunningActivity extends Activity {
 
 	private int graphView = 0;
 	private RunningUpdaterTask timerTask;
-	private Button buttonSS;
+	private ImageButton buttonSS;
 	private int modus;
-
+	private boolean isPaused = true;
+	
 	private Timer timer;
 
 	@Override
@@ -39,7 +40,7 @@ public class RunningActivity extends Activity {
 		modus = getIntent().getIntExtra("modus", 0);
 		setIcon(modus);
 
-		buttonSS = (Button) findViewById(R.id.but_start_pause);
+		buttonSS = (ImageButton) findViewById(R.id.but_start_pause);
 
 		timerTask = new RunningUpdaterTask(this, trackmanager);
 		timer = new Timer();
@@ -75,20 +76,22 @@ public class RunningActivity extends Activity {
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 		case R.id.but_start_pause:
-			if (buttonSS.getText() == "Stop") {
-				trackmanager.stop();
-				timer.cancel();
-
-				setProgressBarIndeterminateVisibility(false);
-
-				buttonSS.setText("Start");
-			} else {
+			if (isPaused) {
 				timerTask.reset();
 				timer.schedule(timerTask, 1000, 1000);
 				trackmanager.start(modus);
 				setProgressBarIndeterminateVisibility(true);
-
-				buttonSS.setText("Stop");
+				
+				isPaused = false;
+				buttonSS.setImageResource(R.drawable.ic_play);
+			} else {
+				trackmanager.stop();
+				timer.cancel();
+				
+				setProgressBarIndeterminateVisibility(false);
+				
+				isPaused = true;
+				buttonSS.setImageResource(R.drawable.ic_pause);
 			}
 			break;
 		case R.id.but_left:
