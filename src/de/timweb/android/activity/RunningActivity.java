@@ -23,6 +23,8 @@ public class RunningActivity extends Activity {
 	private Button buttonSS;
 	private int modus;
 
+	private Timer timer;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,9 +42,7 @@ public class RunningActivity extends Activity {
 		buttonSS = (Button) findViewById(R.id.but_start_pause);
 		
 		timerTask = new RunningUpdaterTask(this, trackmanager);
-		Timer timer = new Timer();
-		timer.schedule(timerTask, 1000, 1000);
-		
+		timer = new Timer();
 	}
 
 	private void setIcon(int modus) {
@@ -76,11 +76,14 @@ public class RunningActivity extends Activity {
 		case R.id.but_start_pause:
 			if (buttonSS.getText() == "Stop") {
 				trackmanager.stop();
+				timer.cancel();
+				
 				setProgressBarIndeterminateVisibility(false);
 
 				buttonSS.setText("Start");
 			} else {
 				timerTask.reset();
+				timer.schedule(timerTask, 1000, 1000);
 				trackmanager.start(modus);
 				setProgressBarIndeterminateVisibility(true);
 

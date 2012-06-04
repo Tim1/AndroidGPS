@@ -18,35 +18,66 @@
             android:layout_alignParentTop="true"
             android:src="@drawable/ic_car" />
 
+        <ImageView
+            android:id="@+id/im_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_timer" />
+
         <TextView
             android:id="@+id/tv_timeEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/im_timer"
             android:text="0:00"
             android:textSize="25dip"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/im_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_timeEdit"
+            android:src="@drawable/ic_speed" />
 
         <TextView
             android:id="@+id/tv_speedEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_timeEdit"
+            android:layout_toRightOf="@+id/im_speed"
             android:text="0.0 km/h"
             android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_distanceEdit"
-            android:layout_below="@id/tv_speedEdit"
+        <ImageView
+            android:id="@+id/im_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_speedEdit"
+            android:src="@drawable/ic_distance" />
+
+        <TextView
+            android:id="@+id/tv_distanceEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_speedEdit"
+            android:layout_toRightOf="@+id/im_distance"
             android:text="0.0 km"
             android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_stepEdit"
-            android:layout_below="@id/tv_distanceEdit"
+        <ImageView
+            android:id="@+id/im_steps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_distanceEdit"
+            android:src="@drawable/ic_steps" />
+
+        <TextView
+            android:id="@+id/tv_stepEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_distanceEdit"
+            android:layout_toRightOf="@+id/im_steps"
             android:text="0 Steps"
             android:textSize="25dip" />
 

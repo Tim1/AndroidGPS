@@ -12,7 +12,7 @@ import de.timweb.android.track.TrackManager;
 public class RunningUpdaterTask extends TimerTask{
 	private Activity activity;
 	private TextView tv_distance;
-	private TextView tv_speeed;
+	private TextView tv_speed;
 	private TextView tv_steps;
 	private GraphLiveView graphSpeed;
 	private GraphLiveView graphHeight;
@@ -48,6 +48,7 @@ public class RunningUpdaterTask extends TimerTask{
 		tv_time = (TextView) activity.findViewById(R.id.tv_timeEdit);
 		tv_distance = (TextView) activity.findViewById(R.id.tv_distanceEdit);
 		tv_steps = (TextView) activity.findViewById(R.id.tv_stepEdit);
+		tv_speed = (TextView) activity.findViewById(R.id.tv_speedEdit);
 	}
 	
 	@Override
@@ -60,7 +61,7 @@ public class RunningUpdaterTask extends TimerTask{
 				
 				Statistics stats = track.getStatistics();
 				
-				tv_speeed.setText(track.getFormatedSpeed());
+				tv_speed.setText(track.getFormatedSpeed());
 				tv_time.setText(track.getElapsedTime());
 				tv_distance.setText(track.getFormatedDistance());
 				tv_steps.setText(track.getSteps() + "");

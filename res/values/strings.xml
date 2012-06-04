@@ -57,10 +57,10 @@
         SELECT max(_id) FROM gps_track
     </string>
     <string name="db_select_alltrack">
-        SELECT _id,track_date,track_distance,modus FROM gps_track
+        SELECT _id,track_date,track_distance,modus,track_time FROM gps_track
     </string>
     <string name="db_select_track">
-        SELECT track_date,track_distance,track_time,modus,steps FROM gps_track WHERE _id =
+        SELECT _id,track_date,track_distance,modus,track_time FROM gps_track WHERE _id =
     </string>
     <string name="db_delete_location">
         DELETE FROM gps_location WHERE track = 

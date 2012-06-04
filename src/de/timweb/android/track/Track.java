@@ -41,9 +41,10 @@ public class Track {
 	 *            Starttime des Tracks
 	 * @param distance
 	 *            in m
+	 * @param time 
 	 */
-	Track(int id, long date, float distance) {
-		this(id, date, distance, 0, 0, 0);
+	Track(int id, long date, float distance, long time) {
+		this(id, date, distance, time, 0, 0);
 	}
 
 	private Track(int id,long date, float distance,long time,int modus, int steps){
@@ -149,8 +150,12 @@ public class Track {
 		return _id;
 	}
 
+	/**
+	 * 
+	 * @return aktuelle geschwindigkeit in km/h
+	 */
 	public double getCurrentSpeed() {
-		return currentSpeed;
+		return currentSpeed*3.6;
 	}
 
 	public long getStarttime() {
@@ -159,10 +164,10 @@ public class Track {
 
 	public String getElapsedTime() {
 		long secTotal = 0;		
-		if(elapsedTime != 0)
-			secTotal = elapsedTime;
-		else
+		if(elapsedTime == 0)
 			secTotal = (System.currentTimeMillis() - starttime)/1000;
+		else
+			secTotal = elapsedTime;
 		
 		long hours = secTotal / (60*60);
 		long mins = (secTotal-(hours*60*60)) / 60;
