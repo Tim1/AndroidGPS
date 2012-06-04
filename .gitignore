@@ -15,4 +15,8 @@ gen/
 # Local configuration file (sdk path, etc)
 project.properties
 .settings/
+<<<<<<< HEAD
 res/values/apiKey.xml
+=======
+res/values/apiKey.xml
+>>>>>>> refs/remotes/origin/develop

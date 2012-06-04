@@ -41,6 +41,7 @@ public class Track {
 	 *            Starttime des Tracks
 	 * @param distance
 	 *            in m
+	 * @param time 
 	 */
 	Track(int id, long date, float distance,long time, int modus) {
 		this(id, date, distance, time, modus, 0);
@@ -128,18 +129,34 @@ public class Track {
 		return distance;
 	}
 	
+	/**
+	 * @return zurueckgelegte Distanz (Format: "12.345 km")
+	 */
 	public String getFormatedDistance(){
-		NumberFormat format = new DecimalFormat("#0.00");
+		NumberFormat format = new DecimalFormat("#0.000");
 		
-		return format.format(distance)+" m";
+		return format.format(distance/1000)+" km";
+	}
+	
+	/**
+	 * @return momentane Geschwinigkeit (Format: "12.3 km/h")
+	 */
+	public String getFormatedSpeed(){
+		NumberFormat format = new DecimalFormat("#0.0");
+		
+		return format.format(currentSpeed*3.6)+ " km/h";
 	}
 	
 	public int getID() {
 		return _id;
 	}
 
+	/**
+	 * 
+	 * @return aktuelle geschwindigkeit in km/h
+	 */
 	public double getCurrentSpeed() {
-		return currentSpeed;
+		return currentSpeed*3.6;
 	}
 
 	public long getStarttime() {
@@ -148,10 +165,10 @@ public class Track {
 
 	public String getElapsedTime() {
 		long secTotal = 0;		
-		if(elapsedTime != 0)
-			secTotal = elapsedTime;
-		else
+		if(elapsedTime == 0)
 			secTotal = (System.currentTimeMillis() - starttime)/1000;
+		else
+			secTotal = elapsedTime;
 		
 		long hours = secTotal / (60*60);
 		long mins = (secTotal-(hours*60*60)) / 60;
@@ -197,7 +214,7 @@ public class Track {
 		cal.setTimeInMillis(starttime);
 
 		result += cal.get(Calendar.DAY_OF_MONTH) + ".";
-		result += cal.get(Calendar.MONTH) + ".";
+		result += (cal.get(Calendar.MONTH)+1) + ".";
 		result += cal.get(Calendar.YEAR) + " ";
 
 		result += cal.get(Calendar.HOUR_OF_DAY) + ":";

@@ -5,11 +5,6 @@
     android:orientation="vertical"
     android:padding="10dip" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_txt_run_activity" />
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -21,73 +16,69 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_car" />
 
-        <TextView
-            android:id="@+id/tv_time"
+        <ImageView
+            android:id="@+id/im_timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_txt_time"
-            android:textSize="25dip" />
+            android:src="@drawable/ic_timer" />
 
         <TextView
             android:id="@+id/tv_timeEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_time"
+            android:layout_toRightOf="@+id/im_timer"
             android:text="0:00"
             android:textSize="25dip"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_speed"
+        <ImageView
+            android:id="@+id/im_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_time"
-            android:text="@string/tv_txt_speed"
-            android:textSize="25dip" />
+            android:layout_below="@+id/tv_timeEdit"
+            android:src="@drawable/ic_speed" />
 
         <TextView
             android:id="@+id/tv_speedEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tv_speed"
-            android:layout_toRightOf="@+id/tv_speed"
+            android:layout_below="@id/tv_timeEdit"
+            android:layout_toRightOf="@+id/im_speed"
             android:text="0.0 km/h"
             android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_distance"
+        <ImageView
+            android:id="@+id/im_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_speed"
-            android:text="@string/tv_txt_distance"
-            android:textSize="25dip" />
+            android:layout_below="@+id/tv_speedEdit"
+            android:src="@drawable/ic_distance" />
 
         <TextView
             android:id="@+id/tv_distanceEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tv_distance"
-            android:layout_toRightOf="@+id/tv_distance"
+            android:layout_below="@id/tv_speedEdit"
+            android:layout_toRightOf="@+id/im_distance"
             android:text="0.0 km"
             android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_step"
+        <ImageView
+            android:id="@+id/im_steps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_distance"
-            android:text="@string/tv_txt_steps"
-            android:textSize="25dip" />
+            android:layout_below="@+id/tv_distanceEdit"
+            android:src="@drawable/ic_steps" />
 
         <TextView
             android:id="@+id/tv_stepEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/tv_step"
-            android:layout_toRightOf="@+id/tv_step"
-            android:text="0"
+            android:layout_below="@id/tv_distanceEdit"
+            android:layout_toRightOf="@+id/im_steps"
+            android:text="0 Steps"
             android:textSize="25dip" />
 
         <!-- GraphLiveView -->
@@ -96,26 +87,26 @@
             android:id="@+id/view_graphview_Speed"
             android:layout_width="match_parent"
             android:layout_height="200dip"
-            android:layout_below="@+id/tv_step"
+            android:layout_below="@id/tv_stepEdit"
             class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222"
-            android:visibility="gone" >
+            android:background="#222222" >
         </view>
 
         <view
             android:id="@+id/view_graphview_Distance"
             android:layout_width="match_parent"
             android:layout_height="200dip"
-            android:layout_below="@+id/tv_step"
+            android:layout_below="@id/tv_stepEdit"
             class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222" >
+            android:background="#222222"
+            android:visibility="gone" >
         </view>
 
         <view
             android:id="@+id/view_graphview_Steps"
             android:layout_width="match_parent"
             android:layout_height="200dip"
-            android:layout_below="@+id/tv_step"
+            android:layout_below="@id/tv_stepEdit"
             class="de.timweb.android.util.GraphLiveView"
             android:background="#222222"
             android:visibility="gone" >
@@ -125,26 +116,49 @@
             android:id="@+id/view_graphview_Height"
             android:layout_width="match_parent"
             android:layout_height="200dip"
-            android:layout_below="@+id/tv_step"
+            android:layout_below="@id/tv_stepEdit"
             class="de.timweb.android.util.GraphLiveView"
             android:background="#222222"
             android:visibility="gone" >
         </view>
 
-        <!-- ENDE                         GraphLiveView -->
+        <!-- ENDE GraphLiveView -->
+
+
+        <!-- View als MagicTrick eingesetzt. -->
+
+        <View
+            android:id="@+id/strut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/but_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:onClick="onButtonClick"
+            android:text="(--" />
 
         <Button
             android:id="@+id/but_start_pause"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignRight="@+id/strut"
-            android:layout_margin="5dp"
+            android:layout_centerHorizontal="true"
             android:onClick="onButtonClick"
-            android:text="@string/bt_txt_start" />
+            android:text="start" />
 
-        
+        <Button
+            android:id="@+id/but_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="onButtonClick"
+            android:text="--)" />
     </RelativeLayout>
 
 </LinearLayout>

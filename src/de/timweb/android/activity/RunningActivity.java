@@ -5,6 +5,7 @@ import java.util.Timer;
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -17,17 +18,18 @@ import de.timweb.android.util.RunningUpdaterTask;
 public class RunningActivity extends Activity {
 	private static TrackManager trackmanager;
 
+	private int graphView = 0;
 	private RunningUpdaterTask timerTask;
 	private Button buttonSS;
 	private int modus;
-	private boolean trackIsStarted;
+
+	private Timer timer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.running);
-		trackIsStarted = false;
 
 		if (trackmanager == null)
 			trackmanager = new TrackManager();
@@ -40,8 +42,7 @@ public class RunningActivity extends Activity {
 		buttonSS = (Button) findViewById(R.id.but_start_pause);
 
 		timerTask = new RunningUpdaterTask(this, trackmanager);
-		Timer timer = new Timer();
-		timer.schedule(timerTask, 1000, 1000);
+		timer = new Timer();
 	}
 
 	private void setIcon(int modus) {
@@ -55,74 +56,107 @@ public class RunningActivity extends Activity {
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_bike));
-			((TextView) findViewById(R.id.tv_step))
-					.setVisibility(View.INVISIBLE);
 			((TextView) findViewById(R.id.tv_stepEdit))
 					.setVisibility(View.INVISIBLE);
 			break;
 		case 2:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
+							R.drawable.ic_jogging));
+			break;
+		case 3:
+			((ImageView) findViewById(R.id.im_modus))
+					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_car));
 			break;
-
 		}
 	}
 
 	public void onButtonClick(View view) {
-		trackIsStarted = true;
 		switch (view.getId()) {
 		case R.id.but_start_pause:
-			if (buttonSS.getText() == getString(R.string.bt_txt_pause)) {
-				trackmanager.pause();
-				setProgressBarIndeterminateVisibility(false);
-				buttonSS.setText(getString(R.string.bt_txt_start));
-			} else {
+			if (buttonSS.getText() == "Stop") {
+				trackmanager.stop();
+				timer.cancel();
 
+				setProgressBarIndeterminateVisibility(false);
+
+				buttonSS.setText("Start");
+			} else {
+				timerTask.reset();
+				timer.schedule(timerTask, 1000, 1000);
 				trackmanager.start(modus);
 				setProgressBarIndeterminateVisibility(true);
-				buttonSS.setText(getString(R.string.bt_txt_pause));
+
+				buttonSS.setText("Stop");
 			}
 			break;
-
-		default:
+		case R.id.but_left:
+			graphView--;
+			if (graphView == -1)
+				graphView = 3;
+			switchGraphView();
+			break;
+		case R.id.but_right:
+			graphView = ++graphView % 4;
+			switchGraphView();
 			break;
 		}
 	}
 
+	private void switchGraphView() {
+		switch (graphView) {
+		case 0:
+			findViewById(R.id.view_graphview_Speed).setVisibility(View.VISIBLE);
+			findViewById(R.id.view_graphview_Height).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Distance).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
+			break;
+		case 1:
+			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Height)
+					.setVisibility(View.VISIBLE);
+			findViewById(R.id.view_graphview_Distance).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
+			break;
+		case 2:
+			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Height).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Distance).setVisibility(
+					View.VISIBLE);
+			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
+			break;
+		case 3:
+			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Height).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Distance).setVisibility(View.GONE);
+			findViewById(R.id.view_graphview_Steps).setVisibility(View.VISIBLE);
+			break;
+		}
+
+	}
+
 	@Override
 	public void onBackPressed() {
-		//nötig, was, wenn backtaste gdrückt, dann könnte löschmethode ausgefürht werden->exceptions
-		if (trackIsStarted == true) {
-			//besser ein .setItemList ?
-			Builder builder = new Builder(this);
-			builder.setTitle(R.string.close)
-					.setIcon(android.R.drawable.ic_dialog_info)
-					.setMessage(R.string.sure_to_close)
-					.setPositiveButton(R.string.di_save,
-							new DialogInterface.OnClickListener() {
+		if (!trackmanager.isRunning()) {
+			finish();
+			return;
+		}
 
-								public void onClick(DialogInterface dialog,
-										int which) {
-									timerTask.reset();
-									trackmanager.stop();
-									finish();
-								}
-							})
-					.setNegativeButton(R.string.di_drop,
-							new DialogInterface.OnClickListener() {
+		Builder builder = new Builder(this);
+		builder.setTitle("Close")
+				.setIcon(android.R.drawable.ic_dialog_info)
+				.setMessage("Are you sure you want to quit?")
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
 
-								public void onClick(DialogInterface dialog,
-										int which) {
-									timerTask.reset();
-									trackmanager.deleteTrack(TrackManager
-											.getTrack().getID());
-									finish();
-								}
-							}).setNeutralButton(R.string.di_back, null)
-							.show();
-		} else
-			super.onBackPressed();
+							public void onClick(DialogInterface dialog,
+									int which) {
+								trackmanager.stop();
+								finish();
+							}
+						}).setNegativeButton(android.R.string.cancel, null)
+				.show();
 
 	}
 }

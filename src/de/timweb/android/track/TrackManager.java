@@ -279,6 +279,7 @@ public class TrackManager {
 		while (cursor.moveToNext()) {
 			result.add(new Track(cursor.getInt(0), cursor.getLong(1), cursor
 					.getFloat(2),cursor.getLong(3),cursor.getInt(4)));
+//			Toast.makeText(context, "time: "+cursor.getLong(4), 0).show();
 		}
 
 		cursor.close();
