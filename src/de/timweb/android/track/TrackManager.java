@@ -30,7 +30,7 @@ public class TrackManager {
 	
 	private boolean isRunning = false;
 	private int trackid = -1;
-	private static Track track;  //static gesetzt um beim trackmanager.deletetrack(trackmanager.getTrack().gettid)) aufzurufen
+	private Track track;  
 	private DatabaseManager dbManager;
 	
 	private int steps;
@@ -217,7 +217,7 @@ public class TrackManager {
  		
  	}
 
-	public static Track getTrack() {
+	public Track getTrack() {
 		return track;
 	}
 	
@@ -279,7 +279,6 @@ public class TrackManager {
 		while (cursor.moveToNext()) {
 			result.add(new Track(cursor.getInt(0), cursor.getLong(1), cursor
 					.getFloat(2),cursor.getLong(3),cursor.getInt(4)));
-//			Toast.makeText(context, "time: "+cursor.getLong(4), 0).show();
 		}
 
 		cursor.close();
