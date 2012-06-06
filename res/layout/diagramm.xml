@@ -4,21 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="diagramm" />
-
     <!-- GraphLiveView -->
 
     <view
         android:id="@+id/view_da_graphview_Speed"
         android:layout_width="match_parent"
         android:layout_height="200dip"
+        android:layout_marginBottom="8dp"
         class="de.timweb.android.util.GraphLiveView"
-        android:background="#222222" 
-         android:visibility="gone">
+        android:background="#222222"
+        android:visibility="gone" >
     </view>
 
     <view
@@ -31,16 +26,17 @@
     </view>
 
     <view
-        android:id="@+id/view_da_graphview_Steps"
+        android:id="@+id/view_da_graphview_Height"
         android:layout_width="match_parent"
         android:layout_height="200dip"
+        android:layout_marginBottom="8dp"
         class="de.timweb.android.util.GraphLiveView"
         android:background="#222222"
         android:visibility="gone" >
     </view>
 
     <view
-        android:id="@+id/view_da_graphview_Height"
+        android:id="@+id/view_da_graphview_Steps"
         android:layout_width="match_parent"
         android:layout_height="200dip"
         class="de.timweb.android.util.GraphLiveView"
