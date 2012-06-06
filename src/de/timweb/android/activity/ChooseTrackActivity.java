@@ -4,24 +4,27 @@ import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
-import android.widget.Toast;
-import de.timweb.android.util.DatabaseManager;
 
 public class ChooseTrackActivity extends ListActivity {
 
@@ -43,6 +46,7 @@ public class ChooseTrackActivity extends ListActivity {
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				v = vi.inflate(R.layout.row, null);
+				registerForContextMenu(v);
 			}
 			Track track = mTracks.get(position);
 			if (track != null) {
@@ -139,7 +143,50 @@ public class ChooseTrackActivity extends ListActivity {
 		startActivity(intent);
 
 	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo) {
+	    super.onCreateContextMenu(menu, v, menuInfo);
+	    
+	    //TODO Informationen zum Track im Titel von Menu
+//	    v.getId();
+//	    menu.setHeaderIcon(icon);
+//	    menu.setHeaderTitle(title)
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.choosetrack_context, menu);
+	}
 
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+	    switch (item.getItemId()) {
+	        case R.id.menu_delte:
+	        	Builder builder = new Builder(this);
+				builder.setTitle(R.string.delete_track)
+						.setIcon(android.R.drawable.ic_dialog_info)
+						.setMessage(R.string.sure_to_delete_track)
+						.setPositiveButton(R.string.di_delete,
+								new DialogInterface.OnClickListener() {
+
+									public void onClick(DialogInterface dialog,
+											int which) {
+										//TODO ausgewaehlten Track rausfinden
+//										TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
+//										finish();
+									}
+								}).setNegativeButton(android.R.string.cancel, null)
+						.show();
+	        	
+	            return true;
+	        case R.id.menu_note:
+	        	Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
+	            return true;
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
+	}
+	
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
