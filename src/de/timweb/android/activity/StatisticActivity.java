@@ -28,7 +28,7 @@ public class StatisticActivity extends TabActivity{
 	    intent.putExtra("mode", 1);
 	    intent.putExtra("_id", trackId);
 	    spec = tabHost.newTabSpec("diagram_1").setIndicator("Graph 1",
-	                      res.getDrawable(R.drawable.ic_tab_diagramm_1))
+	                      res.getDrawable(R.drawable.tab_diagramm_1))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 
@@ -38,7 +38,7 @@ public class StatisticActivity extends TabActivity{
 	    intent.putExtra("mode", 2);
 	    intent.putExtra("_id", trackId);
 	    spec = tabHost.newTabSpec("diagramm_2").setIndicator("Graph 2",
-	                      res.getDrawable(R.drawable.ic_tab_diagramm_2))
+	                      res.getDrawable(R.drawable.tab_diagramm_2))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 
@@ -46,7 +46,7 @@ public class StatisticActivity extends TabActivity{
 	    intent = new Intent().setClass(this, GoogleMapActivity.class);
 	    intent.putExtra("_id", trackId);
 	    spec = tabHost.newTabSpec("googlemap").setIndicator("Map",
-	    		res.getDrawable(R.drawable.ic_tab_googlemap))
+	    		res.getDrawable(R.drawable.tab_googlemap))
 	    		.setContent(intent);
 	    tabHost.addTab(spec);
 	    
