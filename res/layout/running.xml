@@ -1,167 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:padding="10dip" >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
+    <ImageView
+        android:id="@+id/im_modus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_car" />
 
-        <ImageView
-            android:id="@+id/im_modus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/ic_car" />
+    <ImageView
+        android:id="@+id/im_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_timer" />
 
-        <ImageView
-            android:id="@+id/im_timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_timer" />
+    <TextView
+        android:id="@+id/tv_timeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/im_timer"
+        android:text="0:00"
+        android:textSize="25dip"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_timeEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/im_timer"
-            android:text="0:00"
-            android:textSize="25dip"
-            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/im_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_timeEdit"
+        android:src="@drawable/ic_speed" />
 
-        <ImageView
-            android:id="@+id/im_speed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_timeEdit"
-            android:src="@drawable/ic_speed" />
+    <TextView
+        android:id="@+id/tv_speedEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_timeEdit"
+        android:layout_toRightOf="@+id/im_speed"
+        android:text="0.0 km/h"
+        android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_speedEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_timeEdit"
-            android:layout_toRightOf="@+id/im_speed"
-            android:text="0.0 km/h"
-            android:textSize="25dip" />
+    <ImageView
+        android:id="@+id/im_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_speedEdit"
+        android:src="@drawable/ic_distance" />
 
-        <ImageView
-            android:id="@+id/im_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_speedEdit"
-            android:src="@drawable/ic_distance" />
+    <TextView
+        android:id="@+id/tv_distanceEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_speedEdit"
+        android:layout_toRightOf="@+id/im_distance"
+        android:text="0.0 km"
+        android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_distanceEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_speedEdit"
-            android:layout_toRightOf="@+id/im_distance"
-            android:text="0.0 km"
-            android:textSize="25dip" />
+    <ImageView
+        android:id="@+id/im_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_distanceEdit"
+        android:src="@drawable/ic_steps" />
 
-        <ImageView
-            android:id="@+id/im_steps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_distanceEdit"
-            android:src="@drawable/ic_steps" />
+    <TextView
+        android:id="@+id/tv_stepEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_distanceEdit"
+        android:layout_toRightOf="@+id/im_steps"
+        android:text="0 Steps"
+        android:textSize="25dip" />
 
-        <TextView
-            android:id="@+id/tv_stepEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_distanceEdit"
-            android:layout_toRightOf="@+id/im_steps"
-            android:text="0 Steps"
-            android:textSize="25dip" />
+    <!-- GraphLiveView -->
 
-        <!-- GraphLiveView -->
+    <view
+        android:id="@+id/view_graphview_Speed"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_below="@id/tv_stepEdit"
+        class="de.timweb.android.util.GraphLiveView"
+        android:background="#222222" >
+    </view>
 
-        <view
-            android:id="@+id/view_graphview_Speed"
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:layout_below="@id/tv_stepEdit"
-            class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222" >
-        </view>
+    <view
+        android:id="@+id/view_graphview_Distance"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_below="@id/tv_stepEdit"
+        class="de.timweb.android.util.GraphLiveView"
+        android:background="#222222"
+        android:visibility="gone" >
+    </view>
 
-        <view
-            android:id="@+id/view_graphview_Distance"
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:layout_below="@id/tv_stepEdit"
-            class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222"
-            android:visibility="gone" >
-        </view>
+    <view
+        android:id="@+id/view_graphview_Steps"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_below="@id/tv_stepEdit"
+        class="de.timweb.android.util.GraphLiveView"
+        android:background="#222222"
+        android:visibility="gone" >
+    </view>
 
-        <view
-            android:id="@+id/view_graphview_Steps"
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:layout_below="@id/tv_stepEdit"
-            class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222"
-            android:visibility="gone" >
-        </view>
+    <view
+        android:id="@+id/view_graphview_Height"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_below="@id/tv_stepEdit"
+        class="de.timweb.android.util.GraphLiveView"
+        android:background="#222222"
+        android:visibility="gone" >
+    </view>
 
-        <view
-            android:id="@+id/view_graphview_Height"
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:layout_below="@id/tv_stepEdit"
-            class="de.timweb.android.util.GraphLiveView"
-            android:background="#222222"
-            android:visibility="gone" >
-        </view>
-
-        <!-- ENDE GraphLiveView -->
+    <!-- ENDE GraphLiveView -->
 
 
-        <!-- View als MagicTrick eingesetzt. -->
+    <!-- View als MagicTrick eingesetzt. -->
 
-        <View
-            android:id="@+id/strut"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true" />
+    <View
+        android:id="@+id/strut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true" />
 
-        <ImageButton
-            android:id="@+id/but_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:background="#00000000"
-            android:onClick="onButtonClick"
-            android:src="@drawable/ic_left" />
+    <ImageButton
+        android:id="@+id/but_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#00000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/ic_left" />
 
-        <ImageButton
-            android:id="@+id/but_start_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="#00000000"
-            android:onClick="onButtonClick"
-            android:src="@drawable/ic_play" />
+    <ImageButton
+        android:id="@+id/but_start_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#00000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/ic_play" />
 
-        <ImageButton
-            android:id="@+id/but_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:background="#00000000"
-            android:onClick="onButtonClick"
-            android:src="@drawable/ic_right" />
-    </RelativeLayout>
+    <ImageButton
+        android:id="@+id/but_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/ic_right" />
 
-</LinearLayout>
+</RelativeLayout>

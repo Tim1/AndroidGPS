@@ -16,7 +16,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
-import de.timweb.android.activity.StatisticActivity;
+import de.timweb.android.activity.GoogleMapActivity;;
 
 public class MyOverlay extends Overlay {
 	private ArrayList<Location> mLocations;
@@ -60,7 +60,8 @@ public class MyOverlay extends Overlay {
 		mPaint.setStrokeWidth(4);
 
 	}
-
+    
+	@Override
 	public void draw(Canvas canvas, MapView mapv, boolean shadow) {
 		super.draw(canvas, mapv, shadow);
 		drawPointsByStep(canvas, 1);

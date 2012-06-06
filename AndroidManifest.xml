@@ -51,6 +51,15 @@
         </activity>
         <activity
             android:name=".StatisticActivity"
+            android:screenOrientation="portrait" 
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
+        <activity
+            android:name="GoogleMapActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name="DiagrammActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>
