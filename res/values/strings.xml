@@ -61,6 +61,6 @@
     <string name="toast_gps_pause">GPS pausiert</string>
 
     <!-- Track -->
-    <string name="toast_track_wrote">Track in Datenbank geschrieben</string>
+    <string name="toast_track_wrote">Track wurde gespeichert</string>
 
 </resources>

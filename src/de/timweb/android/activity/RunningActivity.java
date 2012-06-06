@@ -18,12 +18,11 @@ public class RunningActivity extends Activity {
 	private static TrackManager trackmanager;
 
 	private int graphView = 0;
-	private RunningUpdaterTask timerTask;
+	private RunningUpdaterTask updateTask;
 	private ImageButton buttonSS;
 	private int modus;
 	private boolean isPaused = true;
-	
-	private Timer timer;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +40,7 @@ public class RunningActivity extends Activity {
 
 		buttonSS = (ImageButton) findViewById(R.id.but_start_pause);
 
-		timerTask = new RunningUpdaterTask(this, trackmanager);
-		timer = new Timer();
+		updateTask = new RunningUpdaterTask(this, trackmanager);
 	}
 
 	private void setIcon(int modus) {
@@ -71,23 +69,29 @@ public class RunningActivity extends Activity {
 		switch (view.getId()) {
 		case R.id.but_start_pause:
 			if (isPaused) {
-				timerTask.reset();
-				timer.schedule(timerTask, 1000, 1000);
+				updateTask.start();
+				
 				trackmanager.start(modus);
+				findViewById(R.id.but_save).setVisibility(View.GONE);
 				setProgressBarIndeterminateVisibility(true);
-				
+
 				isPaused = false;
-				buttonSS.setImageResource(R.drawable.ic_pause);
+				buttonSS.setImageResource(R.drawable.ic_but_pause);
 			} else {
-				trackmanager.stop();
-				timer.cancel();
-				
+				trackmanager.pause();
+				updateTask.pause();
 				setProgressBarIndeterminateVisibility(false);
-				
-				buttonSS.setImageResource(R.drawable.ic_play);
+				findViewById(R.id.but_save).setVisibility(View.VISIBLE);
+
+				buttonSS.setImageResource(R.drawable.ic_but_play);
 				isPaused = true;
 			}
 			break;
+		case R.id.but_save:
+			trackmanager.stop();
+			updateTask.stop();
+			break;
+
 		case R.id.but_left:
 			graphView--;
 			if (graphView == -1)
@@ -133,9 +137,12 @@ public class RunningActivity extends Activity {
 
 	}
 
+	/**
+	 * Warnung, wenn Track noch laueft, bzw noch nicht abgespeichert wurde
+	 */
 	@Override
 	public void onBackPressed() {
-		if (!trackmanager.isRunning()) {
+		if (trackmanager.isSaved()) {
 			finish();
 			return;
 		}

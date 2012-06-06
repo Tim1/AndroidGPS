@@ -1,22 +1,17 @@
 package de.timweb.android.activity;
 
-import de.timweb.android.activity.test.DrawTestActivity;
-import de.timweb.android.activity.test.GPSTestActivity;
-import de.timweb.android.activity.test.SensorTestActivity;
-import de.timweb.android.track.TrackManager;
-
-import java.util.Locale;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.ListView;
+import de.timweb.android.activity.test.DrawTestActivity;
+import de.timweb.android.activity.test.SensorTestActivity;
+import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
 
@@ -51,10 +46,6 @@ public class StartActivity extends Activity {
 
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
-			break;
-
-		case R.id.but_GPSTest:
-			startActivity(new Intent(this, GPSTestActivity.class));
 			break;
 
 		case R.id.but_preferences:

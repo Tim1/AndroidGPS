@@ -1,5 +1,6 @@
 package de.timweb.android.util;
 
+import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
@@ -9,7 +10,10 @@ import de.timweb.android.track.Statistics;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
 
-public class RunningUpdaterTask extends TimerTask{
+public class RunningUpdaterTask{
+	private Timer timer;
+	private MyTimerTask timertask;
+	
 	private Activity activity;
 	private TextView tv_distance;
 	private TextView tv_speed;
@@ -21,11 +25,6 @@ public class RunningUpdaterTask extends TimerTask{
 	private TrackManager trackmanager;
 	private TextView tv_time;
 
-	/**
-	 * pauseieren muss implementiert werden für den zeitverlauf
-	 * */
-	
-	
 	public RunningUpdaterTask(Activity activity,TrackManager trackmanager) {
 		this.activity = activity;
 		this.trackmanager = trackmanager;
@@ -54,37 +53,61 @@ public class RunningUpdaterTask extends TimerTask{
 		tv_distance = (TextView) activity.findViewById(R.id.tv_distanceEdit);
 		tv_steps = (TextView) activity.findViewById(R.id.tv_stepEdit);
 		tv_speed = (TextView) activity.findViewById(R.id.tv_speedEdit);
+		
+		timertask = new MyTimerTask();
 	}
 	
-	@Override
-	public void run() {
-		activity.runOnUiThread(new Runnable() {
-			public void run() {
-				Track track = trackmanager.getTrack();
-				if(track == null)
-					return;
-				
-				Statistics stats = track.getStatistics();
-				
-				tv_speed.setText(track.getFormatedSpeed());
-				tv_time.setText(track.getElapsedTime());
-				tv_distance.setText(track.getFormatedDistance());
-				tv_steps.setText(track.getSteps() + "");
-				
-				graphSpeed.setValueArrayList(stats.getSpeedValues());
-				graphSpeed.postInvalidate();
-				graphSteps.setValueArrayList(stats.getStepValues());
-				graphSteps.postInvalidate();
-				graphHeight.setValueArrayList(stats.getHeightValues());
-				graphHeight.postInvalidate();
-				graphDistance.setValueArrayList(stats.getDistanceValues());
-				graphDistance.postInvalidate();
-			}
-		});
+	public void start(){
+		if(timer != null){
+			timertask.cancel();
+			timer.cancel();
+		}
+		timer = new Timer();
+		timertask = new MyTimerTask();
+		timer.scheduleAtFixedRate(timertask, 1000, 1000);
+	}
+	public void pause(){
+		timertask.cancel();
+		timer.cancel();
+	}
+	public void stop(){
+		pause();
+		reset();
+	}
+	
+	
+	private class MyTimerTask extends TimerTask{
 		
+		@Override
+		public void run() {
+			activity.runOnUiThread(new Runnable() {
+				public void run() {
+					Track track = trackmanager.getTrack();
+					if(track == null)
+						return;
+					
+					Statistics stats = track.getStatistics();
+					
+					tv_speed.setText(track.getFormatedSpeed());
+					tv_time.setText(track.getElapsedTime());
+					tv_distance.setText(track.getFormatedDistance());
+					tv_steps.setText(track.getSteps() + "");
+					
+					graphSpeed.setValueArrayList(stats.getSpeedValues());
+					graphSpeed.postInvalidate();
+					graphSteps.setValueArrayList(stats.getStepValues());
+					graphSteps.postInvalidate();
+					graphHeight.setValueArrayList(stats.getHeightValues());
+					graphHeight.postInvalidate();
+					graphDistance.setValueArrayList(stats.getDistanceValues());
+					graphDistance.postInvalidate();
+				}
+			});
+			
+		}
 	}
 
-	public void reset() {
+	private void reset() {
 		graphSpeed.setMaxValue(0);
 		graphSteps.setMaxValue(0);
 		graphDistance.setMaxValue(0);

@@ -29,6 +29,7 @@ public class Track {
 	private long elapsedTime;
 	private double altitudeDiff;
 	private double currentSpeed;
+	private long pauseTime;
 	private Statistics stats = new Statistics();
 
 	ArrayList<Location> locations = new ArrayList<Location>();
@@ -82,7 +83,7 @@ public class Track {
 		currentSpeed = location.getSpeed();
 
 		stats.addStepDistance(steps, distanceDelta);
-		stats.addSpeed(location.getSpeed());
+		stats.addSpeed(location.getSpeed()*3.6f);
 		stats.addAltitude((float) location.getAltitude());
 		stats.addDistance(distanceDelta);
 
@@ -113,7 +114,7 @@ public class Track {
 		sql.bindLong(1, _id);
 		sql.bindLong(2, starttime);
 		sql.bindDouble(3, distance);
-		sql.bindLong(4, System.currentTimeMillis() - starttime);
+		sql.bindLong(4, System.currentTimeMillis() - starttime - pauseTime);
 		sql.bindLong(5, modus);
 		sql.bindLong(6, steps);
 
@@ -159,16 +160,16 @@ public class Track {
 		return currentSpeed*3.6;
 	}
 
-	public long getStarttime() {
-		return starttime;
-	}
+//	public long getStarttime() {
+//		return starttime;
+//	}
 
 	public String getElapsedTime() {
 		long secTotal = 0;		
 		if(elapsedTime == 0)
-			secTotal = (System.currentTimeMillis() - starttime)/1000;
+			secTotal = (System.currentTimeMillis() - starttime - pauseTime)/1000;
 		else
-			secTotal = elapsedTime;
+			secTotal = elapsedTime - pauseTime;
 		
 		long hours = secTotal / (60*60);
 		long mins = (secTotal-(hours*60*60)) / 60;
@@ -218,7 +219,8 @@ public class Track {
 		result += cal.get(Calendar.YEAR) + " ";
 
 		result += cal.get(Calendar.HOUR_OF_DAY) + ":";
-		result += cal.get(Calendar.MINUTE);
+		int min = cal.get(Calendar.MINUTE);
+		result += min > 9 ? min :"0"+min;
 
 		return result;
 	}
@@ -229,5 +231,13 @@ public class Track {
 
 	public Statistics getStatistics() {
 		return stats;
+	}
+
+	/**
+	 * 
+	 * @param time Dauer der Pause in ms 
+	 */
+	public void addPauseTime(long time) {
+		pauseTime += time;
 	}
 }

@@ -29,11 +29,13 @@ public class TrackManager {
 	private static Context context;
 	
 	private boolean isRunning = false;
+	private boolean isSaved = true;
 	private int trackid = -1;
 	private Track track;  
 	private DatabaseManager dbManager;
 	
 	private int steps;
+	private long pauseStart;
 		
 	
 	public TrackManager() {
@@ -59,16 +61,6 @@ public class TrackManager {
 	}
 	
 
-	/**
-	 * debug: zeigt Informationen über Track
-	 * 
-	 * WIRKLICH NOCH GEBRUACHT 
-	 */
-	public synchronized void show(){
-		if(trackid == -1)
-			return;
-		Toast.makeText(context, "Distance: "+ (float)track.getDistance() +" m\nSteps: "+track.getSteps(), Toast.LENGTH_SHORT).show();
-	}
 	
 	/**
 	 * startet (erneut) das GPS-Tracking.
@@ -76,9 +68,12 @@ public class TrackManager {
 	 * @param modus Modus des Tracks (Track.MODE_JOGGING etc.)
 	 */
 	public synchronized void start(int modus) {
+		boolean newtrack = false;
+		isSaved = false;
 		if(trackid == -1 && !isRunning){
 			setTrack(getNextTrackID(),modus);
 			Toast.makeText(context, context.getResources().getString(R.string.toast_track_record_start)+trackid, Toast.LENGTH_SHORT).show();
+			newtrack = true;
 		}
 		if(trackid == -1 || isRunning)
 			return;
@@ -88,7 +83,10 @@ public class TrackManager {
 		mSensorManager.registerListener(mSensorListener,mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),SensorManager.SENSOR_DELAY_GAME);
 		
 		isRunning = true;
-		Toast.makeText(context, R.string.toast_gps_start, Toast.LENGTH_SHORT).show();
+		if(!newtrack){
+			Toast.makeText(context, R.string.toast_gps_start, Toast.LENGTH_SHORT).show();
+			track.addPauseTime(System.currentTimeMillis()-pauseStart);
+		}
 	}
 	/**
 	 * pausiert das GPS-Tracking
@@ -101,6 +99,7 @@ public class TrackManager {
 		mDatabase.close();
 		isRunning = false;
 		Toast.makeText(context, R.string.toast_gps_pause, Toast.LENGTH_SHORT).show();
+		pauseStart = System.currentTimeMillis();
 	}
 	
 	/**
@@ -116,6 +115,7 @@ public class TrackManager {
 		if(!mDatabase.isOpen())
 			mDatabase = dbManager.getWritableDatabase();
 		track.writeToDatabase(context, mDatabase);
+		isSaved = true;
 		track = null;
 		trackid = -1;
 	}
@@ -137,9 +137,10 @@ public class TrackManager {
 		Toast.makeText(context, "reset Track "+trackid, Toast.LENGTH_SHORT).show();
 	}
 
-	public boolean isRunning() {
-		return isRunning;
+	public boolean isSaved() {
+		return isSaved;
 	}
+	
 	
 	private int getNextTrackID(){
 		String sql =  context.getResources().getString(R.string.db_select_track_maxid);
@@ -299,5 +300,9 @@ public class TrackManager {
 		//delte from gps_location too
 		mDatabase.execSQL(context.getResources().getString(R.string.db_delete_location)+trackid);
 		Toast.makeText(context, R.string.toast_track_deleted, Toast.LENGTH_SHORT).show();
+	}
+
+	public boolean isRunning() {
+		return isRunning;
 	}
 }
