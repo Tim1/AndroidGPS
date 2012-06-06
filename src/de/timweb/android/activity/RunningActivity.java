@@ -63,11 +63,6 @@ public class RunningActivity extends Activity {
 		case 2:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_jogging));
-			break;
-		case 3:
-			((ImageView) findViewById(R.id.im_modus))
-					.setImageDrawable(getResources().getDrawable(
 							R.drawable.ic_car));
 			break;
 		}

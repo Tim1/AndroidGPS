@@ -41,7 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
-        android:text="SensorTest" />
+        android:text="SensorTest" 
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/but_go"
