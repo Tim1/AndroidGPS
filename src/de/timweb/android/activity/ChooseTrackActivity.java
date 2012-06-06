@@ -68,15 +68,15 @@ public class ChooseTrackActivity extends ListActivity {
 		switch (modus) {
 		case Track.MODE_JOGGING:
 			iv.setImageDrawable(getResources().getDrawable(
-					R.drawable.ic_jogging));
+					R.drawable.ic_mode_jogging));
 			break;
 		case Track.MODE_BYCYCLE:
 			iv.setImageDrawable(getResources().getDrawable(
-					R.drawable.ic_bike));
+					R.drawable.ic_mode_bike));
 			break;
 		case Track.MODE_CAR:
 			iv.setImageDrawable(getResources().getDrawable(
-					R.drawable.ic_car));
+					R.drawable.ic_mode_car));
 			break;
 		}
 	}

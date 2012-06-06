@@ -50,19 +50,19 @@ public class RunningActivity extends Activity {
 		case 0:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_jogging));
+							R.drawable.ic_mode_jogging));
 			break;
 		case 1:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_bike));
+							R.drawable.ic_mode_bike));
 			((TextView) findViewById(R.id.tv_stepEdit))
 					.setVisibility(View.INVISIBLE);
 			break;
 		case 2:
 			((ImageView) findViewById(R.id.im_modus))
 					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_car));
+							R.drawable.ic_mode_car));
 			break;
 		}
 	}
