@@ -66,6 +66,7 @@
             android:name="DiagrammActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name="CreditsActivity"></activity>
     </application>
 
 </manifest>

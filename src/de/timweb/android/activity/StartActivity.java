@@ -78,8 +78,10 @@ public class StartActivity extends Activity {
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
 			break;
-
-		case R.id.but_preferences:
+		case R.id.but_start_credits:
+			startActivity(new Intent(this, CreditsActivity.class));
+			break;
+		case R.id.but_start_preferences:
 			startActivity(new Intent(this, PreferencesActivity.class));
 			break;
 
