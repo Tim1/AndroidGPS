@@ -54,7 +54,7 @@
         android:layout_alignParentLeft="true"
         android:background="#000000"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_start_about" />
+        android:src="@drawable/anim_but_about" />
 
     <ImageButton
         android:id="@+id/but_start_preferences"
@@ -64,7 +64,7 @@
         android:layout_alignParentRight="true"
         android:background="#000000"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_start_preferences" />
+        android:src="@drawable/anim_but_preferences" />
 
     <ImageButton
         android:id="@+id/but_start_gps"
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/view_mid"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/ic_start_stats"
+        android:background="@drawable/anim_but_track"
         android:onClick="onButtonClick"
         android:paddingTop="45dp"
         android:text="@string/bt_txt_choose_track"
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/but_chooseTrack"
         android:layout_below="@+id/view_mid"
-        android:background="@drawable/ic_start_go"
+        android:background="@drawable/anim_but_go"
         android:onClick="onButtonClick"
         android:paddingTop="45dp"
         android:text="@string/bt_txt_go"

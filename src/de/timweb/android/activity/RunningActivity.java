@@ -76,14 +76,14 @@ public class RunningActivity extends Activity {
 				setProgressBarIndeterminateVisibility(true);
 
 				isPaused = false;
-				buttonSS.setImageResource(R.drawable.ic_but_pause);
+				buttonSS.setImageResource(R.drawable.anim_but_pause);
 			} else {
 				trackmanager.pause();
 				updateTask.pause();
 				setProgressBarIndeterminateVisibility(false);
 				findViewById(R.id.but_save).setVisibility(View.VISIBLE);
 
-				buttonSS.setImageResource(R.drawable.ic_but_play);
+				buttonSS.setImageResource(R.drawable.anim_but_play);
 				isPaused = true;
 			}
 			break;

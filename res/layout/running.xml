@@ -136,7 +136,7 @@
         android:layout_alignParentLeft="true"
         android:background="#00000000"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_left" />
+        android:src="@drawable/anim_but_left" />
 
     <ImageButton
         android:id="@+id/but_start_pause"
@@ -146,7 +146,7 @@
         android:layout_centerHorizontal="true"
         android:background="#00000000"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_but_play" />
+        android:src="@drawable/anim_but_play" />
 
     <ImageButton
         android:id="@+id/but_right"
@@ -156,7 +156,7 @@
         android:layout_alignParentRight="true"
         android:background="#00000000"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_right" />
+        android:src="@drawable/anim_but_right" />
 
     <ImageButton
         android:id="@+id/but_save"
@@ -168,6 +168,6 @@
         android:onClick="onButtonClick"
         android:layout_above="@+id/but_start_pause"
         android:layout_alignLeft="@+id/but_start_pause"
-        android:src="@drawable/ic_but_save" />
+        android:src="@drawable/anim_but_save" />
 
 </RelativeLayout>
