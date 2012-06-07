@@ -46,7 +46,8 @@ public class ChooseTrackActivity extends ListActivity {
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				v = vi.inflate(R.layout.row, null);
-				registerForContextMenu(v);
+				//TODO
+//				registerForContextMenu(v);
 			}
 			Track track = mTracks.get(position);
 			if (track != null) {
@@ -189,7 +190,6 @@ public class ChooseTrackActivity extends ListActivity {
 	
 	@Override
 	protected void onRestart() {
-		// TODO Auto-generated method stub
 		super.onRestart();
 		setUpList();
 	}
