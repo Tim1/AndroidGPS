@@ -1,23 +1,30 @@
 package de.timweb.android.activity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 import de.timweb.android.activity.test.DrawTestActivity;
-import de.timweb.android.activity.test.SensorTestActivity;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
-
 	private static final boolean DEVELOPER_MODE = false;
-	String selected;
-	ListView lv;
+	private ListView lv;
+	private UpdateTimerTask task;
+	private Timer timer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,24 +33,48 @@ public class StartActivity extends Activity {
 					.detectDiskReads().detectDiskWrites().detectNetwork()
 					.penaltyLog().build());
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-			// .detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+					.detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
 					.penaltyLog().penaltyDeath().build());
 		}
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
-		
+
 		TrackManager.setContext(getApplicationContext());
-		
-//		GPS starten
-//		Intent intent = new Intent(
-//				android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//		startActivity(intent);
+
+		timer = new Timer();
+		task = new UpdateTimerTask();
+		timer.scheduleAtFixedRate(task, 0, 1000);
 	}
 
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 
+		case R.id.but_wifi:
+			WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+			try {
+				boolean before = wifi.isWifiEnabled();
+				wifi.setWifiEnabled(!before);
+
+				String str;
+				if (before)
+					str = "Disable WLAN...";
+				else
+					str = "Enable WLAN...";
+
+				Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+
+			} catch (Exception e) {
+				Toast.makeText(this,
+						"Cannot start/stop Wifi = " + e.getMessage(),
+						Toast.LENGTH_SHORT).show();
+			}
+			break;
+		case R.id.but_start_gps:
+			final Intent intent2 = new Intent(
+					android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+			startActivity(intent2);
+			break;
 		case R.id.but_chooseTrack:
 			startActivity(new Intent(this, ChooseTrackActivity.class));
 			break;
@@ -51,15 +82,11 @@ public class StartActivity extends Activity {
 		case R.id.but_preferences:
 			startActivity(new Intent(this, PreferencesActivity.class));
 			break;
-			
-		case R.id.but_SENSORTest:
-			startActivity(new Intent(this, SensorTestActivity.class));
-			break;
-			
+
 		case R.id.but_DRAWTest:
 			startActivity(new Intent(this, DrawTestActivity.class));
 			break;
-			
+
 		case R.id.but_go:
 			final Intent intent = new Intent(StartActivity.this,
 					RunningActivity.class);
@@ -96,18 +123,61 @@ public class StartActivity extends Activity {
 			break;
 		}
 	}
-	
+
+	/**
+	 * Da Activites in Stacks gespeichert werden, wird bei Backtaste von
+	 * PrefernecesActivity die alte evtl sprachlich veraltete StartActivity
+	 * gerufen. Bei onResume wird dann das layout neu gesetzt.
+	 */
 	@Override
 	protected void onResume() {
 		super.onResume();
-		/*
-		 * Da Activites in Stacks gespeichert werden, wird bei Backtaste von PrefernecesActivity
-		 * die alte evtl sprachlich veraltete StartActivity gerufen.
-		 * Bei onResume wird dann das layout neu gesetzt.
-		 * */
 		setContentView(R.layout.start);
+		task.update();
 	}
 
+	private class UpdateTimerTask extends TimerTask {
+		WifiManager wifi;
+		LocationManager gps;
+		ImageButton but_wifi;
+		ImageButton but_gps;
 
+		public UpdateTimerTask() {
+			update();
+		}
 
+		/**
+		 * muss aufgerufen werden, wenn nachdem das Layout neu gesetzt wird
+		 */
+		public void update() {
+			wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+			gps = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+			but_wifi = (ImageButton) findViewById(R.id.but_wifi);
+			but_gps = (ImageButton) findViewById(R.id.but_start_gps);
+
+		}
+
+		@Override
+		public void run() {
+			runOnUiThread(new Runnable() {
+				public void run() {
+					if (wifi.isWifiEnabled())
+						but_wifi.setImageDrawable(getResources().getDrawable(
+								R.drawable.ic_start_wifi_on));
+					else
+						but_wifi.setImageDrawable(getResources().getDrawable(
+								R.drawable.ic_start_wifi_off));
+
+					if (gps.isProviderEnabled(LocationManager.GPS_PROVIDER))
+						but_gps.setImageDrawable(getResources().getDrawable(
+								R.drawable.ic_start_gps_on));
+					else
+						but_gps.setImageDrawable(getResources().getDrawable(
+								R.drawable.ic_start_gps_off));
+
+				}
+			});
+
+		}
+	}
 }

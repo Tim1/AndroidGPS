@@ -37,14 +37,14 @@
         android:visibility="gone" />
 
     <ImageButton
-        android:id="@+id/but_start_wifi"
+        android:id="@+id/but_wifi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#000000"
-        android:src="@drawable/ic_start_wifi_on" />
+        android:src="@drawable/ic_start_wifi_off" />
 
     <ImageButton
         android:id="@+id/but_start_credits"
