@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:padding="10dp" >
+    android:padding="10dip" >
 
     <TextView
-        android:layout_width="fill_parent"
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="@string/tv_txt_start_activity" />
-
-    <Button
-        android:id="@+id/but_chooseTrack"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onButtonClick"
-        android:text="@string/bt_txt_choose_track" />
-
-    <Button
-        android:id="@+id/but_preferences"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onButtonClick"
-        android:text="@string/bt_txt_preferences" />
 
     <Button
         android:id="@+id/but_GPSTest"
@@ -49,11 +36,71 @@
         android:text="SensorTest"
         android:visibility="gone" />
 
+    <ImageButton
+        android:id="@+id/but_start_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:src="@drawable/ic_start_wifi_on" />
+
+    <ImageButton
+        android:id="@+id/but_start_credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonClick"
+        android:background="#000000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_start_about" />
+
     <Button
         android:id="@+id/but_go"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:onClick="onButtonClick"
         android:text="@string/bt_txt_go" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/but_chooseTrack"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/but_go"
+        android:layout_alignLeft="@+id/but_go"
+        android:onClick="onButtonClick"
+        android:text="@string/bt_txt_choose_track" />
+
+    <Button
+        android:id="@+id/but_preferences"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/but_go"
+        android:layout_below="@+id/but_go"
+        android:onClick="onButtonClick"
+        android:text="@string/bt_txt_preferences" />
+
+    <ImageButton
+        android:id="@+id/but_start_preferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/ic_start_preferences" />
+
+    <ImageButton
+        android:id="@+id/but_start_gps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/ic_start_gps_on" />
+
+</RelativeLayout>
