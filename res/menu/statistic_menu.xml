@@ -5,9 +5,5 @@
         android:id="@+id/menu_statistic_delete"
         android:icon="@drawable/ic_menu_trash"
         android:title="@string/menu_title_delete"/>
-    <item
-        android:id="@+id/menu_statistic_write_note"
-        android:icon="@drawable/ic_menu_note"
-        android:title="@string/menu_title_write_note"/>
 
 </menu>

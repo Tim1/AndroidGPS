@@ -13,6 +13,7 @@
     <string name="bt_txt_go">Los geht\'s!</string>
 
     <!-- Running Activity -->
+     <string name="clodfse">Besadfenden</string>
     <string name="close">Beenden</string>
     <string name="sure_to_close">Speichern der Einheit bevor Beenden?</string>
     <string name="bt_txt_start">Starten</string>
@@ -45,13 +46,12 @@
     <string name="pd_txt_please_wait">Bitte Warten</string>
     <string name="pd_txt_loading_data">Daten werden geladen...</string>
     <string name="main_no_items">Kein Tracks vorhanden</string>
+    <string name="toast_no_locations_found">Keine Locations gefunden</string>
 
     <!-- Statistic Activity -->
-    <string name="toast_no_locations_found">Keine Locations gefunden</string>
     <string name="delete_track">Track Löschen</string>
     <string name="sure_to_delete_track">Wollen Sie den Track wirklich löschen?</string>
     <string name="menu_title_delete">Löschen</string>
-    <string name="menu_title_write_note">Notiz schreiben</string>
     <string name="di_delete">Löschen</string>
 
     <!-- Track Manager -->
@@ -63,4 +63,20 @@
     <!-- Track -->
     <string name="toast_track_wrote">Track wurde gespeichert</string>
 
+    <!-- RateAndNote Activity -->
+        <string name="bt_txt_edit_note">Notiz ändern</string>
+        <string name="bt_txt_save_note">Notiz speichern</string>
+        <string name="tv_txt_add_your_note">Notiz schreiben</string>
+        <string name="et_txt_add_your_note">Notiz schreiben</string>
+        <string name="tv_txt_note">Notiz</string>
+        <string name="tv_txt_ratingbar">Bewertung</string>
+        
+        <!-- RunningeUpdaterTast -->
+        <string name="graph_speed">Geschwindigkeit (in km/h)</string>
+        <string name="graph_steps">Länge der Schritte (in m)</string>
+        <string name="graph_heigth">Differenz der Höhe (in m)</string>
+        <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
+        
+        
+        
 </resources>

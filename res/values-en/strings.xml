@@ -45,13 +45,12 @@
     <string name="pd_txt_please_wait">Pleas wait</string>
     <string name="pd_txt_loading_data">loading Data...</string>
     <string name="main_no_items">No Tracks available</string>
+    <string name="toast_no_locations_found">No Locations found</string>
 
     <!-- Statistic Activity -->
-    <string name="toast_no_locations_found">No Locations found</string>
     <string name="delete_track">Delete Track</string>
     <string name="sure_to_delete_track">Are you sure you want to delete the track?</string>
     <string name="menu_title_delete">delete</string>
-    <string name="menu_title_write_note">write note</string>
     <string name="di_delete">Delete</string>
 
     <!-- Track Manager -->
@@ -62,5 +61,19 @@
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wrote in database</string>
-
+    
+    <!-- RateAndNote Activity -->
+        <string name="bt_txt_edit_note">Edit Note</string>
+        <string name="bt_txt_save_note">Save Note</string>
+        <string name="tv_txt_add_your_note">write note</string>
+        <string name="et_txt_add_your_note">write note</string>
+        <string name="tv_txt_note">Note</string>
+        <string name="tv_txt_ratingbar">Rating</string>
+        
+        <!-- RunningeUpdaterTast -->
+        <string name="graph_speed">Speed (in km/h)</string>
+        <string name="graph_steps">Length of Steps (in m)</string>
+        <string name="graph_heigth">Difference in Altitude (in m)</string>
+        <string name="graph_distance">Distance between measure Points (in m)</string>
+        
 </resources>

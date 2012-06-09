@@ -1,10 +1,17 @@
 package de.timweb.android.activity;
 
+import de.timweb.android.track.TrackManager;
 import android.app.TabActivity;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 @SuppressWarnings("deprecation")
 public class StatisticActivity extends TabActivity{
@@ -50,6 +57,13 @@ public class StatisticActivity extends TabActivity{
 	    		.setContent(intent);
 	    tabHost.addTab(spec);
 	    
+	    
+	    intent = new Intent().setClass(this, RateAndNoteActivity.class);
+	    intent.putExtra("_id", trackId);
+	    spec = tabHost.newTabSpec("rateandnote").setIndicator("Rate/Note",
+	    		res.getDrawable(R.drawable.tab_rate_and_note))
+	    		.setContent(intent);
+	    tabHost.addTab(spec);
 //	    tabHost.setCurrentTab(2);
 	    /**
 	     * Alles in einem Tab wuerde ich Sagen (dann sinds 4 Tabs)
@@ -57,6 +71,38 @@ public class StatisticActivity extends TabActivity{
 	     */
 	   //noch zwei für notes und bewertung oder alles in einer
 		
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.statistic_menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_statistic_delete:
+			
+			Builder builder = new Builder(this);
+			builder.setTitle(R.string.delete_track)
+					.setIcon(android.R.drawable.ic_dialog_info)
+					.setMessage(R.string.sure_to_delete_track)
+					.setPositiveButton(R.string.di_delete,
+							new DialogInterface.OnClickListener() {
+
+								public void onClick(DialogInterface dialog,
+										int which) {
+									TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
+									finish();
+								}
+							}).setNegativeButton(android.R.string.cancel, null)
+					.show();
+			break;
+		default:
+			break;
+		}
+		return true;
 	}
 }
 

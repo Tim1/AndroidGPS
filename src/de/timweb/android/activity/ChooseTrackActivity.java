@@ -137,7 +137,6 @@ public class ChooseTrackActivity extends ListActivity {
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
-//		Intent intent = new Intent(this, GoogleMapActivity.class);
 		Intent intent = new Intent(this, StatisticActivity.class);
 
 		intent.putExtra("_id", mTracks.get(position).getID());
@@ -180,9 +179,9 @@ public class ChooseTrackActivity extends ListActivity {
 						.show();
 	        	
 	            return true;
-	        case R.id.menu_note:
-	        	Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
-	            return true;
+//	        case R.id.menu_note:
+//	        	Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
+//	            return true;
 	        default:
 	            return super.onContextItemSelected(item);
 	    }

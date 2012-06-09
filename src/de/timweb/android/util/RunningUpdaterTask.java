@@ -44,10 +44,10 @@ public class RunningUpdaterTask{
 		graphHeight.setMaxValue(1000);
 		
 		
-		graphSpeed.setText("Speed (in km/h)");
-		graphSteps.setText("Length of Steps (in m)");
-		graphHeight.setText("Difference in Altitude (in m)");
-		graphDistance.setText("Distance between measure Points (in m)");
+		graphSpeed.setText(activity.getResources().getString(R.string.graph_speed));
+		graphSteps.setText(activity.getResources().getString(R.string.graph_steps));
+		graphHeight.setText(activity.getResources().getString(R.string.graph_heigth));
+		graphDistance.setText(activity.getResources().getString(R.string.graph_distance));
 		
 		tv_time = (TextView) activity.findViewById(R.id.tv_timeEdit);
 		tv_distance = (TextView) activity.findViewById(R.id.tv_distanceEdit);

@@ -32,6 +32,9 @@ public class Track {
 	private long pauseTime;
 	private Statistics stats = new Statistics();
 
+	private double rating;
+	private String note;
+	
 	ArrayList<Location> locations = new ArrayList<Location>();
 
 	/**
@@ -117,11 +120,14 @@ public class Track {
 		sql.bindLong(4, System.currentTimeMillis() - starttime - pauseTime);
 		sql.bindLong(5, modus);
 		sql.bindLong(6, steps);
+		sql.bindDouble(7, 0);
+		sql.bindString(8, "");
 
 		sql.executeInsert();
 
 		Toast.makeText(context, R.string.toast_track_wrote, Toast.LENGTH_SHORT).show();
 	}
+	
 
 	/**
 	 * @return distance of track in meter
@@ -240,4 +246,5 @@ public class Track {
 	public void addPauseTime(long time) {
 		pauseTime += time;
 	}
+	
 }

@@ -21,20 +21,24 @@ public class DiagrammActivity extends Activity{
 		setContentView(R.layout.diagramm);
 		
 		stats = TrackManager.generateFromDatabase(this, getIntent().getIntExtra("_id", 0)).getStatistics();
+		setUpLayout();
 		
 		
-		
+	
+	}
+	
+	public void setUpLayout(){
 		switch (getIntent().getIntExtra("mode", 0)) {
 		case 1:
 			graphSpeed = (GraphLiveView) findViewById(R.id.view_da_graphview_Speed);
 			graphSpeed.setVisibility(View.VISIBLE);
-			graphSpeed.setText("Speed (in km/h)");
+			graphSpeed.setText(getResources().getString(R.string.graph_speed));
 			graphSpeed.setValueArrayList(stats.getSpeedValues());
 			
 			
 			graphDistance = (GraphLiveView) findViewById(R.id.view_da_graphview_Distance);
 			graphDistance.setVisibility(View.VISIBLE);
-			graphDistance.setText("Distance between measure Points (in m)");
+			graphDistance.setText(getResources().getString(R.string.graph_distance));
 			graphDistance.setValueArrayList(stats.getDistanceValues());
 
 			break;
@@ -42,13 +46,13 @@ public class DiagrammActivity extends Activity{
 		case 2:
 			graphSteps = (GraphLiveView) findViewById(R.id.view_da_graphview_Steps);
 			graphSteps.setVisibility(View.VISIBLE);
-			graphSteps.setText("Length of Steps (in m)");
+			graphSteps.setText(getResources().getString(R.string.graph_steps));
 			graphSteps.setValueArrayList(stats.getStepValues());
 
 
 			graphHeight = (GraphLiveView) findViewById(R.id.view_da_graphview_Height);
 			graphHeight.setVisibility(View.VISIBLE);
-			graphHeight.setText("Difference in Altitude (in m)");
+			graphHeight.setText(getResources().getString(R.string.graph_heigth));
 			graphHeight.setValueArrayList(stats.getHeightValues());
 
 			break;

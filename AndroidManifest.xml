@@ -67,6 +67,10 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name="CreditsActivity"></activity>
+         <activity
+            android:name="RateAndNoteActivity"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

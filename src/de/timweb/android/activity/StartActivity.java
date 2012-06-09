@@ -33,7 +33,7 @@ public class StartActivity extends Activity {
 					.detectDiskReads().detectDiskWrites().detectNetwork()
 					.penaltyLog().build());
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
-					.detectLeakedSqlLiteObjects().detectLeakedClosableObjects()
+					.detectLeakedSqlLiteObjects().detectLeakedSqlLiteObjects()
 					.penaltyLog().penaltyDeath().build());
 		}
 

@@ -42,7 +42,6 @@ public class GoogleMapActivity extends MapActivity {
 		setContentView(R.layout.googlemap);
 
 		setUpGoogleMap();
-		
 	}
 
 	public void setUpGoogleMap() {
@@ -73,46 +72,6 @@ public class GoogleMapActivity extends MapActivity {
 
 	@Override
 	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.statistic_menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menu_statistic_delete:
-			
-			Builder builder = new Builder(this);
-			builder.setTitle(R.string.delete_track)
-					.setIcon(android.R.drawable.ic_dialog_info)
-					.setMessage(R.string.sure_to_delete_track)
-					.setPositiveButton(R.string.di_delete,
-							new DialogInterface.OnClickListener() {
-
-								public void onClick(DialogInterface dialog,
-										int which) {
-									TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
-									finish();
-								}
-							}).setNegativeButton(android.R.string.cancel, null)
-					.show();
-			
-			
-			break;
-		case R.id.menu_statistic_write_note:
-			Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
-			break;
-		default:
-			break;
-		}
-		return true;
-	}
-
 }
