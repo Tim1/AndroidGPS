@@ -126,6 +126,7 @@ public class Track {
 		sql.executeInsert();
 
 		Toast.makeText(context, R.string.toast_track_wrote, Toast.LENGTH_SHORT).show();
+
 	}
 	
 

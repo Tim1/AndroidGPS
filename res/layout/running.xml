@@ -23,10 +23,11 @@
         android:id="@+id/tv_timeEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_timer"
         android:text="0:00"
         android:textSize="25dip"
-        android:textStyle="bold" android:layout_marginLeft="20dp"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/im_speed"
@@ -40,9 +41,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_timeEdit"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_speed"
         android:text="0.0 km/h"
-        android:textSize="25dip" android:layout_marginLeft="20dp"/>
+        android:textSize="25dip" />
 
     <ImageView
         android:id="@+id/im_distance"
@@ -56,9 +58,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_speedEdit"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_distance"
         android:text="0.0 km"
-        android:textSize="25dip" android:layout_marginLeft="20dp"/>
+        android:textSize="25dip" />
 
     <ImageView
         android:id="@+id/im_steps"
@@ -72,9 +75,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_distanceEdit"
+        android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_steps"
         android:text="0 Steps"
-        android:textSize="25dip" android:layout_marginLeft="20dp"/>
+        android:textSize="25dip" />
 
     <!-- GraphLiveView -->
 
@@ -83,8 +87,9 @@
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:layout_below="@id/tv_stepEdit"
+        android:layout_marginTop="10dp"
         class="de.timweb.android.util.GraphLiveView"
-        android:background="#222222" android:layout_marginTop="10dp">
+        android:background="#222222" >
     </view>
 
     <view
@@ -92,6 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:layout_below="@id/tv_stepEdit"
+        android:layout_marginTop="10dp"
         class="de.timweb.android.util.GraphLiveView"
         android:background="#222222"
         android:visibility="gone" >
@@ -102,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:layout_below="@id/tv_stepEdit"
+        android:layout_marginTop="10dp"
         class="de.timweb.android.util.GraphLiveView"
         android:background="#222222"
         android:visibility="gone" >
@@ -112,6 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dip"
         android:layout_below="@id/tv_stepEdit"
+        android:layout_marginTop="10dp"
         class="de.timweb.android.util.GraphLiveView"
         android:background="#222222"
         android:visibility="gone" >
@@ -160,14 +168,14 @@
 
     <ImageButton
         android:id="@+id/but_save"
-        android:visibility="gone"
-        android:background="#00000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:onClick="onButtonClick"
         android:layout_above="@+id/but_start_pause"
         android:layout_alignLeft="@+id/but_start_pause"
-        android:src="@drawable/anim_but_save" />
+        android:layout_marginBottom="10dp"
+        android:background="#00000000"
+        android:onClick="onButtonClick"
+        android:src="@drawable/anim_but_save"
+        android:visibility="gone" />
 
 </RelativeLayout>

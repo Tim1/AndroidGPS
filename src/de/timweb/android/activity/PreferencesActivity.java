@@ -33,49 +33,17 @@ public class PreferencesActivity extends Activity {
 		pref = getSharedPreferences("PreferencesActivity", MODE_PRIVATE);
 		editor = pref.edit();
 		dm = getResources().getDisplayMetrics();
-
-		((SeekBar) findViewById(R.id.seekBar1))
-				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
-					public void onStopTrackingTouch(SeekBar seekBar) {
-
-					}
-
-					public void onStartTrackingTouch(SeekBar seekBar) {
-
-					}
-
-					public void onProgressChanged(SeekBar seekBar,
-							int progress, boolean fromUser) {
-						editor.putInt("seekBar", progress);
-						editor.commit();
-						((TextView) findViewById(R.id.tv_progress)).setText(""
-								+ pref.getInt("seekBar", 0));
-
-					}
-				});
-
 	}
 
-	public void onButtonClick(View view) {
-	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		((RadioGroup) findViewById(R.id.radioGroup_Style)).check(pref.getInt(
-				"style", 0));
-		((SeekBar) findViewById(R.id.seekBar1)).setProgress(pref.getInt(
-				"seekBar", 0));
 		((RadioGroup) findViewById(R.id.radioGroup_Language)).check(pref
 				.getInt("language", 0));
 	}
 
 	public void onRadioButtonClicked(View v) {
-
-		editor.putInt("style",
-				((RadioGroup) findViewById(R.id.radioGroup_Style))
-						.getCheckedRadioButtonId());
 		editor.putInt("language",
 				((RadioGroup) findViewById(R.id.radioGroup_Language))
 						.getCheckedRadioButtonId());

@@ -30,14 +30,9 @@
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Preferences\n</string>
-    <string name="tv_txt_pref_GPS">GPS</string>
-    <string name="tv_txt_GPS_note">Note that the itensity influences your acc!\n</string>
-    <string name="tv_txt_pref_Style">Style</string>
-    <string name="rb_txt_style_1">Style 1</string>
-    <string name="rb_txt_style_2">Style 2</string>
+    <string name="tv_txt_language">Language</string>
     <string name="rb_txt_lang_de">German</string>
     <string name="rb_txt_lang_en">English</string>
-    <string name="tv_txt_language">Language</string>
 
     <!-- ChooseTrack Activity -->
     <string name="tv_txt_date">Date</string>

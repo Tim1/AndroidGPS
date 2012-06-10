@@ -46,21 +46,17 @@ public class RunningActivity extends Activity {
 	private void setIcon(int modus) {
 		switch (modus) {
 		case 0:
-			((ImageView) findViewById(R.id.im_modus))
-					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_mode_jogging));
+			((ImageView) findViewById(R.id.im_modus)).setImageDrawable(getResources().getDrawable(R.drawable.ic_mode_jogging));
 			break;
 		case 1:
-			((ImageView) findViewById(R.id.im_modus))
-					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_mode_bike));
-			((TextView) findViewById(R.id.tv_stepEdit))
-					.setVisibility(View.INVISIBLE);
+			((ImageView) findViewById(R.id.im_modus)).setImageDrawable(getResources().getDrawable(R.drawable.ic_mode_bike));
+			((ImageView)findViewById(R.id.im_steps)).setVisibility(View.GONE);
+			((TextView) findViewById(R.id.tv_stepEdit)).setVisibility(View.INVISIBLE);
 			break;
 		case 2:
-			((ImageView) findViewById(R.id.im_modus))
-					.setImageDrawable(getResources().getDrawable(
-							R.drawable.ic_mode_car));
+			((ImageView) findViewById(R.id.im_modus)).setImageDrawable(getResources().getDrawable(R.drawable.ic_mode_car));
+			((ImageView)findViewById(R.id.im_steps)).setVisibility(View.GONE);
+			((TextView) findViewById(R.id.tv_stepEdit)).setVisibility(View.INVISIBLE);
 			break;
 		}
 	}
@@ -94,12 +90,22 @@ public class RunningActivity extends Activity {
 
 		case R.id.but_left:
 			graphView--;
-			if (graphView == -1)
-				graphView = 3;
+			if (graphView == -1 ){
+				if(modus != 0)
+					graphView = 2;
+				else
+					graphView = 3;
+			}
 			switchGraphView();
 			break;
 		case R.id.but_right:
-			graphView = ++graphView % 4;
+			graphView++;
+			if(graphView == 3){
+				if(modus != 0)
+					graphView = 0;
+			}
+			if(graphView == 4)
+				graphView = 0;
 			switchGraphView();
 			break;
 		}
@@ -128,6 +134,7 @@ public class RunningActivity extends Activity {
 			findViewById(R.id.view_graphview_Steps).setVisibility(View.GONE);
 			break;
 		case 3:
+			//nur für Jogger nützlich
 			findViewById(R.id.view_graphview_Speed).setVisibility(View.GONE);
 			findViewById(R.id.view_graphview_Height).setVisibility(View.GONE);
 			findViewById(R.id.view_graphview_Distance).setVisibility(View.GONE);

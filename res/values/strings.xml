@@ -30,14 +30,9 @@
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Einstellungen\n</string>
-    <string name="tv_txt_pref_GPS">GPS</string>
-    <string name="tv_txt_GPS_note">Beachten Sie,dass die GPS-Intensität Ihren Akku beeinflusst!\n</string>
-    <string name="tv_txt_pref_Style">Style</string>
-    <string name="rb_txt_style_1">Style 1</string>
-    <string name="rb_txt_style_2">Style 2</string>
+    <string name="tv_txt_language">Sprache</string>
     <string name="rb_txt_lang_de">Deutsch</string>
     <string name="rb_txt_lang_en">Englisch</string>
-    <string name="tv_txt_language">Sprache</string>
 
     <!-- ChooseTrack Activity -->
     <string name="tv_txt_date">Datum</string>
