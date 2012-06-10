@@ -52,7 +52,11 @@
     <string name="sure_to_delete_track">Are you sure you want to delete the track?</string>
     <string name="menu_title_delete">delete</string>
     <string name="di_delete">Delete</string>
-
+    <string name="txt_overview">Overview</string>
+    <string name="txt_graph_1">Graph 1</string>
+    <string name="txt_graph_2">Graph 2</string>
+    <string name="txt_map">Map</string>
+   
     <!-- Track Manager -->
     <string name="toast_track_deleted">Track deleted</string>
     <string name="toast_track_record_start">Start recording Track No\u0020</string>
@@ -61,28 +65,27 @@
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wrote in database</string>
-    
+
     <!-- RateAndNote Activity -->
-     	<string name="tv_txt_overview">Overview\n</string>
-        <string name="bt_txt_edit_note">Edit Note</string>
-        <string name="bt_txt_save_note">Save Note</string>
-        <string name="tv_txt_add_your_note">write note</string>
-        <string name="et_txt_add_your_note">write note</string>
-        <string name="tv_txt_note">Note</string>
-        <string name="tv_txt_ratingbar">Rating</string>
-        
-        <!-- RunningeUpdaterTast -->
-        <string name="graph_speed">Speed (in km/h)</string>
-        <string name="graph_steps">Length of Steps (in m)</string>
-        <string name="graph_heigth">Difference in Altitude (in m)</string>
-        <string name="graph_distance">Distance between measure Points (in m)</string>
-        
-        <!-- GoogleMap Activity -->
-        <string name="di_mapstyle">Map Style</string>
-        <string name="di_roadmap">Road Map</string>
-        <string name="di_satellite">Satellite Map</string>
-        <string name="but_txt_set_accuracy">Set Accuracy</string>
-        <string name="txt_step_size">Step Size:\u0020</string>
-        
-        
+    <string name="tv_txt_overview">Overview\n</string>
+    <string name="bt_txt_edit_note">Edit Note</string>
+    <string name="bt_txt_save_note">Save Note</string>
+    <string name="tv_txt_add_your_note">write note</string>
+    <string name="et_txt_add_your_note">write note</string>
+    <string name="tv_txt_note">Note</string>
+    <string name="tv_txt_ratingbar">Rating</string>
+
+    <!-- RunningeUpdaterTast -->
+    <string name="graph_speed">Speed (in km/h)</string>
+    <string name="graph_steps">Length of Steps (in m)</string>
+    <string name="graph_heigth">Difference in Altitude (in m)</string>
+    <string name="graph_distance">Distance between measure Points (in m)</string>
+
+    <!-- GoogleMap Activity -->
+    <string name="di_mapstyle">Map Style</string>
+    <string name="di_roadmap">Road Map</string>
+    <string name="di_satellite">Satellite Map</string>
+    <string name="but_txt_set_accuracy">Set Accuracy</string>
+    <string name="txt_step_size">Step Size:\u0020</string>
+
 </resources>

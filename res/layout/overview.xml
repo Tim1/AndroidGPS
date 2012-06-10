@@ -79,6 +79,8 @@
         android:text="0 Steps"
         android:textSize="25dip" />
 
+
+
     <View
         android:id="@+id/view_line1"
         android:layout_width="fill_parent"
@@ -134,7 +136,6 @@
         android:layout_below="@+id/view_line2"
         android:layout_margin="6dp"
         android:gravity="top"
-        android:inputType="text"
         android:text="@string/et_txt_add_your_note"
         android:visibility="gone" />
 

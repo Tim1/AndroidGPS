@@ -13,7 +13,6 @@
     <string name="bt_txt_go">Los geht\'s!</string>
 
     <!-- Running Activity -->
-     <string name="clodfse">Besadfenden</string>
     <string name="close">Beenden</string>
     <string name="sure_to_close">Speichern der Einheit bevor Beenden?</string>
     <string name="bt_txt_start">Starten</string>
@@ -53,38 +52,41 @@
     <string name="sure_to_delete_track">Wollen Sie den Track wirklich löschen?</string>
     <string name="menu_title_delete">Löschen</string>
     <string name="di_delete">Löschen</string>
+    <string name="txt_overview">Übersicht</string>
+    <string name="txt_graph_1">Graph 1</string>
+    <string name="txt_graph_2">Graph 2</string>
+    <string name="txt_map">Karte</string>
 
     <!-- Track Manager -->
     <string name="toast_track_deleted">Track gelöscht</string>
     <string name="toast_track_record_start">Beginn der Aufnahme vom Track\u0020</string>
     <string name="toast_gps_start">GPS gestartet</string>
     <string name="toast_gps_pause">GPS pausiert</string>
+    
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wurde gespeichert</string>
 
     <!-- Overview Activity -->
-        <string name="tv_txt_overview">Übersicht\n</string>
-        <string name="bt_txt_edit_note">Notiz ändern</string>
-        <string name="bt_txt_save_note">Notiz speichern</string>
-        <string name="tv_txt_add_your_note">Notiz schreiben</string>
-        <string name="et_txt_add_your_note">Notiz schreiben</string>
-        <string name="tv_txt_note">Notiz</string>
-        <string name="tv_txt_ratingbar">Bewertung</string>
-        
-        <!-- RunningeUpdaterTast -->
-        <string name="graph_speed">Geschwindigkeit (in km/h)</string>
-        <string name="graph_steps">Länge der Schritte (in m)</string>
-        <string name="graph_heigth">Differenz der Höhe (in m)</string>
-        <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
-        
-        <!-- GoogleMap Activity -->
-        <string name="di_mapstyle">Kartenart</string>
-        <string name="di_roadmap">Staßenkarte</string>
-        <string name="di_satellite">Satellitenkarte</string>
-        <string name="but_txt_set_accuracy">Genauigkeit stellen</string>
-        <string name="txt_step_size">Schrittweite:\u0020</string>
-       
-       
-        
+    <string name="tv_txt_overview">Übersicht\n</string>
+    <string name="bt_txt_edit_note">Notiz ändern</string>
+    <string name="bt_txt_save_note">Notiz speichern</string>
+    <string name="tv_txt_add_your_note">Notiz schreiben</string>
+    <string name="et_txt_add_your_note">Notiz schreiben</string>
+    <string name="tv_txt_note">Notiz</string>
+    <string name="tv_txt_ratingbar">Bewertung</string>
+
+    <!-- RunningeUpdaterTast -->
+    <string name="graph_speed">Geschwindigkeit (in km/h)</string>
+    <string name="graph_steps">Länge der Schritte (in m)</string>
+    <string name="graph_heigth">Differenz der Höhe (in m)</string>
+    <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
+
+    <!-- GoogleMap Activity -->
+    <string name="di_mapstyle">Kartenart</string>
+    <string name="di_roadmap">Staßenkarte</string>
+    <string name="di_satellite">Satellitenkarte</string>
+    <string name="but_txt_set_accuracy">Genauigkeit stellen</string>
+    <string name="txt_step_size">Schrittweite:\u0020</string>
+
 </resources>
