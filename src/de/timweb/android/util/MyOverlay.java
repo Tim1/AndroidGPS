@@ -31,6 +31,8 @@ public class MyOverlay extends Overlay {
 	private Projection mProjection;
 	private Context mcontext;
 
+	private int step = 1;
+	
 	public MyOverlay(ArrayList<Location> locations, Projection projection,Context context) {
 		mLocations = locations;
 		mProjection = projection;
@@ -64,7 +66,7 @@ public class MyOverlay extends Overlay {
 	@Override
 	public void draw(Canvas canvas, MapView mapv, boolean shadow) {
 		super.draw(canvas, mapv, shadow);
-		drawPointsByStep(canvas, 1);
+		drawPointsByStep(canvas, step);
 	}
 
 	private void drawPointsByStep(Canvas canvas, int step) {
@@ -98,6 +100,11 @@ public class MyOverlay extends Overlay {
 		pathArray[pathArray.length - 1].lineTo(pointArray[pointArray.length - 1].x,pointArray[pointArray.length - 1].y);
 		canvas.drawPath(pathArray[pathArray.length - 1], mPaint);
 
+	}
+	
+	public void setStep(int step){
+		
+		this.step = new Integer(step);
 	}
 
 }

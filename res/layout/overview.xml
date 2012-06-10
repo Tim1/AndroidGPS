@@ -19,7 +19,7 @@
         android:id="@+id/tv_ov_overview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tv_txt_overview"/>"
+        android:text="@string/tv_txt_overview"/>
 
     <TextView
         android:id="@+id/tv_ov_date"

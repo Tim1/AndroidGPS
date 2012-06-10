@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
 
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +14,42 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:apiKey="@string/apiKey"
-            android:clickable="true" />
+            android:clickable="true" >
+        </com.google.android.maps.MapView>
     </FrameLayout>
 
-</LinearLayout>
+    <SeekBar
+        android:id="@+id/sb_googlemaps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/but_set_accuracy"
+        android:max="100"
+        android:padding="10dip"
+        android:progress="1"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/but_set_accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onButtonClick"
+        android:text="@string/but_txt_set_accuracy"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_sbtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/but_set_accuracy"
+        android:layout_alignBottom="@+id/but_set_accuracy"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/but_set_accuracy"
+        android:padding="10dip"
+        android:textColor="@android:color/black"
+        android:visibility="gone" />
+
+</RelativeLayout>

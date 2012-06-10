@@ -69,11 +69,6 @@ public class StatisticActivity extends TabActivity{
 	    
 	    
 //	    tabHost.setCurrentTab(2);
-	    /**
-	     * Alles in einem Tab wuerde ich Sagen (dann sinds 4 Tabs)
-	     * @author Tim
-	     */
-	   //noch zwei für notes und bewertung oder alles in einer
 		
 	}
 	@Override

@@ -78,8 +78,13 @@
         <string name="graph_heigth">Differenz der Höhe (in m)</string>
         <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
         
-        
-        
-        
+        <!-- GoogleMap Activity -->
+        <string name="di_mapstyle">Kartenart</string>
+        <string name="di_roadmap">Staßenkarte</string>
+        <string name="di_satellite">Satellitenkarte</string>
+        <string name="but_txt_set_accuracy">Genauigkeit stellen</string>
+        <string name="txt_step_size">Schrittweite:\u0020</string>
+       
+       
         
 </resources>
