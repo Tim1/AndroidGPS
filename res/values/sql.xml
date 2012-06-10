@@ -3,7 +3,7 @@
 
     <!-- db strings -->
     <string name="db_name">DB_gpsdata</string>
-    <string name="db_version">2</string>
+    <string name="db_version">3</string>
     <string name="db_insert_location">        INSERT INTO gps_location VALUES (NULL,?,?,?,?,?,?,?) </string>
     <string name="db_insert_track">        INSERT INTO gps_track VALUES (?,?,?,?,?,?,?,?) </string>
     <string name="db_select_location">        SELECT time, accuracy, longitude, latitude, altitude, speed FROM gps_location WHERE track = </string>
