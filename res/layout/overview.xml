@@ -12,25 +12,28 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/ic_mode_car" />
-"
 
-    <TextView
+    <ImageView
         android:id="@+id/tv_ov_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date:" />
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_date" />
 
     <TextView
         android:id="@+id/tv_ov_dateEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_ov_date" />
+        android:layout_toRightOf="@+id/tv_ov_date"
+        android:text="1.1.1970 12:34"
+        android:textSize="25dip" />
 
     <ImageView
         android:id="@+id/im_ov_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_ov_date"
+        android:layout_marginRight="10dp"
         android:src="@drawable/ic_timer" />
 
     <TextView
@@ -40,14 +43,14 @@
         android:layout_below="@+id/tv_ov_date"
         android:layout_toRightOf="@+id/im_ov_timer"
         android:text="0:00"
-        android:textSize="25dip"
-        android:textStyle="bold" />
+        android:textSize="25dip" />
 
     <ImageView
         android:id="@+id/im_ov_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_ov_timeEdit"
+        android:layout_marginRight="10dp"
         android:src="@drawable/ic_distance" />
 
     <TextView
@@ -64,6 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_ov_distanceEdit"
+        android:layout_marginRight="10dp"
         android:src="@drawable/ic_steps" />
 
     <TextView
@@ -81,33 +85,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/im_ov_steps"
-        android:text="@string/tv_txt_ratingbar" />
+        android:text="@string/tv_txt_ratingbar" />
     -->
 
     <View
         android:id="@+id/view_line1"
         android:layout_width="fill_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_below="@id/tv_ov_stepEdit"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:background="#AAFFFFFF" />
+        android:background="#99FFFFFF" />
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/view_line1" />
+        android:layout_below="@+id/view_line1"
+        android:layout_centerHorizontal="true" />
 
     <View
         android:id="@+id/view_line2"
         android:layout_width="fill_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_below="@+id/ratingBar"
-        android:background="#AAFFFFFF" />
-    
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="#99FFFFFF" />
+
     <TextView
         android:id="@+id/tv_ov_note"
         android:layout_width="wrap_content"
@@ -122,7 +131,7 @@
         android:layout_above="@+id/but_save_edit_note"
         android:layout_below="@+id/tv_ov_note"
         android:layout_margin="10dp"
-        android:background="#11FFFFFF"
+        android:background="#22FFFFFF"
         android:scrollbars="vertical"
         android:text="@string/tv_txt_add_your_note" />
 
@@ -134,6 +143,7 @@
         android:layout_below="@+id/view_line2"
         android:layout_margin="6dp"
         android:gravity="top"
+        android:inputType="text"
         android:text="@string/et_txt_add_your_note"
         android:visibility="gone" />
 
@@ -145,7 +155,5 @@
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
         android:text="@string/bt_txt_edit_note" />
-
-    
 
 </RelativeLayout>
