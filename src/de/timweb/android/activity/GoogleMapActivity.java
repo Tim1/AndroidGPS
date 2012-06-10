@@ -61,7 +61,8 @@ public class GoogleMapActivity extends MapActivity {
 						if (progress == 0)
 							progress = 1;
 						((TextView) findViewById(R.id.tv_sbtext))
-								.setText(getString(R.string.txt_step_size)+progress);
+								.setText(getString(R.string.txt_step_size)
+										+ progress);
 
 					}
 				});
@@ -119,25 +120,31 @@ public class GoogleMapActivity extends MapActivity {
 			}
 			break;
 		case R.id.menu_googlemap_mapstyle:
-			Builder builder = new Builder(this);
-			builder.setTitle(R.string.di_mapstyle)
-					.setNeutralButton(R.string.di_roadmap,
-							new DialogInterface.OnClickListener() {
+			if (hasLocations) {
+				showAccuracyMenu();
+				Builder builder = new Builder(this);
+				builder.setTitle(R.string.di_mapstyle)
+						.setNeutralButton(R.string.di_roadmap,
+								new DialogInterface.OnClickListener() {
 
-								public void onClick(DialogInterface dialog,
-										int which) {
-									mapView.setSatellite(false);
+									public void onClick(DialogInterface dialog,
+											int which) {
+										mapView.setSatellite(false);
 
-								}
-							})
-					.setPositiveButton(R.string.di_satellite,
-							new DialogInterface.OnClickListener() {
+									}
+								})
+						.setPositiveButton(R.string.di_satellite,
+								new DialogInterface.OnClickListener() {
 
-								public void onClick(DialogInterface dialog,
-										int which) {
-									mapView.setSatellite(true);
-								}
-							}).show();
+									public void onClick(DialogInterface dialog,
+											int which) {
+										mapView.setSatellite(true);
+									}
+								}).show();
+			} else {
+				Toast.makeText(this, R.string.toast_no_locations_found,
+						Toast.LENGTH_SHORT).show();
+			}
 			break;
 
 		default:
@@ -152,8 +159,10 @@ public class GoogleMapActivity extends MapActivity {
 		((Button) findViewById(R.id.but_set_accuracy))
 				.setVisibility(View.VISIBLE);
 		((TextView) findViewById(R.id.tv_sbtext)).setVisibility(View.VISIBLE);
-		((TextView) findViewById(R.id.tv_sbtext)).setText(getString(R.string.txt_step_size)
-				+ ((SeekBar) findViewById(R.id.sb_googlemaps)).getProgress());
+		((TextView) findViewById(R.id.tv_sbtext))
+				.setText(getString(R.string.txt_step_size)
+						+ ((SeekBar) findViewById(R.id.sb_googlemaps))
+								.getProgress());
 	}
 
 	public void closeAccuracyMenu() {
