@@ -68,7 +68,7 @@
         </activity>
         <activity android:name="CreditsActivity"></activity>
          <activity
-            android:name="RateAndNoteActivity"
+            android:name=".OverviewActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

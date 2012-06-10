@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    
+    <ImageView
+        android:id="@+id/im_ov_modus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_mode_car" />
+    
+    
+    <TextView
+        android:id="@+id/tv_ov_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_txt_overview"/>"
+
+    <TextView
+        android:id="@+id/tv_ov_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_overview" 
+        android:text="Date:"/>
+    
+    <TextView
+        android:id="@+id/tv_ov_dateEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_overview"
+        android:layout_toRightOf="@+id/tv_ov_date" />
+
+    <ImageView
+        android:id="@+id/im_ov_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_date"
+        android:src="@drawable/ic_timer" />
+
+    <TextView
+        android:id="@+id/tv_ov_timeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_date"
+        android:layout_toRightOf="@+id/im_ov_timer"
+        android:text="0:00"
+        android:textSize="25dip"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/im_ov_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_timeEdit"
+        android:src="@drawable/ic_distance" />
+
+    <TextView
+        android:id="@+id/tv_ov_distanceEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ov_timeEdit"
+        android:layout_toRightOf="@+id/im_ov_distance"
+        android:text="0.0 km"
+        android:textSize="25dip" />
+
+    <ImageView
+        android:id="@+id/im_ov_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_distanceEdit"
+        android:src="@drawable/ic_steps" />
+
+    <TextView
+        android:id="@+id/tv_ov_stepEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ov_distanceEdit"
+        android:layout_toRightOf="@+id/im_ov_steps"
+        android:text="s&quot;0 Steps&quot;"
+        android:textSize="25dip" />
+
+    <!--  -->
+
+    <TextView
+        android:id="@+id/tv_ov_Rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_ov_steps"
+        android:text="@string/tv_txt_ratingbar" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ov_Rating" />
+
+    <TextView
+        android:id="@+id/tv_ov_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar"
+        android:text="@string/tv_txt_note" />
+
+    <TextView
+        android:id="@+id/tv_ov_note_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/but_save_edit_note"
+        android:layout_below="@+id/tv_ov_note"
+        android:layout_margin="10dp"
+        android:scrollbars="vertical"
+        android:text="@string/tv_txt_add_your_note" />
+
+    <EditText
+        android:id="@+id/et_ov_note"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/but_save_edit_note"
+        android:layout_below="@+id/tv_ov_note"
+        android:layout_margin="6dp"
+        android:gravity="top"
+        android:text="@string/et_txt_add_your_note"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/but_save_edit_note"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:onClick="onButtonClick"
+        android:text="@string/bt_txt_edit_note" />
+
+</RelativeLayout>

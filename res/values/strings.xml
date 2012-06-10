@@ -63,7 +63,8 @@
     <!-- Track -->
     <string name="toast_track_wrote">Track wurde gespeichert</string>
 
-    <!-- RateAndNote Activity -->
+    <!-- Overview Activity -->
+        <string name="tv_txt_overview">Übersicht\n</string>
         <string name="bt_txt_edit_note">Notiz ändern</string>
         <string name="bt_txt_save_note">Notiz speichern</string>
         <string name="tv_txt_add_your_note">Notiz schreiben</string>
@@ -76,6 +77,8 @@
         <string name="graph_steps">Länge der Schritte (in m)</string>
         <string name="graph_heigth">Differenz der Höhe (in m)</string>
         <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
+        
+        
         
         
         

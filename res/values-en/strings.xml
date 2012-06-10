@@ -63,6 +63,7 @@
     <string name="toast_track_wrote">Track wrote in database</string>
     
     <!-- RateAndNote Activity -->
+     	<string name="tv_txt_overview">Overview\n</string>
         <string name="bt_txt_edit_note">Edit Note</string>
         <string name="bt_txt_save_note">Save Note</string>
         <string name="tv_txt_add_your_note">write note</string>

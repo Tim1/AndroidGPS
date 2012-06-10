@@ -30,7 +30,17 @@ public class StatisticActivity extends TabActivity{
 	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
 	    Intent intent;  // Reusable Intent for each tab
 
-
+	    
+	    
+	   
+	    intent = new Intent().setClass(this, OverviewActivity.class);
+	    intent.putExtra("_id", trackId);
+	    spec = tabHost.newTabSpec("overview").setIndicator("Overview",
+	    		res.getDrawable(R.drawable.tab_overview))
+	    		.setContent(intent);
+	    tabHost.addTab(spec);
+	    
+	    
 	    intent = new Intent().setClass(this, DiagrammActivity.class);
 	    intent.putExtra("mode", 1);
 	    intent.putExtra("_id", trackId);
@@ -58,12 +68,6 @@ public class StatisticActivity extends TabActivity{
 	    tabHost.addTab(spec);
 	    
 	    
-	    intent = new Intent().setClass(this, RateAndNoteActivity.class);
-	    intent.putExtra("_id", trackId);
-	    spec = tabHost.newTabSpec("rateandnote").setIndicator("Rate/Note",
-	    		res.getDrawable(R.drawable.tab_rate_and_note))
-	    		.setContent(intent);
-	    tabHost.addTab(spec);
 //	    tabHost.setCurrentTab(2);
 	    /**
 	     * Alles in einem Tab wuerde ich Sagen (dann sinds 4 Tabs)

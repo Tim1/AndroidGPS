@@ -148,9 +148,9 @@ public class RunningActivity extends Activity {
 		}
 
 		Builder builder = new Builder(this);
-		builder.setTitle("Close")
+		builder.setTitle(R.string.close)
 				.setIcon(android.R.drawable.ic_dialog_info)
-				.setMessage("Are you sure you want to quit?")
+				.setMessage(R.string.sure_to_close)
 				.setPositiveButton(android.R.string.ok,
 						new DialogInterface.OnClickListener() {
 
