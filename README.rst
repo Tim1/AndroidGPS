@@ -4,31 +4,45 @@ BlueTrack
 By Tim Schmiedl, Milos Babic
 
 
-Ein wenig Text um unsere App zu beschreiben eine so Art Abstract.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
-Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. 
-In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
-Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
-Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. 
+Mit BlueTrack werden Routen, die zu Fuß, mit Fahrrad oder mit Auto zurückgelegt werden, per GPS aufgenommen.
+Diese Tracks werden mit vielen weiteren Informationen wie z.B Anzahl der Schritte bei Joggern oder Durchschnittsgeschwindigkeit in der Datenbank abgelegt,
+welche dann jederzeit zur späteren Analyse verwendet werden können.
+Jogger und Fahrradfahrer können somit ihre Trainingserfolge beobachten.
 
 Ziele
 ====
-Kann/Mussziele
+
+Mussziele:
+
+- Protokollierung der Standorte, zurückgelegte Strecken und Höhen für jede Trainingseinheit.	
+- Trainingseinheiten speicherbar und für spätere Analyse wiederverwendbar.
+- Grafisch ansprechende Statistiken in der App mit grafischer Darstellung der zurückgelgten Strecke (mithilfe von Googlemaps).
+- Schrittzähler implementieren.
+
+
+Kannziele:
+
+- Googlemaps verbinden um weitere Rad/joggingwege zu finden.
+- Statistik auf Computer übertragen.
+- Liveanzeige der Strecke.
+- Anpassung der App an unterschiedliche Auflösungen (Tablet).
 
 
 Features
 ====
-besondere Dinge erw�hnen (Sprachunterst�tzung, GoogleMaps, Live-Statistiken... )
+- Modi: Joggen, Fahrrad und Auto fahren.
+- Live-Diagramme über Geschwindigkeit, Höhenunterschied, Distanz zwischen Messpunkten und Länge der Schritten.
+- Statistik samt Live-Diagramme zu jedem aufgenommenem Track abrufbar.
+- Genauigkeit der Darstellung der zurückgelegten Strecke auf GoogleMap einstellbar.
+- Eintragen von Rating und Notiz zu den einzelnen Tracks.
+- Sprachpakete: Deutsch und Englisch.
 
 
 Benutzerhilfe
 ====
 Infos die der Benutzer haben will.
 Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
-�bersicht �ber die App als Screenshot(Diagramm)
+�bersicht �ber die App als Screenshot(Diagramm)
 
 
 Programm-Architekur (mit UML) 
@@ -39,7 +53,7 @@ Pakete, Trackmanager, Manifest etc.
 UML:
 	UseCase
 	Klassendiagramm
-	evtl. Dom�nklassen, Paket
+	evtl. Dom�nklassen, Paket
 
 Datenbank:
 	ER-Diagramm
@@ -48,7 +62,7 @@ Datenbank:
 Problem, Schwierigkeiten
 ====
 was ist schwierig gewesen, mit welchen Problemen hatten wir nicht gerechnet
-(z.B. ungenaues GPS, Schrittz�hler siehe Abhandlung)
+(z.B. ungenaues GPS, Schrittz�hler siehe Abhandlung)
 
 
 Weiterentwicklung
@@ -62,6 +76,6 @@ Statistiken
 Lines of Code, Icons...
 
 
-Bugs, unvollst�ndige Dinge
+Bugs, unvollst�ndige Dinge
 ====
 falls es so was noch geben sollte
