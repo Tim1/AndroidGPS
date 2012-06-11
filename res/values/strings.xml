@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">PROJEKT GPS-Stats</string>
+    <string name="app_name">BlueTrack</string>
 
     <!-- StartActivity -->
     <string name="choose_modus">Wähle Modus</string>

@@ -109,22 +109,16 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="#99FFFFFF" />
-
-    <TextView
-        android:id="@+id/tv_ov_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view_line2"
-        android:text="@string/tv_txt_note" />
-
+
     <TextView
         android:id="@+id/tv_ov_note_edit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/but_save_edit_note"
-        android:layout_below="@+id/tv_ov_note"
+        android:layout_below="@+id/view_line2"
         android:layout_margin="10dp"
         android:background="#22FFFFFF"
+        android:onClick="onButtonClick"
         android:scrollbars="vertical"
         android:text="@string/tv_txt_add_your_note" />
 
@@ -146,6 +140,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
-        android:text="@string/bt_txt_edit_note" />
+        android:text="@string/bt_txt_edit_note"/>
 
 </RelativeLayout>
