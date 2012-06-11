@@ -3,82 +3,63 @@ BlueTrack
 ====================
 By Tim Schmiedl, Milos Babic
 
-Documentation:
-    http://docs.overviewer.org
 
-Github code repository:
-    http://github.com/overviewer/Minecraft-Overviewer
+Ein wenig Text um unsere App zu beschreiben eine so Art Abstract.
 
-Blog:
-    http://overviewer.org/blog/
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. 
+Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. 
+In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. 
+Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. 
 
-
-The Minecraft Overviewer is a command-line tool for rendering high-resolution
-maps of Minecraft worlds. It generates a set of static html and image files and
-uses the Google Maps API to display a nice interactive map.
-
-The Overviewer has been in active development for over a year and has many
-features, including day and night lighting, cave rendering, mineral overlays,
-and many plugins for even more features! It is written mostly in Python with
-critical sections in C as an extension module.
-
-Getting Started
----------------
-All documentation has been consolidated at our documentation site. For
-information on downloading, compiling, installing, and running The Overviewer,
-visit the docs site.
-
-http://docs.overviewer.org
-
-A few helpful tips are below, but everyone is going to want to visit the
-documentation site for the most up-to-date and complete set of instructions!
-
-Alternatively, the docs are also in the docs/ directory of the source download.
-Look in there if you can't access the docs site.
-
-Examples
---------
-See examples of The Overviewer in action!
-
-https://github.com/overviewer/Minecraft-Overviewer/wiki/Map-examples
-
-Disclaimers
------------
-Before you dive into using this, just be aware that, for large maps, there is a
-*lot* of data to parse through and process. If your world is very large, expect
-the initial render to take at least an hour, possibly more. (Since Minecraft
-maps are practically infinite, the maximum time this could take is also
-infinite!)
-
-If you press ctrl-C, it will stop. The next run will pick up where it left off.
-
-Once your initial render is done, subsequent renderings will be MUCH faster due
-to all the caching that happens behind the scenes. Just use the same output
-directory and it will only update the tiles it needs to.
-
-There are probably some other minor glitches along the way, hopefully they will
-be fixed soon. See the `Bugs`_ section below.
-
-Viewing the Results
--------------------
-Within the output directory you will find two things: an index.html file, and a
-directory hierarchy full of images. To view your world, simply open index.html
-in a web browser. Internet access is required to load the Google Maps API
-files, but you otherwise don't need anything else.
-
-You can throw these files up to a web server to let others view your map. You
-do *not* need a Google Maps API key (as was the case with older versions of the
-API), so just copying the directory to your web server should suffice. You are,
-however, bound by the Google Maps API terms of service.
-
-http://code.google.com/apis/maps/terms.html
-
-Bugs
+Ziele
 ====
+Kann/Mussziele
 
-For a current list of issues, visit
-https://github.com/overviewer/Minecraft-Overviewer/issues
 
-Feel free to comment on issues, report new issues, and vote on issues that are
-important to you.
 
+Programm-Architekur (mit UML) 
+====
+Beschreibung der Architektur der App. 
+Pakete, Trackmanager, Manifest etc.
+
+UML:
+	UseCase
+	Klassendiagramm
+	evtl. Domänklassen, Paket
+
+Datenbank:
+	ER-Diagramm
+
+
+Statistiken
+====
+Lines of Code, Icons...
+
+
+
+Benutzerhilfe
+====
+Infos die der Benutzer haben will.
+Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
+
+
+
+Problem, Schwierigkeiten
+====
+was ist schwierig gewesen, mit welchen Problemen hatten wir nicht gerechnet
+(z.B. ungenaues GPS, Schrittzähler siehe Abhandlung)
+
+
+
+Weiterentwicklung
+====
+kurz sagen, dass wir noch nach beenden des Projekts weiterzuentwickeln
+Ideen was dann noch kommen kann
+
+
+Bugs, unvollständige Dinge
+====
+falls es so was noch geben sollte
