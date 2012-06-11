@@ -28,6 +28,7 @@ Benutzerhilfe
 ====
 Infos die der Benutzer haben will.
 Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
+Übersicht über die App als Screenshot(Diagramm)
 
 
 Programm-Architekur (mit UML) 
