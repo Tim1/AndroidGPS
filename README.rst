@@ -19,6 +19,10 @@ Ziele
 Kann/Mussziele
 
 
+Features
+====
+besondere Dinge erwähnen (Sprachunterstützung, GoogleMaps, Live-Statistiken... )
+
 
 Programm-Architekur (mit UML) 
 ====
@@ -39,19 +43,16 @@ Statistiken
 Lines of Code, Icons...
 
 
-
 Benutzerhilfe
 ====
 Infos die der Benutzer haben will.
 Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
 
 
-
 Problem, Schwierigkeiten
 ====
 was ist schwierig gewesen, mit welchen Problemen hatten wir nicht gerechnet
 (z.B. ungenaues GPS, Schrittzähler siehe Abhandlung)
-
 
 
 Weiterentwicklung
