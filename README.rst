@@ -24,6 +24,12 @@ Features
 besondere Dinge erwähnen (Sprachunterstützung, GoogleMaps, Live-Statistiken... )
 
 
+Benutzerhilfe
+====
+Infos die der Benutzer haben will.
+Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
+
+
 Programm-Architekur (mit UML) 
 ====
 Beschreibung der Architektur der App. 
@@ -38,17 +44,6 @@ Datenbank:
 	ER-Diagramm
 
 
-Statistiken
-====
-Lines of Code, Icons...
-
-
-Benutzerhilfe
-====
-Infos die der Benutzer haben will.
-Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
-
-
 Problem, Schwierigkeiten
 ====
 was ist schwierig gewesen, mit welchen Problemen hatten wir nicht gerechnet
@@ -59,6 +54,11 @@ Weiterentwicklung
 ====
 kurz sagen, dass wir noch nach beenden des Projekts weiterzuentwickeln
 Ideen was dann noch kommen kann
+
+
+Statistiken
+====
+Lines of Code, Icons...
 
 
 Bugs, unvollständige Dinge
