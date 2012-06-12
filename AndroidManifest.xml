@@ -53,22 +53,22 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".StatisticActivity"
+            android:name=".stats.StatisticActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
 >
         </activity>
         <activity
-            android:name="GoogleMapActivity"
+            android:name=".stats.GoogleMapActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="DiagrammActivity"
+            android:name=".stats.DiagrammActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name="CreditsActivity"></activity>
          <activity
-            android:name=".OverviewActivity"
+            android:name=".stats.OverviewActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

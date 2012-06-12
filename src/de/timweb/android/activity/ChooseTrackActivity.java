@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import de.timweb.android.activity.stats.StatisticActivity;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
 

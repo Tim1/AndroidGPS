@@ -1,4 +1,4 @@
-package de.timweb.android.activity;
+package de.timweb.android.activity.stats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,11 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Projection;
 
+import de.timweb.android.activity.R;
+import de.timweb.android.activity.R.id;
 import de.timweb.android.activity.R.layout;
+import de.timweb.android.activity.R.menu;
+import de.timweb.android.activity.R.string;
 import de.timweb.android.track.TrackManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.MyOverlay;

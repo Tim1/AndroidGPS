@@ -16,7 +16,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
-import de.timweb.android.activity.GoogleMapActivity;;
+import de.timweb.android.activity.stats.GoogleMapActivity;
 
 public class MyOverlay extends Overlay {
 	private ArrayList<Location> mLocations;

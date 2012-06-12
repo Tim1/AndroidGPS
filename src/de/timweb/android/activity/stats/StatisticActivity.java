@@ -1,5 +1,11 @@
-package de.timweb.android.activity;
+package de.timweb.android.activity.stats;
 
+import de.timweb.android.activity.R;
+import de.timweb.android.activity.R.drawable;
+import de.timweb.android.activity.R.id;
+import de.timweb.android.activity.R.layout;
+import de.timweb.android.activity.R.menu;
+import de.timweb.android.activity.R.string;
 import de.timweb.android.track.TrackManager;
 import android.app.TabActivity;
 import android.app.AlertDialog.Builder;

@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
-import de.timweb.android.activity.test.DrawTestActivity;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
@@ -83,10 +82,6 @@ public class StartActivity extends Activity {
 			break;
 		case R.id.but_start_preferences:
 			startActivity(new Intent(this, PreferencesActivity.class));
-			break;
-
-		case R.id.but_DRAWTest:
-			startActivity(new Intent(this, DrawTestActivity.class));
 			break;
 
 		case R.id.but_go:

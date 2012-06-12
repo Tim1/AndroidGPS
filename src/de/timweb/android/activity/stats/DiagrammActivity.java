@@ -1,5 +1,9 @@
-package de.timweb.android.activity;
+package de.timweb.android.activity.stats;
 
+import de.timweb.android.activity.R;
+import de.timweb.android.activity.R.id;
+import de.timweb.android.activity.R.layout;
+import de.timweb.android.activity.R.string;
 import de.timweb.android.track.Statistics;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
