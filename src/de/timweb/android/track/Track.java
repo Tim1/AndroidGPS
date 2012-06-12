@@ -9,6 +9,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.location.Location;
+import android.view.Gravity;
 import android.widget.Toast;
 import de.timweb.android.activity.R;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
@@ -131,8 +132,13 @@ public class Track {
 
 		sql.executeInsert();
 
-		Toast.makeText(context, R.string.toast_track_wrote, Toast.LENGTH_SHORT).show();
-
+		Toast toast = Toast.makeText(
+				context,
+				context.getResources().getString(
+						R.string.toast_track_wrote), Toast.LENGTH_SHORT);
+		
+		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		toast.show();
 	}
 	
 
@@ -173,6 +179,10 @@ public class Track {
 		return currentSpeed*3.6;
 	}
 
+	/**
+	 * 
+	 * @return formatierte Dauer des Tracks (Format: 00:12:34)
+	 */
 	public String getElapsedTime() {
 		long secTotal = 0;		
 		if(elapsedTime == 0)

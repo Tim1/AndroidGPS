@@ -2,7 +2,6 @@ package de.timweb.android.track;
 
 import java.util.ArrayList;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +14,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.Gravity;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,11 +78,13 @@ public class TrackManager {
 		isSaved = false;
 		if (trackid == -1 && !isRunning) {
 			setTrack(getNextTrackID(), modus);
-			Toast.makeText(
+			Toast toast = Toast.makeText(
 					context,
 					context.getResources().getString(
 							R.string.toast_track_record_start)
-							+ trackid, Toast.LENGTH_SHORT).show();
+							+ trackid, Toast.LENGTH_SHORT);
+			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+			toast.show();
 			newtrack = true;
 		}
 		if (trackid == -1 || isRunning)
@@ -97,8 +98,13 @@ public class TrackManager {
 
 		isRunning = true;
 		if (!newtrack) {
-			Toast.makeText(context, R.string.toast_gps_start,
-					Toast.LENGTH_SHORT).show();
+			Toast toast = Toast.makeText(
+					context,
+					context.getResources().getString(
+							R.string.toast_gps_start)
+							+ trackid, Toast.LENGTH_SHORT);
+			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+			toast.show();
 			track.addPauseTime(System.currentTimeMillis() - pauseStart);
 		}
 	}
@@ -113,8 +119,13 @@ public class TrackManager {
 		mSensorManager.unregisterListener(mSensorListener);
 		mDatabase.close();
 		isRunning = false;
-		Toast.makeText(context, R.string.toast_gps_pause, Toast.LENGTH_SHORT)
-				.show();
+		Toast toast = Toast.makeText(
+				context,
+				context.getResources().getString(
+						R.string.toast_gps_pause)
+						+ trackid, Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		toast.show();
 		pauseStart = System.currentTimeMillis();
 	}
 
@@ -319,8 +330,13 @@ public class TrackManager {
 		mDatabase.execSQL(context.getResources().getString(
 				R.string.db_delete_location)
 				+ trackid);
-		Toast.makeText(context, R.string.toast_track_deleted,
-				Toast.LENGTH_SHORT).show();
+		Toast toast = Toast.makeText(
+				context,
+				context.getResources().getString(
+						R.string.toast_track_deleted)
+						+ trackid, Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		toast.show();
 	}
 
 	public boolean isRunning() {

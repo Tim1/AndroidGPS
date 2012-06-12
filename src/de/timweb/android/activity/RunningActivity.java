@@ -1,7 +1,5 @@
 package de.timweb.android.activity;
 
-import java.util.Timer;
-
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
@@ -86,6 +84,7 @@ public class RunningActivity extends Activity {
 		case R.id.but_save:
 			trackmanager.stop();
 			updateTask.stop();
+			findViewById(R.id.but_save).setVisibility(View.GONE);
 			break;
 
 		case R.id.but_left:

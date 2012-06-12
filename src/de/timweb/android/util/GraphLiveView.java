@@ -19,6 +19,7 @@ public class GraphLiveView extends View {
 	private float minValue = 0;
 	private float maxValue = 0;
 	private ArrayList<Float> values = new ArrayList<Float>();
+	@SuppressWarnings("unused")
 	private Context context;
 	
 	private boolean isAnimated;
@@ -39,7 +40,7 @@ public class GraphLiveView extends View {
 		int height = this.getHeight();
 		int width = this.getWidth();
 
-		canvas.drawColor(0xFF333333);
+		canvas.drawColor(0xFF444444);
 		drawLines(canvas, width, height);
 
 		mPaint.setColor(Color.YELLOW);
@@ -64,13 +65,14 @@ public class GraphLiveView extends View {
 	}
 
 	private void drawAnimation(Canvas canvas, int width, int height) {
+		@SuppressWarnings("unused")
 		int delta = (int) (System.currentTimeMillis() - lastDraw);
 		
 		lastDraw = System.currentTimeMillis();
 	}
 
 	private void drawLines(Canvas canvas, int width, int height) {
-		mPaint.setColor(0x88FFFFFF);
+		mPaint.setColor(0xAAFFFFFF);
 
 		canvas.drawLine(0, height / 4f, width, height / 4f, mPaint);
 		canvas.drawLine(0, height / 2f, width, height / 2f, mPaint);
