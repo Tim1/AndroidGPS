@@ -69,10 +69,11 @@ public class Track {
 	public void addLocation(Location location, SQLiteStatement sql) {
 
 		float distanceDelta = 0;
+		currentSpeed = location.getSpeed();
 		if (locations.size() > 0) {
 			float distanceToLast = locations.get(locations.size() - 1).distanceTo(
 					location);
-			// sehr kleine Entfernungen nicht berücksichtigen
+			// sehr kleine Entfernungen nicht berï¿½cksichtigen
 			if (distanceToLast < location.getAccuracy())
 				return;
 
@@ -82,8 +83,6 @@ public class Track {
 		} else {
 			// starttime = System.currentTimeMillis();
 		}
-		
-		currentSpeed = location.getSpeed();
 
 		stats.addStepDistance(steps, distanceDelta);
 		stats.addSpeed(location.getSpeed()*3.6f);
