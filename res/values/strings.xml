@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">BlueTrack</string>
+    <string name="app_version">0.8</string>
 
     <!-- StartActivity -->
     <string name="choose_modus">Wähle Modus</string>
