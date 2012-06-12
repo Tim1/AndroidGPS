@@ -32,9 +32,6 @@ public class Track {
 	private long pauseTime;
 	private Statistics stats = new Statistics();
 
-	private double rating;
-	private String note;
-	
 	ArrayList<Location> locations = new ArrayList<Location>();
 
 	/**
@@ -47,11 +44,7 @@ public class Track {
 	 *            in m
 	 * @param time 
 	 */
-	Track(int id, long date, float distance,long time, int modus) {
-		this(id, date, distance, time, modus, 0);
-	}
-
-	private Track(int id,long date, float distance,long time,int modus, int steps){
+	Track(int id,long date, float distance,long time,int modus, int steps){
 		this._id = id;
 		this.starttime = date;
 		this.distance = distance;
@@ -166,16 +159,12 @@ public class Track {
 		return currentSpeed*3.6;
 	}
 
-//	public long getStarttime() {
-//		return starttime;
-//	}
-
 	public String getElapsedTime() {
 		long secTotal = 0;		
 		if(elapsedTime == 0)
 			secTotal = (System.currentTimeMillis() - starttime - pauseTime)/1000;
 		else
-			secTotal = elapsedTime - pauseTime;
+			secTotal = (elapsedTime - pauseTime)/1000;
 		
 		long hours = secTotal / (60*60);
 		long mins = (secTotal-(hours*60*60)) / 60;
@@ -188,12 +177,6 @@ public class Track {
 		return strHour+":"+strMins+":"+strSecs;
 	}
 
-	/**
-	 * @return time in ms
-	 */
-	public long getTime() {
-		return System.currentTimeMillis() - starttime;
-	}
 
 	/**
 	 * @return Hoehenunterschied in m

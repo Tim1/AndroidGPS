@@ -8,7 +8,7 @@
     <string name="db_insert_track">        INSERT INTO gps_track VALUES (?,?,?,?,?,?,?,?) </string>
     <string name="db_select_location">        SELECT time, accuracy, longitude, latitude, altitude, speed FROM gps_location WHERE track = </string>
     <string name="db_select_track_maxid">        SELECT max(_id) FROM gps_track</string>
-    <string name="db_select_alltrack">        SELECT _id,track_date,track_distance,track_time,modus FROM gps_track</string>
+    <string name="db_select_alltrack">        SELECT _id,track_date,track_distance,track_time,modus,steps FROM gps_track</string>
     <string name="db_select_track">        SELECT _id,track_date,track_distance,track_time,modus,steps FROM gps_track WHERE _id =</string>
     <string name="db_delete_location">        DELETE FROM gps_location WHERE track = </string>
     <string name="db_delete_track">        DELETE FROM gps_track WHERE _id = </string>

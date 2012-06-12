@@ -258,7 +258,7 @@ public class TrackManager {
 
 		while (cursor.moveToNext()) {
 			result = new Track(cursor.getInt(0), cursor.getLong(1),
-					cursor.getFloat(2), cursor.getLong(3), cursor.getInt(4));
+					cursor.getFloat(2), cursor.getLong(3), cursor.getInt(4),cursor.getInt(5));
 		}
 
 		cursor.close();
@@ -295,7 +295,7 @@ public class TrackManager {
 
 		while (cursor.moveToNext()) {
 			result.add(new Track(cursor.getInt(0), cursor.getLong(1), cursor
-					.getFloat(2), cursor.getLong(3), cursor.getInt(4)));
+					.getFloat(2), cursor.getLong(3), cursor.getInt(4),cursor.getInt(5)));
 		}
 
 		cursor.close();
