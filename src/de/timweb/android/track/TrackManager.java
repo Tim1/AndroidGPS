@@ -22,6 +22,7 @@ import android.widget.Toast;
 import de.timweb.android.activity.R;
 import de.timweb.android.util.DatabaseManager;
 import de.timweb.android.util.LocationReader;
+import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 public class TrackManager {
 	private LocationListenerImpl mLocationListener;
@@ -264,7 +265,7 @@ public class TrackManager {
 		cursor.close();
 		mDatabase.close();
 
-		ArrayList<Location> loc = LocationReader.getLocations(context, id);
+		ArrayList<LocationAndSteps> loc = LocationReader.getLocations(context, id);
 
 		for (Location l : loc)
 			result.addLocation(l, null);

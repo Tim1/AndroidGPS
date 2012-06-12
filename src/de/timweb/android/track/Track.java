@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.location.Location;
 import android.widget.Toast;
 import de.timweb.android.activity.R;
+import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 /**
  * repraesentiert eine komplett zurueckgelegte Strecke
@@ -24,10 +25,10 @@ public class Track {
 	private int _id;
 	private int modus;
 	private int steps;
+	private int stepsOld;
 	private double distance;
 	private long starttime;
 	private long elapsedTime;
-	private double altitudeDiff;
 	private double currentSpeed;
 	private long pauseTime;
 	private Statistics stats = new Statistics();
@@ -66,7 +67,7 @@ public class Track {
 		if (locations.size() > 0) {
 			float distanceToLast = locations.get(locations.size() - 1).distanceTo(
 					location);
-			// sehr kleine Entfernungen nicht ber�cksichtigen
+			// sehr kleine Entfernungen nicht beruecksichtigen
 			if (distanceToLast < location.getAccuracy())
 				return;
 
@@ -77,7 +78,19 @@ public class Track {
 			// starttime = System.currentTimeMillis();
 		}
 
-		stats.addStepDistance(steps, distanceDelta);
+		int stepsDiff;
+		if(location instanceof LocationAndSteps){
+			stepsDiff = ((LocationAndSteps) location).getSteps();
+		}else{
+			
+			//FIXME: Debug Schritte simulieren
+			steps += (Math.random()*10);
+			
+			stepsDiff = steps - stepsOld; 
+			stepsOld = steps;
+		}
+		
+		stats.addStepDistance(stepsDiff, distanceDelta);
 		stats.addSpeed(location.getSpeed()*3.6f);
 		stats.addAltitude((float) location.getAltitude());
 		stats.addDistance(distanceDelta);
@@ -94,8 +107,9 @@ public class Track {
 		sql.bindDouble(3, location.getAccuracy());
 		sql.bindDouble(4, location.getLongitude());
 		sql.bindDouble(5, location.getLatitude());
-		sql.bindDouble(6, location.getAccuracy());
+		sql.bindDouble(6, location.getAltitude());
 		sql.bindDouble(7, location.getSpeed());
+		sql.bindLong(8, stepsDiff);
 
 		sql.executeInsert();
 
@@ -177,13 +191,6 @@ public class Track {
 		return strHour+":"+strMins+":"+strSecs;
 	}
 
-
-	/**
-	 * @return Hoehenunterschied in m
-	 */
-	public double getAltitudeDiff() {
-		return altitudeDiff;
-	}
 
 	/**
 	 * 
