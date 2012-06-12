@@ -32,6 +32,11 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldversion, int newversion) {
+		if(oldversion == 3 && newversion == 4){
+			database.execSQL(context.getResources().getString(R.string.db_alterTable_3to4));
+			return;
+		}
+		
 		for(String sql : context.getResources().getStringArray(R.array.db_dropTable))
 			database.execSQL(sql);
 		onCreate(database);

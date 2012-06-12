@@ -14,7 +14,6 @@ public class Statistics {
 	private ArrayList<Float> speeds = new ArrayList<Float>();
 	private ArrayList<Float> height = new ArrayList<Float>();
 	private ArrayList<Float> stepsToDist = new ArrayList<Float>();
-	private int lastStep;
 
 	public void addSpeed(float speed) {
 		speeds.add(speed);
@@ -24,12 +23,11 @@ public class Statistics {
 		height.add(altitude);
 	}
 
-	public void addStepDistance(int steps, float distanceToLast) {
-		if (steps - lastStep <= 0)
+	public void addStepDistance(int stepsDiff, float distanceToLast) {
+		if (stepsDiff <= 0)
 			return;
 
-		stepsToDist.add((float) (distanceToLast / (steps - lastStep)));
-		lastStep = steps;
+		stepsToDist.add((float) (distanceToLast / stepsDiff));
 	}
 
 	public ArrayList<Float> getSpeedValues() {

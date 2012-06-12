@@ -3,10 +3,10 @@
 
     <!-- db strings -->
     <string name="db_name">DB_gpsdata</string>
-    <string name="db_version">3</string>
-    <string name="db_insert_location">        INSERT INTO gps_location VALUES (NULL,?,?,?,?,?,?,?) </string>
+    <string name="db_version">4</string>
+    <string name="db_insert_location">        INSERT INTO gps_location VALUES (NULL,?,?,?,?,?,?,?,?) </string>
     <string name="db_insert_track">        INSERT INTO gps_track VALUES (?,?,?,?,?,?,?,?) </string>
-    <string name="db_select_location">        SELECT time, accuracy, longitude, latitude, altitude, speed FROM gps_location WHERE track = </string>
+    <string name="db_select_location">        SELECT time, accuracy, longitude, latitude, altitude, speed,steps FROM gps_location WHERE track = </string>
     <string name="db_select_track_maxid">        SELECT max(_id) FROM gps_track</string>
     <string name="db_select_alltrack">        SELECT _id,track_date,track_distance,track_time,modus,steps FROM gps_track</string>
     <string name="db_select_track">        SELECT _id,track_date,track_distance,track_time,modus,steps FROM gps_track WHERE _id =</string>
@@ -14,7 +14,7 @@
     <string name="db_delete_track">        DELETE FROM gps_track WHERE _id = </string>
     <string name="db_update_rating_and_note">        UPDATE gps_track SET rating = ?,note = ? WHERE _id = ? </string>
     <string name="db_select_rating_and_note">        SELECT rating, note FROM gps_track WHERE _id =</string>
-
+<string name="db_alterTable_3to4"> ALTER TABLE gps_location ADD steps  integer</string>
     <string-array name="db_dropTable">
         <item>                            DROP TABLE gps_location</item>
         <item>                DROP TABLE gps_track</item>
@@ -39,6 +39,7 @@
                                     latitude real,
                                     altitude real,
                                     speed real
+                                    steps integer
                             )</item>
     </string-array>
 

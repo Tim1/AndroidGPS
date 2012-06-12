@@ -33,6 +33,7 @@ import de.timweb.android.activity.R.string;
 import de.timweb.android.track.TrackManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.MyOverlay;
+import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 public class GoogleMapActivity extends MapActivity {
 	/** Called when the activity is first created. */
@@ -43,7 +44,7 @@ public class GoogleMapActivity extends MapActivity {
 	private GeoPoint gP;
 	private MyOverlay myoverlay;
 	private boolean hasLocations = false;
-	private ArrayList<Location> mLocations;
+	private ArrayList<LocationAndSteps> mLocations;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

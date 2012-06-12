@@ -17,6 +17,22 @@ import android.widget.Toast;
  *
  */
 public final class LocationReader {
+	public static class LocationAndSteps extends Location{
+		private int steps;
+
+		public LocationAndSteps(String provider) {
+			super(provider);
+		}
+
+		public void setSteps(int steps) {
+			this.steps = steps;
+		}
+		
+		public int getSteps() {
+			return steps;
+		}
+		
+	}
 
 	/**
 	 * debugging
@@ -38,8 +54,8 @@ public final class LocationReader {
 		Toast.makeText(context, s, Toast.LENGTH_LONG).show();
 	}
 	
-	public static ArrayList<Location> getLocations(Context context, int trackid){
-		ArrayList<Location> result = new ArrayList<Location>();
+	public static ArrayList<LocationAndSteps> getLocations(Context context, int trackid){
+		ArrayList<LocationAndSteps> result = new ArrayList<LocationAndSteps>();
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase database = dbManager.getReadableDatabase();
 		
@@ -47,14 +63,14 @@ public final class LocationReader {
 		Cursor cursor = database.rawQuery(sql, null);
 		
 		while(cursor.moveToNext()){
-			Location location = new Location(LocationManager.GPS_PROVIDER);
+			LocationAndSteps location = new LocationAndSteps(LocationManager.GPS_PROVIDER);
 			location.setTime(cursor.getLong(0));
 			location.setAccuracy(cursor.getFloat(1));
 			location.setLongitude(cursor.getDouble(2));
 			location.setLatitude(cursor.getDouble(3));
 			location.setAltitude(cursor.getDouble(4));
 			location.setSpeed(cursor.getFloat(5));
-			
+			location.setSteps(cursor.getInt(6));
 			result.add(location);
 		}
 		cursor.close();

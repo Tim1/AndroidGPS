@@ -17,9 +17,10 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
 import de.timweb.android.activity.stats.GoogleMapActivity;
+import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 public class MyOverlay extends Overlay {
-	private ArrayList<Location> mLocations;
+	private ArrayList<LocationAndSteps> mLocations;
 	private GeoPoint[] gpArray;
 	private Point[] pointArray;
 	private Path[] pathArray;
@@ -33,7 +34,7 @@ public class MyOverlay extends Overlay {
 
 	private int step = 1;
 	
-	public MyOverlay(ArrayList<Location> locations, Projection projection,Context context) {
+	public MyOverlay(ArrayList<LocationAndSteps> locations, Projection projection,Context context) {
 		mLocations = locations;
 		mProjection = projection;
 		mcontext = context;
