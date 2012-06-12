@@ -25,7 +25,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tv_ov_date"
-        android:text="1.1.1970 12:34"
         android:textSize="25dip" />
 
     <ImageView
@@ -42,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_ov_date"
         android:layout_toRightOf="@+id/im_ov_timer"
-        android:text="0:00"
         android:textSize="25dip" />
 
     <ImageView
@@ -59,7 +57,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_ov_timeEdit"
         android:layout_toRightOf="@+id/im_ov_distance"
-        android:text="0.0 km"
         android:textSize="25dip" />
 
     <ImageView
@@ -76,10 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_ov_distanceEdit"
         android:layout_toRightOf="@+id/im_ov_steps"
-        android:text="0 Steps"
         android:textSize="25dip" />
-
-
 
     <View
         android:id="@+id/view_line1"
@@ -109,7 +103,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="#99FFFFFF" />
-
+
     <TextView
         android:id="@+id/tv_ov_note_edit"
         android:layout_width="fill_parent"
@@ -140,6 +134,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="5dp"
         android:onClick="onButtonClick"
-        android:text="@string/bt_txt_edit_note"/>
+        android:text="@string/bt_txt_edit_note" />
 
 </RelativeLayout>
