@@ -27,6 +27,10 @@
     <string name="di_save">Speichern</string>
     <string name="di_drop">Löschen</string>
     <string name="di_back">Zurück</string>
+    <string name="time">0:00</string>
+    <string name="speed">0.0 km/h</string>
+    <string name="distance">0.0 km</string>
+    <string name="steps">0</string>
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Einstellungen\n</string>
@@ -57,7 +61,6 @@
     <string name="toast_track_record_start">Beginn der Aufnahme vom Track\u0020</string>
     <string name="toast_gps_start">GPS gestartet</string>
     <string name="toast_gps_pause">GPS pausiert</string>
-    
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wurde gespeichert</string>

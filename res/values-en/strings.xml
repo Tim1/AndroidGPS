@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">PROJEKT GPS-Stats</string>
-
     <!-- StartActivity -->
     <string name="choose_modus">Choose Modus</string>
     <string name="tv_txt_start_activity">StartActivity</string>
@@ -51,7 +48,7 @@
     <string name="txt_graph_1">Graph 1</string>
     <string name="txt_graph_2">Graph 2</string>
     <string name="txt_map">Map</string>
-   
+
     <!-- Track Manager -->
     <string name="toast_track_deleted">Track deleted</string>
     <string name="toast_track_record_start">Start recording Track No\u0020</string>
