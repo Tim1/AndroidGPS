@@ -86,8 +86,6 @@ public class TrackManager {
 			toast.show();
 			newtrack = true;
 		}
-		if (!mDatabase.isOpen())
-			mDatabase = dbManager.getWritableDatabase();
 		if (trackid == -1 || isRunning)
 			return;
 
@@ -143,8 +141,6 @@ public class TrackManager {
 		isSaved = true;
 		track = null;
 		trackid = -1;
-		
-		mDatabase.close();
 	}
 
 	@Deprecated
@@ -174,6 +170,8 @@ public class TrackManager {
 	private int getNextTrackID() {
 		String sql = context.getResources().getString(
 				R.string.db_select_track_maxid);
+		if (!mDatabase.isOpen())
+			mDatabase = dbManager.getWritableDatabase();
 		Cursor cursor = mDatabase.rawQuery(sql, null);
 		int result = -1;
 		if (cursor.moveToFirst()) {
@@ -206,6 +204,8 @@ public class TrackManager {
 			} else {
 				if (max > 0) {
 					steps++;
+					if(track == null || track.isPaused())
+						return;
 					track.addStep();
 				}
 				max = 0;
@@ -226,8 +226,13 @@ public class TrackManager {
 	private class LocationListenerImpl implements LocationListener {
 
 		public synchronized void onLocationChanged(Location location) {
-			if (trackid == -1)
+			if (trackid == -1 || track == null || track.isPaused())
 				return;
+			
+			if (!mDatabase.isOpen()){
+				mDatabase = dbManager.getWritableDatabase();
+			}
+			
 			track.addLocation(location, sql);
 		}
 
@@ -250,6 +255,14 @@ public class TrackManager {
 		return track;
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		//Datenbank wird erst dann geschlossen, wenn das Objekt nicht mehr besteht
+		mDatabase.close();
+
+		super.finalize();
+	}
+	
 	/**
 	 * generiert ein Track mit der angegeben ID aus der Datenbank alle
 	 * Statstiken werden mitgeneriert
@@ -369,6 +382,5 @@ public class TrackManager {
 		}
 		cursor.close();
 		mDatabase.close();
-
 	}
 }
