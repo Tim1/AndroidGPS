@@ -97,7 +97,7 @@ public class StartActivity extends Activity {
 										int which) {
 
 									lv = ((AlertDialog) dialog).getListView();
-									lv.setTag(new Integer(which));
+									lv.setTag(Integer.valueOf(which));
 
 								}
 

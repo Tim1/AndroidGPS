@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.timweb.android.activity"
     android:versionCode="1"
-    android:versionName="@string/app_version" >
+    android:versionName="@string/app_version" xmlns:tools="http://schemas.android.com/tools" tools:ignore="UsesMinSdkAttributes">
 
+    
     <uses-sdk android:minSdkVersion="7" />
 
     <uses-permission android:name="android.permission.INTERNET" />

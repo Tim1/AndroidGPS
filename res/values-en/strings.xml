@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
     <!-- StartActivity -->
     <string name="choose_modus">Choose Modus</string>
@@ -35,7 +35,7 @@
     <string name="tv_txt_date">Date</string>
     <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Pleas wait</string>
-    <string name="pd_txt_loading_data">loading Data...</string>
+    <string name="pd_txt_loading_data">loading Data&#8230;</string>
     <string name="main_no_items">No Tracks available</string>
     <string name="toast_no_locations_found">No Locations found</string>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
-    <string name="app_name">BlueTrack</string>
-    <string name="app_version">0.8</string>
+    <string name="app_name" tools:ignore="MissingTranslation">BlueTrack</string>
+    <string name="app_version" tools:ignore="MissingTranslation">0.8</string>
 
     <!-- StartActivity -->
     <string name="choose_modus">Wähle Modus</string>
@@ -27,10 +27,10 @@
     <string name="di_save">Speichern</string>
     <string name="di_drop">Löschen</string>
     <string name="di_back">Zurück</string>
-    <string name="time">0:00</string>
-    <string name="speed">0.0 km/h</string>
-    <string name="distance">0.0 km</string>
-    <string name="steps">0</string>
+    <string name="time" tools:ignore="MissingTranslation">00:00:00</string>
+    <string name="speed" tools:ignore="MissingTranslation">0.0 km/h</string>
+    <string name="distance" tools:ignore="MissingTranslation">0.0 km</string>
+    <string name="steps" tools:ignore="MissingTranslation">0</string>
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Einstellungen\n</string>
@@ -42,7 +42,7 @@
     <string name="tv_txt_date">Datum</string>
     <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Bitte Warten</string>
-    <string name="pd_txt_loading_data">Daten werden geladen...</string>
+    <string name="pd_txt_loading_data">Daten werden geladen&#8230;</string>
     <string name="main_no_items">Kein Tracks vorhanden</string>
     <string name="toast_no_locations_found">Keine Locations gefunden</string>
 
