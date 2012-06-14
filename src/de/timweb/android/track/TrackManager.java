@@ -39,7 +39,6 @@ public class TrackManager {
 	private DatabaseManager dbManager;
 
 	private int steps;
-	private long pauseStart;
 
 	public TrackManager() {
 		dbManager = new DatabaseManager(context);
@@ -87,6 +86,8 @@ public class TrackManager {
 			toast.show();
 			newtrack = true;
 		}
+		if (!mDatabase.isOpen())
+			mDatabase = dbManager.getWritableDatabase();
 		if (trackid == -1 || isRunning)
 			return;
 
@@ -101,11 +102,10 @@ public class TrackManager {
 			Toast toast = Toast.makeText(
 					context,
 					context.getResources().getString(
-							R.string.toast_gps_start)
-							+ trackid, Toast.LENGTH_SHORT);
+							R.string.toast_gps_start), Toast.LENGTH_SHORT);
 			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
 			toast.show();
-			track.addPauseTime(System.currentTimeMillis() - pauseStart);
+			track.continueTrack();
 		}
 	}
 
@@ -117,16 +117,14 @@ public class TrackManager {
 			return;
 		mLocationManager.removeUpdates(mLocationListener);
 		mSensorManager.unregisterListener(mSensorListener);
-		mDatabase.close();
 		isRunning = false;
 		Toast toast = Toast.makeText(
 				context,
 				context.getResources().getString(
-						R.string.toast_gps_pause)
-						+ trackid, Toast.LENGTH_SHORT);
+						R.string.toast_gps_pause), Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
 		toast.show();
-		pauseStart = System.currentTimeMillis();
+		track.pause();
 	}
 
 	/**
@@ -137,7 +135,6 @@ public class TrackManager {
 		if (trackid == -1)
 			return;
 		isRunning = false;
-		mLocationManager.removeUpdates(mLocationListener);
 		mSensorManager.unregisterListener(mSensorListener);
 
 		if (!mDatabase.isOpen())
@@ -146,6 +143,8 @@ public class TrackManager {
 		isSaved = true;
 		track = null;
 		trackid = -1;
+		
+		mDatabase.close();
 	}
 
 	@Deprecated

@@ -32,9 +32,11 @@ public class Track {
 	private long elapsedTime;
 	private double currentSpeed;
 	private long pauseTime;
+	private long lastPause;
 	private Statistics stats = new Statistics();
 
 	ArrayList<Location> locations = new ArrayList<Location>();
+	private boolean isPaused;
 
 	/**
 	 * Konstruktor fuer "LiteTrack" (keine Statistiken erstellen etc.)
@@ -62,6 +64,8 @@ public class Track {
 	}
 
 	public void addLocation(Location location, SQLiteStatement sql) {
+		if(isPaused)
+			return;
 
 		float distanceDelta = 0;
 		currentSpeed = location.getSpeed();
@@ -84,8 +88,8 @@ public class Track {
 			stepsDiff = ((LocationAndSteps) location).getSteps();
 		}else{
 			
-			//FIXME: Debug Schritte simulieren
-			steps += (Math.random()*10);
+			//DEBGUG: Debug Schritte simulieren
+//			steps += (Math.random()*10);
 			
 			stepsDiff = steps - stepsOld; 
 			stepsOld = steps;
@@ -211,6 +215,8 @@ public class Track {
 	}
 
 	public void addStep() {
+		if(isPaused)
+			return;
 		steps++;
 	}
 
@@ -239,12 +245,26 @@ public class Track {
 		return stats;
 	}
 
+
 	/**
-	 * 
-	 * @param time Dauer der Pause in ms 
+	 * startet die Zeitmessung wieder nachdem Pause vorbei ist
 	 */
-	public void addPauseTime(long time) {
-		pauseTime += time;
+	public void continueTrack() {
+		pauseTime += System.currentTimeMillis() - lastPause;
+		lastPause = 0;
+		isPaused = false;
+	}
+
+	
+	/**
+	 * pausiert die Zeitrechnung
+	 */
+	public void pause() {
+		lastPause = System.currentTimeMillis();
+		isPaused = true;
 	}
 	
+	public boolean isPaused() {
+		return isPaused;
+	}
 }
