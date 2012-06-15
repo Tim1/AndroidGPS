@@ -22,6 +22,7 @@
         <activity
             android:name=".activity.StartActivity"
             android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +32,17 @@
         </activity>
         <activity
             android:name=".activity.ChooseTrackActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activity.RunningActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activity.PreferencesActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -49,15 +53,21 @@
         </activity>
         <activity
             android:name=".activity.stats.GoogleMapActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".activity.stats.DiagrammActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="CreditsActivity"></activity>
+        <activity 
+            android:name=".activity.CreditsActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
+            android:screenOrientation="portrait"></activity>
          <activity
             android:name=".activity.stats.OverviewActivity"
+            android:theme="@android:style/Theme.DeviceDefault"
             android:screenOrientation="portrait" >
         </activity>
     </application>
