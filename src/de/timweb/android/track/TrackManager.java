@@ -18,7 +18,7 @@ import android.view.Gravity;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import de.timweb.android.activity.R;
+import de.timweb.android.R;
 import de.timweb.android.util.DatabaseManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
@@ -281,8 +281,7 @@ public class TrackManager {
 		Cursor cursor = mDatabase.rawQuery(sql, null);
 
 		while (cursor.moveToNext()) {
-			result = new Track(cursor.getInt(0), cursor.getLong(1),
-					cursor.getFloat(2), cursor.getLong(3), cursor.getInt(4),cursor.getInt(5));
+			result = new Track(cursor.getInt(0),cursor.getLong(1),cursor.getLong(2) ,cursor.getInt(3));
 		}
 
 		cursor.close();
@@ -368,6 +367,8 @@ public class TrackManager {
 		sql.bindString(2, note);
 		sql.bindLong(3, trackid);
 		sql.execute();
+		
+		mDatabase.close();
 	}
 
 	public static void selectRatingAndNote(int trackid,RatingBar rb, TextView tv_note) {

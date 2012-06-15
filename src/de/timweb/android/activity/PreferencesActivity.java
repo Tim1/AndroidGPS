@@ -3,20 +3,12 @@ package de.timweb.android.activity;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.app.backup.RestoreObserver;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
-import android.widget.Toast;
+import de.timweb.android.R;
 
 public class PreferencesActivity extends Activity {
 

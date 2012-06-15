@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import de.timweb.android.R;
 import de.timweb.android.track.TrackManager;
 import de.timweb.android.util.RunningUpdaterTask;
 

@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.location.Location;
 import android.view.Gravity;
 import android.widget.Toast;
-import de.timweb.android.activity.R;
+import de.timweb.android.R;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 /**
@@ -57,10 +57,15 @@ public class Track {
 		this.steps = steps;
 	}
 	
+	Track(int id, long date, long time ,int modus){
+		this(id,date,0,time,modus,0);
+	}
+	
 	Track(int id, int modus) {
-		this._id = id;
-		this.modus = modus;
-		starttime = System.currentTimeMillis();
+		this(id,System.currentTimeMillis(),0,0,modus,0);
+//		this._id = id;
+//		this.modus = modus;
+//		starttime = System.currentTimeMillis();
 	}
 
 	public void addLocation(Location location, SQLiteStatement sql) {

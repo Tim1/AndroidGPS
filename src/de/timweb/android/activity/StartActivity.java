@@ -17,10 +17,16 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
+import de.timweb.android.R;
+import de.timweb.android.R.array;
+import de.timweb.android.R.drawable;
+import de.timweb.android.R.id;
+import de.timweb.android.R.layout;
+import de.timweb.android.R.string;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
-	private static final boolean DEVELOPER_MODE = false;
+	private static final boolean DEVELOPER_MODE = true;
 	private ListView lv;
 	private UpdateTimerTask task;
 	private Timer timer;

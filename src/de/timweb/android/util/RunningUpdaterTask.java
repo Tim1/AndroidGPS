@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 import android.app.Activity;
 import android.widget.TextView;
-import de.timweb.android.activity.R;
+import de.timweb.android.R;
 import de.timweb.android.track.Statistics;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;

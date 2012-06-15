@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.timweb.android.activity"
+    package="de.timweb.android"
     android:versionCode="1"
     android:versionName="@string/app_version" xmlns:tools="http://schemas.android.com/tools" tools:ignore="UsesMinSdkAttributes">
 
@@ -20,7 +20,7 @@
         <uses-library android:name="com.google.android.maps" />
 
         <activity
-            android:name=".StartActivity"
+            android:name=".activity.StartActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -30,46 +30,34 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ChooseTrackActivity"
+            android:name=".activity.ChooseTrackActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".test.GPSTestActivity"
+            android:name=".activity.RunningActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".test.DrawTestActivity"
+            android:name=".activity.PreferencesActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".test.SensorTestActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="RunningActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="PreferencesActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".stats.StatisticActivity"
+            android:name=".activity.stats.StatisticActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
->
+
         </activity>
         <activity
-            android:name=".stats.GoogleMapActivity"
+            android:name=".activity.stats.GoogleMapActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".stats.DiagrammActivity"
+            android:name=".activity.stats.DiagrammActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name="CreditsActivity"></activity>
          <activity
-            android:name=".stats.OverviewActivity"
+            android:name=".activity.stats.OverviewActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

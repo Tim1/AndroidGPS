@@ -2,14 +2,13 @@ package de.timweb.android.util;
 
 import java.util.ArrayList;
 
-import de.timweb.android.activity.R;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationManager;
 import android.widget.Toast;
+import de.timweb.android.R;
 
 /**
  * Zum Lesen der Locations aus der Datenbank (statische Klasse)

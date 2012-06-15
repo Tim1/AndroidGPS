@@ -1,14 +1,7 @@
 package de.timweb.android.activity.stats;
 
-import de.timweb.android.activity.R;
-import de.timweb.android.activity.R.drawable;
-import de.timweb.android.activity.R.id;
-import de.timweb.android.activity.R.layout;
-import de.timweb.android.activity.R.menu;
-import de.timweb.android.activity.R.string;
-import de.timweb.android.track.TrackManager;
-import android.app.TabActivity;
 import android.app.AlertDialog.Builder;
+import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -17,7 +10,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TabHost;
-import android.widget.Toast;
+import de.timweb.android.R;
+import de.timweb.android.track.TrackManager;
 
 @SuppressWarnings("deprecation")
 public class StatisticActivity extends TabActivity{

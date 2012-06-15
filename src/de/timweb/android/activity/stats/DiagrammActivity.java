@@ -1,17 +1,13 @@
 package de.timweb.android.activity.stats;
 
-import de.timweb.android.activity.R;
-import de.timweb.android.activity.R.id;
-import de.timweb.android.activity.R.layout;
-import de.timweb.android.activity.R.string;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import de.timweb.android.R;
 import de.timweb.android.track.Statistics;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
 import de.timweb.android.util.GraphLiveView;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 public class DiagrammActivity extends Activity {
 

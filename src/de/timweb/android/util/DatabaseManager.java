@@ -3,7 +3,7 @@ package de.timweb.android.util;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import de.timweb.android.activity.R;
+import de.timweb.android.R;
 
 
 /*

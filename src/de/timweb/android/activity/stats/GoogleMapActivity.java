@@ -5,19 +5,16 @@ import java.util.List;
 
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
-import android.location.Location;
 import android.os.Bundle;
-import android.text.Layout;
-import android.text.StaticLayout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -25,15 +22,10 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Projection;
 
-import de.timweb.android.activity.R;
-import de.timweb.android.activity.R.id;
-import de.timweb.android.activity.R.layout;
-import de.timweb.android.activity.R.menu;
-import de.timweb.android.activity.R.string;
-import de.timweb.android.track.TrackManager;
+import de.timweb.android.R;
 import de.timweb.android.util.LocationReader;
-import de.timweb.android.util.MyOverlay;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
+import de.timweb.android.util.MyOverlay;
 
 public class GoogleMapActivity extends MapActivity {
 	/** Called when the activity is first created. */
