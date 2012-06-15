@@ -341,6 +341,8 @@ public class TrackManager {
 		mDatabase.execSQL(context.getResources().getString(
 				R.string.db_delete_location)
 				+ trackid);
+		mDatabase.close();
+		
 		Toast toast = Toast.makeText(
 				context,
 				context.getResources().getString(
