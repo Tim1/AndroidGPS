@@ -1,8 +1,9 @@
-package de.timweb.android.activity;
+package de.timweb.android;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -17,12 +18,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
-import de.timweb.android.R;
-import de.timweb.android.R.array;
-import de.timweb.android.R.drawable;
-import de.timweb.android.R.id;
-import de.timweb.android.R.layout;
-import de.timweb.android.R.string;
+import de.timweb.android.activity.ChooseTrackActivity;
+import de.timweb.android.activity.CreditsActivity;
+import de.timweb.android.activity.PreferencesActivity;
+import de.timweb.android.activity.RunningActivity;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
@@ -52,6 +51,7 @@ public class StartActivity extends Activity {
 		timer.scheduleAtFixedRate(task, 0, 1000);
 	}
 
+	@SuppressLint("UseValueOf")
 	public void onButtonClick(View view) {
 		switch (view.getId()) {
 

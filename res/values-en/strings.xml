@@ -80,4 +80,11 @@
     <string name="but_txt_set_accuracy">Set Accuracy</string>
     <string name="txt_step_size">Step Size:\u0020</string>
 
+    <!-- Credits Activity -->
+    <string name="tv_credit1">This App was developed for the subject &quot;Android&quot; University Furtwangen.</string>
+    <string name="tv_credit2">More info and new versions of this App: </string>
+    <string name="tv_credit_link">www.timweb.de/android</string>
+    <string name="tv_credits_by">Developed by:</string>
+    
+    
 </resources>
