@@ -40,7 +40,7 @@ Features
 - Genauigkeit der Darstellung der zurückgelegten Strecke auf GoogleMap einstellbar.
 - Eintragen von Rating und Notiz zu den einzelnen Tracks.
 - Sprachpakete: Deutsch und Englisch.
-- automatisiertes Senden von Absturzberichten (ACRA - https://code.google.com/p/acra/)
+- automatisiertes Senden von Absturzberichten (ACRA (Application Crash Report for Android)- https://code.google.com/p/acra/)
 
 
 Benutzerhilfe
