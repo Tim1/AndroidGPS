@@ -33,20 +33,34 @@ Features
 - Modi: Joggen, Fahrrad und Auto fahren.
 - Live-Diagramme über Geschwindigkeit, Höhenunterschied, Distanz zwischen Messpunkten und Länge der Schritten.
 - Statistik samt Live-Diagramme zu jedem aufgenommenem Track abrufbar.
+- Tracking ist pausierbar
 - Genauigkeit der Darstellung der zurückgelegten Strecke auf GoogleMap einstellbar.
 - Eintragen von Rating und Notiz zu den einzelnen Tracks.
 - Sprachpakete: Deutsch und Englisch.
+- automatisiertes Senden von Absturzberichten (ACRA - https://code.google.com/p/acra/)
 
 
 Benutzerhilfe
 ====
-Infos die der Benutzer haben will.
-Ablauf wie ein Track aufgenommen wird, wieder angeschaut wird
-�bersicht �ber die App als Screenshot(Diagramm)
+Die Bediehnung der App ist möglichst intuitiv gehalten. Um einen kompletten Überblich über alle Activities zu bekommen und
+so ein Eindruck von der Navigation zu erhalten gibt es folgendes Diagramm.
+
+--> Diagramm (mit Activities) <--
 
 
 Programm-Architekur (mit UML) 
 ====
+Um die App auch weiterentwickeln zu können, war uns eine solide und modulare Architektur sehr wichtig.
+Zu den sicherlich wichtigsten Klassen gehören die Klassen "TrackManager" sowie "Track".
+Die Funktion der Klassen ist vermutlich schon teilweise aus dem Klassendiagramm auszulesen.
+
+- Klasse "Track"
+	- stellt jeweils eine Laufstecke dar
+	- wird vom Trackmanager während der Aufnahme mit Daten versorgt (Methode: addLocation, addSteps)
+	- erstellt in Echtzeit Statistiken (Klasse "Statistics"), die dann auch grafisch angezeigt werden können (Klasse "GraphLiveView")
+
+- Klasse "TrackManager"
+
 Beschreibung der Architektur der App. 
 Pakete, Trackmanager, Manifest etc.
 
