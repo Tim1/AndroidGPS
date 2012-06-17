@@ -81,11 +81,11 @@ Die Tabelle "gps_location" beinhaltet alle Locations die je bei einem Tracking a
 Problem, Schwierigkeiten
 ====
 Die größten Probleme lagen vermutlich bei der Verwertung der (ungenauen) Daten von GPS sowie der Bewegungssensoren.
+
 - GPS
 	- die Locations, welche das GPS liefert sind im besten Fall im Radius von 5 m genau
 	- zu viele Locations auf kleinem Raum liefern genauso schlechte Ergebnisse, wie zu wenig Locations
 	- wenn der Standort nicht vor Beginn einer Aufnahme durch GPS festgelegt wurde, dauert es bis zu 2 min (Samsung Galaxy S plus) bis eine erste Locations gesendet wird
-
 - Sensoren
 	- Schritte müssen aus den Erschütterungen (dh. Beschleunigunssensoren) entlang der Y-Achse des Telefons ausgelesen werden. Die ist bei bei starken Erschütterungen - z.B. beim Joggen oder Rennen - relativ gut möglich, da die Hochpunkte der Y-Achsen-Beschleunigunssensoren relativ eindeutige Sinus-Wellenformen liefert. Doch bei normalem Laufen sind keine klaren Hochpunkte mehr zu erkennen, es ergibt sich eine ziemlich chaotisches Funktionskurve. Dadurch ergibt sich eine starke Ungenauigkeit der Schritte beim Laufen.
 	- wird das Telefon recht locker in der Tasche gehalten ergibt sich ebenfalls mehr Inteferenzen und dadurch Ungenauigkeiten
@@ -94,15 +94,22 @@ Die größten Probleme lagen vermutlich bei der Verwertung der (ungenauen) Daten
 
 Weiterentwicklung
 ====
-kurz sagen, dass wir noch nach beenden des Projekts weiterzuentwickeln
-Ideen was dann noch kommen kann
+Aufgrund der unserer Meinung nach Ansprechenden Entwicklung der App haben wir uns schon vor einiger Zeit entschieden, die App auch nach Ablauf des Projektes weiter zu entwickeln. (Version 1.0 wird die abzugebende Version sein)
+Wir werden die Entwicklung genau wie auch schon in unserem Projekt weiterhin mithilfe der Versionsverwaltung "git" und öffentlich zugänglich auf github.com entwickeln.
 
+Hier sind einige der Punkte die wir für künftige Versionen geplant haben:
+
+- integrieren der App in "Google Play"
+- kostenlose Version (evtl. mit Werbung) + evtl. kostenplichtige Pro-Version (zusätzliche Features, z.B. Übertragung der Statistiken auf Computer, mehr Modi auswählbar, mehr Einstellungsmöglichkeiten) 
+- Überarbeitung aller Icons (verbleibende nichtkonforme Icons an die Android Richtlinien anpassen)
+- MapLiveView - d.h. Anzeige des aktuellen Tracks auch während der Aufnahme (RunningActivity)
 
 Statistiken
 ====
 Lines of Code, Icons...
 
 
-Bugs, unvollständige Dinge
+Bugs, Issues
 ====
-falls es so was noch geben sollte
+- ungenauer Schrittzähler (vor allem beim Laufen), ist aber nicht ohne massiven Aufwand verbesserbar
+- ungenaue erste Location 
