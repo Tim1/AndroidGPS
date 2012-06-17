@@ -25,7 +25,7 @@ import de.timweb.android.activity.RunningActivity;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
-	private static final boolean DEVELOPER_MODE = true;
+	private static final boolean DEVELOPER_MODE = false;
 	private ListView lv;
 	private UpdateTimerTask task;
 	private Timer timer;
@@ -39,6 +39,7 @@ public class StartActivity extends Activity {
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
 					.detectLeakedSqlLiteObjects().detectLeakedSqlLiteObjects()
 					.penaltyLog().penaltyDeath().build());
+			
 		}
 
 		super.onCreate(savedInstanceState);
