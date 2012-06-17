@@ -5,9 +5,9 @@ By Tim Schmiedl, Milos Babic
 
 
 Mit BlueTrack werden Routen, die zu Fuß, mit Fahrrad oder mit Auto zurückgelegt werden, per GPS aufgenommen.
-Diese Tracks werden mit vielen weiteren Informationen wie z.B Anzahl der Schritte bei Joggern oder Durchschnittsgeschwindigkeit in der Datenbank abgelegt,
-welche dann jederzeit zur späteren Analyse verwendet werden können.
+Diese Tracks werden mit vielen weiteren Informationen wie z.B Anzahl der Schritte bei Joggern oder Durchschnittsgeschwindigkeit in der Datenbank abgelegt, welche dann jederzeit zur späteren Analyse verwendet werden können.
 Jogger und Fahrradfahrer können somit ihre Trainingserfolge beobachten.
+Weiterhin kann man sich die genau zurückgelegte Strecke später mithilfe von Google-Maps metergenau abzeigen lassen um so auch eventuell beim nächstem Mal neue Strecken zu erkunden.
 
 Ziele
 ====
@@ -22,10 +22,13 @@ Mussziele:
 
 Kannziele:
 
-- Googlemaps verbinden um weitere Rad/joggingwege zu finden.
+- Googlemaps verbinden um weitere Rad/Joggingwege zu finden.
 - Statistik auf Computer übertragen.
 - Liveanzeige der Strecke.
 - Anpassung der App an unterschiedliche Auflösungen (Tablet).
+
+Die Mussziele wurden alle eingehalten, auch die Kannziele (mit Ausnahme der Übertragung auf den Computer) wurden erfüllt.
+Zur Übertragung an den Computer siehe Weiterentwicklung
 
 
 Features
@@ -58,25 +61,35 @@ Die Funktion der Klassen ist vermutlich schon teilweise aus dem Klassendiagramm 
 	- stellt jeweils eine Laufstecke dar
 	- wird vom Trackmanager während der Aufnahme mit Daten versorgt (Methode: addLocation, addSteps)
 	- erstellt in Echtzeit Statistiken (Klasse "Statistics"), die dann auch grafisch angezeigt werden können (Klasse "GraphLiveView")
-
 - Klasse "TrackManager"
+	- verwaltet alles was mit Tracks zu tun hat (erstellen von Track(Live), auslesen aus der Datenbank)
+	- beinhaltet LocationLister (versorgt Track mit GPS-Daten); SensorEventListener (erkennt Schritte aus den Sensordaten, und sendet Schritte and Track)
+	- enthälst statische Methoden zum generieren von Tracks aus der Datenbank
 
-Beschreibung der Architektur der App. 
-Pakete, Trackmanager, Manifest etc.
-
+(Beschreibung der Architektur der App. Pakete, Trackmanager, Manifest etc.)
 UML:
 	UseCase
 	Klassendiagramm
-	evtl. Dom�nklassen, Paket
+	Paket
 
-Datenbank:
-	ER-Diagramm
+--> ER-Diagramm <--
+Wie aus dem ER-Diagramm deutlich ist, besteht die Datenbank aus nur zwei Tabellen.
+Die Tabelle "gps_track" enthält die wichtigsten Daten welche schließlich in den Statistiken angezeigt werden.
+Die Tabelle "gps_location" beinhaltet alle Locations die je bei einem Tracking aufgenommen werden. Dies ist notwendig, da auf der GoogleMap der genaue Streckenverlauf augezeichnet wird. Außerdem sind die Locations essential um einen Track erneut zu generieren. Dis geschieht, indem die Locations genau wie bei der Live-Aufnahme mithilfe der "addLocation"-Methode zugespielt werden. Somit unterscheidet sich ein generierter Track nicht von einem Live-aufgenommen.
 
 
 Problem, Schwierigkeiten
 ====
-was ist schwierig gewesen, mit welchen Problemen hatten wir nicht gerechnet
-(z.B. ungenaues GPS, Schrittz�hler siehe Abhandlung)
+Die größten Probleme lagen vermutlich bei der Verwertung der (ungenauen) Daten von GPS sowie der Bewegungssensoren.
+- GPS
+	- die Locations, welche das GPS liefert sind im besten Fall im Radius von 5 m genau
+	- zu viele Locations auf kleinem Raum liefern genauso schlechte Ergebnisse, wie zu wenig Locations
+	- wenn der Standort nicht vor Beginn einer Aufnahme durch GPS festgelegt wurde, dauert es bis zu 2 min (Samsung Galaxy S plus) bis eine erste Locations gesendet wird
+
+- Sensoren
+	- Schritte müssen aus den Erschütterungen (dh. Beschleunigunssensoren) entlang der Y-Achse des Telefons ausgelesen werden. Die ist bei bei starken Erschütterungen - z.B. beim Joggen oder Rennen - relativ gut möglich, da die Hochpunkte der Y-Achsen-Beschleunigunssensoren relativ eindeutige Sinus-Wellenformen liefert. Doch bei normalem Laufen sind keine klaren Hochpunkte mehr zu erkennen, es ergibt sich eine ziemlich chaotisches Funktionskurve. Dadurch ergibt sich eine starke Ungenauigkeit der Schritte beim Laufen.
+	- wird das Telefon recht locker in der Tasche gehalten ergibt sich ebenfalls mehr Inteferenzen und dadurch Ungenauigkeiten
+	- wird das Telefon nicht aufrecht gehalten verschieben sich die Y und Z-Achse, was wiederum zu Ungenauigkeiten führt.
 
 
 Weiterentwicklung
@@ -90,6 +103,6 @@ Statistiken
 Lines of Code, Icons...
 
 
-Bugs, unvollst�ndige Dinge
+Bugs, unvollständige Dinge
 ====
 falls es so was noch geben sollte
