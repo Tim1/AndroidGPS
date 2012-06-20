@@ -1,23 +1,25 @@
-====================
+============================================================
 Post-Mortem-Analyse anhand von FBI Virtual Case File
-====================
+============================================================
 By Tim Schmiedl, Milos Babic
 
 
 
 Post Mortem Analyse
-====
+========================
 Beispiel-Template http://art.cim3.org/pm_workshop/Project_Post_Mortem/Postmortem_Template--MSF.html
 
 
 Ziele
+---------
 
 - positive und negative Erfahrungen dokumentieren
-  - Fehler erkennen 
+	- Fehler erkennen 
 	- Erfahrungen vertiefen
 - Verbessern (Prozess, Führung, Vorgehensweise)
 
 Nutzen & Schwierigkeiten
+---------------------------
 
 - PMA kann frei gestaltet werden
 - Review von möglichst allen Mitgliedern
@@ -29,6 +31,7 @@ Nutzen & Schwierigkeiten
 
 
 Ablauf
+---------
 
 - Ramenbedinungen (Dauer der PMA, welches Endergebniss? Umfang? Wer?)
 - Daten & Fakten zum Projekt 
@@ -37,6 +40,7 @@ Ablauf
 - Abschlussbericht / Report
 
 Methoden
+---------
 
 - Interview
 - Fragebögen
@@ -46,6 +50,7 @@ FBI
 ====
 
 Organisationsstruktur der FBI (2000)
+-------------------------------------
 
 - 12.500 Mitarbeiter
 - 500 Büros
@@ -55,6 +60,7 @@ Organisationsstruktur der FBI (2000)
 - unstabiles,langsames und unsicheres IT-Netzwerk
 
 Arbeitsprozess bei FBI-Ermittlungen
+------------------------------------
 
 1. Agent dokumentiert mithilfe von standardisierten Forms.
 2. Berichte werden an Vorgesetzten überreicht.
@@ -63,6 +69,7 @@ Arbeitsprozess bei FBI-Ermittlungen
 => mühsame Papierarbeit
 
 Automated Case Support (ACS)
+----------------------------
 
 - Verwaltungssoftware für Ermittlungsfälle der FBI
 - sehr veraltetes System:
@@ -75,6 +82,7 @@ Automated Case Support (ACS)
 => Fazit: Projekt Trilogy.
 
 Porjekt Trilogy
+----------------
 
 - Modernisierung der gesamten IT-Infrastruktur der FBI
 - Projekt besteht aus 3 Unterprojekte
@@ -86,7 +94,7 @@ Porjekt Trilogy
 
 
 Virtual Case File
-====
+==================
 
 Was ist VCF?
 
@@ -103,6 +111,7 @@ Was ist VCF?
 
 
 Projektverlauf von VCF:
+-------------------------
 
 - September 2000: Start von Trilogy
 - Oktober 2001: Start Virtual Case File
@@ -128,7 +137,8 @@ Projektverlauf von VCF:
 	- Kosten: $ 170 Mio.
 
 
-Analyse:
+Analyse (PMA):
+--------
 
 - fehlender Blueprint (Enterprise Architektur)
 - Vertrag (Cost-plus-award-fee):
@@ -155,17 +165,18 @@ Analyse:
 	- Schlichtung bzw. neutraler Beobachter
 
 Fazit:
+-------
 
 Fragebogen
-====
+====================
 
 
 Fragen
-====
+====================
 
 
 Quellen
-====
+====================
 
 - Goldstein, Harry: Who killed the Virtual Case File?; IEEE Spectrum, September 2005
 - Eggen, Dan & Witte, Griff: The FBI’s Upgrade That Wasn’t; Washington Post, 18. August 2006
