@@ -64,7 +64,7 @@ Arbeitsprozess bei FBI-Ermittlungen
 Automated Case Support (ACS)
 
 - Verwaltungssoftware für Ermittlungsfälle der FBI
-- sehr veraltetes System:
+- sehr veraltetes System
 	- veraltete Datenbank
 	- nur einfach Suchfunktionen
 	- langsame Übertragung von Informationen
@@ -75,7 +75,7 @@ Automated Case Support (ACS)
 Porjekt Trilogy
 
 - Modernisierung der gesamten IT-Infrastruktur der FBI
-- Projekt besteht aus 3 Unterprojeken:
+- Projekt besteht aus 3 Unterprojeken
 	1. neue Hardware( PCs, Drucker, Scanner etc)
 	2. neues IT-Netzwerk (WAN und LAN)
 	3. Virtual Case File
