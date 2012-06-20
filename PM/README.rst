@@ -50,7 +50,7 @@ Organisationsstruktur der FBI (2000)
 - 12.500 Mitarbeiter
 - 500 Büros
 - 23 Abteilungen
-- jede Abteilung beistzt eigenes IT-Budget -> keine einheitlichen ANwendungen und Datenbanken
+- jede Abteilung beistzt eigenes IT-Budget -> keine einheitlichen Anwendungen und Datenbanken
 - über 10.000 veraltete PCs, Scanner, Drucker und sonsitge Hardware
 - unstabiles,langsames und unsicheres IT-Netzwerk
 
@@ -59,38 +59,73 @@ Arbeitsprozess bei FBI-Ermittlungen
 1. Agent dokumentiert mithilfe von standardisierten Forms.
 2. Berichte werden an Vorgesetzten überreicht.
 3. Bericht wird nach Überprüfung in ACS eingetragen.
-   => mühsame Papierarbeit
+	
+=> mühsame Papierarbeit
 
 Automated Case Support (ACS)
 
 - Verwaltungssoftware für Ermittlungsfälle der FBI
-- sehr veraltetes System
+- sehr veraltetes System:
 	- veraltete Datenbank
 	- nur einfach Suchfunktionen
 	- langsame Übertragung von Informationen
-  	=> Bei Agenten unbeliebt.
 
-=>Fazit: Projekt Trilogy
+=> Bei Agenten unbeliebt.
+
+=> Fazit: Projekt Trilogy.
 
 Porjekt Trilogy
 
 - Modernisierung der gesamten IT-Infrastruktur der FBI
-- Projekt besteht aus 3 Unterprojeken
+- Projekt besteht aus 3 Unterprojekte
 	1. neue Hardware( PCs, Drucker, Scanner etc)
 	2. neues IT-Netzwerk (WAN und LAN)
 	3. Virtual Case File
 - Dauer: 2000 - 2003
 - Budget: 380 Mio $
 
+
 Virtual Case File
 ====
-Ursprüngliche Ziele (Trilogy)
 
-Gründe für Entwicklung
+Was ist VCF?
 
-Kurzer Überblick über VCF, Projektverlauf
+- Verwaltungssoftware für FBI-rmittlungsfälle
+- ersetzt veraltetes ACS
+- WebInterface
+- Zugriff und Verteilung von Informationen schnell und zuverlässig
+- Auftragnehmer: Science Applications International Corp. (SAIC)
+- Dauer: 3 Jahre
+- Budget: $ 120 Mio.
+- Vertrag: contract-plus
+- Projektleiter: Special Agent Larry Depew (FBI)
 
-Zeitablauf (neutral gehalten)
+
+
+Projektverlauf von VCF:
+
+- September 2000: Start von Trilogy
+- Oktober 2001: Start Virtual Case File
+- Dezember 2001: Neuausrichtung VCF
+- Januar 2002: weitere $78 Mio für Trilogy
+- Februar 2002: Joint Application Development Sessions mit Depew
+- November 2002: 
+	- Matthew Patton (IT-Security Experte) verlässt Projekt.
+	- SAIC und FBI haben Anforderungskatalog erstellt.
+- Dezember 2002: weitere $ 123 Mio für Trilogy
+- September 2003: GAO empfihelt FBI ein Blueprint für Trilogy
+- Dezember 2003: 
+	- Zalmai Azmi wird CIO
+	- SAIC liefert VCF aus
+- Juni 2004: FBI gibt SAIC neuen Auftrag: Initial Operatin Capability
+- April 2005: FBI legt VCF still
+- Mai 2005: neues Softwarprojekt Sentinel
+
+- Endstand:
+	- 700.000 Lines of Code
+	- Dauer: 4 Jahre
+	- Kosten: $ 170 Mio.
+
 
 
 Analyse:
