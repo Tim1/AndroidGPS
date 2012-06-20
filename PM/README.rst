@@ -113,13 +113,14 @@ Projektverlauf von VCF:
 	- Matthew Patton (IT-Security Experte) verlässt Projekt.
 	- SAIC und FBI haben Anforderungskatalog erstellt.
 - Dezember 2002: weitere $ 123 Mio für Trilogy
-- September 2003: GAO empfihelt FBI ein Blueprint für Trilogy
+- September 2003: General Accounting Office (GAO) empfiehlt FBI ein Blueprint für Trilogy
 - Dezember 2003: 
 	- Zalmai Azmi wird CIO
 	- SAIC liefert VCF aus
+	- FBI findet zu viele Fehler in VCF und möchte diese gefixt haben.
 - Juni 2004: FBI gibt SAIC neuen Auftrag: Initial Operatin Capability
 - April 2005: FBI legt VCF still
-- Mai 2005: neues Softwarprojekt Sentinel
+- Mai 2005: neues Softwarprojekt Sentinel wird angekündigt.
 
 - Endstand:
 	- 700.000 Lines of Code
@@ -127,26 +128,46 @@ Projektverlauf von VCF:
 	- Kosten: $ 170 Mio.
 
 
-
 Analyse:
 
 - fehlender Blueprint (Enterprise Architektur)
-- Vertrag (Cost-plus-award-fee)
+- Vertrag (Cost-plus-award-fee):
+    - alle Kosten werden bezahlt
+    - keine Milestones definiert
+    - keine Vertragsstrafen definiert
+
 - Projektleitung:
-	- unerfahrener Projektmanager (Special Agent Depew)
+	- unerfahrener Projektmanager (Special Agent Depew), nur durch Beziehung zum Vorgesetzten an diese Position gekommen
 	- kein CIO --> ständig wechselnde Personal
-	- Matthew Patton
+	- Matthew Patton als IT-Security Experte ignoriert.
 - ProjektVerlauf:
 	- Weboberfläche --> komplett neues system
-	- Überspezifizierte Anforderungsheft
-	- (SAIC) 8 Teams parallel wegen Zeitdruck --> inkompatibel
-	- ständige Änderungswünsche der Agenten
+    	- Zeitplan immer mehr nach vorne verschoben ( 11. September 2001)
+	- (SAIC) 8 Teams parallel wegen Zeitdruck --> inkompatible Schnittstellen
+	- Überspezifizierte Anforderungsheft 
+	- FBI sehr von sich überzeugt (We're telling you how to do)
+	- ständige Änderungswünsche der Agenten (Dez 2002 - Dez 2003 400 Anforderungsänderungen)
 	- schlechte Kommunikation Developer <--> Agenten
+    	- Empfehlungsschreibungen aus Reports ignoriert (GAO)
 	- flash cutover (kein Plan B)
-	- FBI sehr von sich überzeugt
 - Ende:
 	- Streit über Abweichungen von Anforderungen
 	- Schlichtung bzw. neutraler Beobachter
 
 Fazit:
+
+Fragebogen
+====
+
+
+Fragen
+====
+
+
+Quellen
+====
+
+- Goldstein, Harry: Who killed the Virtual Case File?; IEEE Spectrum, September 2005
+- Eggen, Dan & Witte, Griff: The FBI’s Upgrade That Wasn’t; Washington Post, 18. August 2006
+
 
