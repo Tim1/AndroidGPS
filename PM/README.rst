@@ -68,9 +68,9 @@ Automated Case Support (ACS)
 	- veraltete Datenbank
 	- nur einfach Suchfunktionen
 	- langsame Übertragung von Informationen
-  => Bei Agenten unbeliebt.
+  	=> Bei Agenten unbeliebt.
 
-==>Fazit: Projekt Triloy
+=>Fazit: Projekt Trilogy
 
 Porjekt Trilogy
 
