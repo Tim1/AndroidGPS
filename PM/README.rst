@@ -44,10 +44,43 @@ Methoden
 
 FBI
 ====
-paar Fakten
-IT-Infrastruktur
-ACS
 
+Organisationsstruktur der FBI (2000)
+
+- 12.500 Mitarbeiter
+- 500 Büros
+- 23 Abteilungen
+- jede Abteilung beistzt eigenes IT-Budget -> keine einheitlichen ANwendungen und Datenbanken
+- über 10.000 veraltete PCs, Scanner, Drucker und sonsitge Hardware
+- unstabiles,langsames und unsicheres IT-Netzwerk
+
+Arbeitsprozess bei FBI-Ermittlungen
+
+1. Agent dokumentiert mithilfe von standardisierten Forms.
+2. Berichte werden an Vorgesetzten überreicht.
+3. Bericht wird nach Überprüfung in ACS eingetragen.
+   => mühsame Papierarbeit
+
+Automated Case Support (ACS)
+
+- Verwaltungssoftware für Ermittlungsfälle der FBI
+- sehr veraltetes System:
+	- veraltete Datenbank
+	- nur einfach Suchfunktionen
+	- langsame Übertragung von Informationen
+  => Bei Agenten unbeliebt.
+
+==>Fazit: Projekt Triloy
+
+Porjekt Trilogy
+
+- Modernisierung der gesamten IT-Infrastruktur der FBI
+- Projekt besteht aus 3 Unterprojeken:
+	1. neue Hardware( PCs, Drucker, Scanner etc)
+	2. neues IT-Netzwerk (WAN und LAN)
+	3. Virtual Case File
+- Dauer: 2000 - 2003
+- Budget: 380 Mio $
 
 Virtual Case File
 ====
