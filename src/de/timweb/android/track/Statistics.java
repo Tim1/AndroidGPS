@@ -27,7 +27,7 @@ public class Statistics {
 		if (stepsDiff <= 0)
 			return;
 
-		stepsToDist.add((float) (distanceToLast / stepsDiff));
+		stepsToDist.add((distanceToLast / stepsDiff));
 	}
 
 	public ArrayList<Float> getSpeedValues() {
@@ -41,11 +41,11 @@ public class Statistics {
 	public ArrayList<Float> getDistanceValues() {
 		return distances;
 	}
-	
+
 	public ArrayList<Float> getStepValues() {
 		return stepsToDist;
 	}
-	
+
 	public void addDistance(float distanceToLast) {
 		distances.add(distanceToLast);
 	}

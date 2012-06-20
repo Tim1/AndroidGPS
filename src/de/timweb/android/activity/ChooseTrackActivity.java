@@ -48,12 +48,13 @@ public class ChooseTrackActivity extends ListActivity {
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				v = vi.inflate(R.layout.row, null);
-				//TODO
-//				registerForContextMenu(v);
+				// TODO
+				// registerForContextMenu(v);
 			}
 			Track track = mTracks.get(position);
 			if (track != null) {
-				setIcon((ImageView) v.findViewById(R.id.ic_listview),track.getModus());
+				setIcon((ImageView) v.findViewById(R.id.ic_listview),
+						track.getModus());
 				TextView tt = (TextView) v.findViewById(R.id.tv_date);
 				if (tt != null)
 					tt.setText(track.getDate());
@@ -70,8 +71,8 @@ public class ChooseTrackActivity extends ListActivity {
 			return v;
 		}
 	}
-	
-	public void setIcon(ImageView iv, int modus){
+
+	public void setIcon(ImageView iv, int modus) {
 		switch (modus) {
 		case Track.MODE_JOGGING:
 			iv.setImageDrawable(getResources().getDrawable(
@@ -137,6 +138,7 @@ public class ChooseTrackActivity extends ListActivity {
 		}
 	};
 
+	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		Intent intent = new Intent(this, StatisticActivity.class);
@@ -145,50 +147,53 @@ public class ChooseTrackActivity extends ListActivity {
 		startActivity(intent);
 
 	}
-	
+
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
-	                                ContextMenuInfo menuInfo) {
-	    super.onCreateContextMenu(menu, v, menuInfo);
-	    
-	    //TODO Informationen zum Track im Titel von Menu
-//	    v.getId();
-//	    menu.setHeaderIcon(icon);
-//	    menu.setHeaderTitle(title)
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.choosetrack_context, menu);
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+
+		// TODO Informationen zum Track im Titel von Menu
+		// v.getId();
+		// menu.setHeaderIcon(icon);
+		// menu.setHeaderTitle(title)
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.choosetrack_context, menu);
 	}
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-	    switch (item.getItemId()) {
-	        case R.id.menu_delte:
-	        	Builder builder = new Builder(this);
-				builder.setTitle(R.string.delete_track)
-						.setIcon(android.R.drawable.ic_dialog_info)
-						.setMessage(R.string.sure_to_delete_track)
-						.setPositiveButton(R.string.di_delete,
-								new DialogInterface.OnClickListener() {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
+				.getMenuInfo();
+		switch (item.getItemId()) {
+		case R.id.menu_delte:
+			Builder builder = new Builder(this);
+			builder.setTitle(R.string.delete_track)
+					.setIcon(android.R.drawable.ic_dialog_info)
+					.setMessage(R.string.sure_to_delete_track)
+					.setPositiveButton(R.string.di_delete,
+							new DialogInterface.OnClickListener() {
 
-									public void onClick(DialogInterface dialog,
-											int which) {
-										//TODO ausgewaehlten Track rausfinden
-//										TrackManager.deleteTrack(getIntent().getIntExtra("_id", 0));
-//										finish();
-									}
-								}).setNegativeButton(android.R.string.cancel, null)
-						.show();
-	        	
-	            return true;
-//	        case R.id.menu_note:
-//	        	Toast.makeText(this,R.string.menu_title_write_note, Toast.LENGTH_SHORT).show();
-//	            return true;
-	        default:
-	            return super.onContextItemSelected(item);
-	    }
+								public void onClick(DialogInterface dialog,
+										int which) {
+									// TODO ausgewaehlten Track rausfinden
+									// TrackManager.deleteTrack(getIntent().getIntExtra("_id",
+									// 0));
+									// finish();
+								}
+							}).setNegativeButton(android.R.string.cancel, null)
+					.show();
+
+			return true;
+			// case R.id.menu_note:
+			// Toast.makeText(this,R.string.menu_title_write_note,
+			// Toast.LENGTH_SHORT).show();
+			// return true;
+		default:
+			return super.onContextItemSelected(item);
+		}
 	}
-	
+
 	@Override
 	protected void onRestart() {
 		super.onRestart();

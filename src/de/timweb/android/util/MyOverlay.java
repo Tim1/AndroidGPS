@@ -8,15 +8,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-import android.location.Location;
-import android.widget.Toast;
-
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
-import de.timweb.android.activity.stats.GoogleMapActivity;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 public class MyOverlay extends Overlay {
@@ -25,7 +21,7 @@ public class MyOverlay extends Overlay {
 	private Point[] pointArray;
 	private Path[] pathArray;
 	private Paint mPaint;
-	private GeoPoint firstGeoPoint,secGeoPoint;
+	private GeoPoint firstGeoPoint, secGeoPoint;
 	private Point firstPoint, secPoint;
 	private int latitude;
 	private int longitude;
@@ -33,8 +29,9 @@ public class MyOverlay extends Overlay {
 	private Context mcontext;
 
 	private int step = 1;
-	
-	public MyOverlay(ArrayList<LocationAndSteps> locations, Projection projection,Context context) {
+
+	public MyOverlay(ArrayList<LocationAndSteps> locations,
+			Projection projection, Context context) {
 		mLocations = locations;
 		mProjection = projection;
 		mcontext = context;
@@ -63,7 +60,7 @@ public class MyOverlay extends Overlay {
 		mPaint.setStrokeWidth(4);
 
 	}
-    
+
 	@Override
 	public void draw(Canvas canvas, MapView mapv, boolean shadow) {
 		super.draw(canvas, mapv, shadow);
@@ -71,7 +68,7 @@ public class MyOverlay extends Overlay {
 	}
 
 	private void drawPointsByStep(Canvas canvas, int step) {
-		for (Path path: pathArray)
+		for (Path path : pathArray)
 			path.reset(); // oder rewind(); ?
 
 		firstPoint = pointArray[0];
@@ -82,8 +79,8 @@ public class MyOverlay extends Overlay {
 		for (int i = 0; step < pointArray.length; i++) {
 			secGeoPoint = gpArray[step];
 			secPoint = pointArray[step];
-			
-			mProjection.toPixels(secGeoPoint,secPoint);
+
+			mProjection.toPixels(secGeoPoint, secPoint);
 			pathArray[i].moveTo(firstPoint.x, firstPoint.y);
 			pathArray[i].lineTo(secPoint.x, secPoint.y);
 
@@ -96,15 +93,18 @@ public class MyOverlay extends Overlay {
 		}
 
 		// draw till last point
-		mProjection.toPixels(gpArray[gpArray.length - 1],pointArray[gpArray.length - 1]);
+		mProjection.toPixels(gpArray[gpArray.length - 1],
+				pointArray[gpArray.length - 1]);
 		pathArray[pathArray.length - 1].moveTo(firstPoint.x, firstPoint.y);
-		pathArray[pathArray.length - 1].lineTo(pointArray[pointArray.length - 1].x,pointArray[pointArray.length - 1].y);
+		pathArray[pathArray.length - 1].lineTo(
+				pointArray[pointArray.length - 1].x,
+				pointArray[pointArray.length - 1].y);
 		canvas.drawPath(pathArray[pathArray.length - 1], mPaint);
 
 	}
-	
-	public void setStep(int step){
-		
+
+	public void setStep(int step) {
+
 		this.step = new Integer(step);
 	}
 

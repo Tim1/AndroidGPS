@@ -39,14 +39,13 @@ public class StartActivity extends Activity {
 			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
 					.detectLeakedSqlLiteObjects().detectLeakedSqlLiteObjects()
 					.penaltyLog().penaltyDeath().build());
-			
+
 		}
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
 
 		TrackManager.setContext(getApplicationContext());
-
 		timer = new Timer();
 		task = new UpdateTimerTask();
 		timer.scheduleAtFixedRate(task, 0, 1000);

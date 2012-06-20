@@ -77,12 +77,11 @@ public class TrackManager {
 		isSaved = false;
 		if (trackid == -1 && !isRunning) {
 			setTrack(getNextTrackID(), modus);
-			Toast toast = Toast.makeText(
-					context,
-					context.getResources().getString(
-							R.string.toast_track_record_start)
-							+ trackid, Toast.LENGTH_SHORT);
-			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+			Toast toast = Toast.makeText(context, context.getResources()
+					.getString(R.string.toast_track_record_start) + trackid,
+					Toast.LENGTH_SHORT);
+			toast.setGravity(Gravity.CENTER_VERTICAL
+					| Gravity.CENTER_HORIZONTAL, 0, 0);
 			toast.show();
 			newtrack = true;
 		}
@@ -97,11 +96,10 @@ public class TrackManager {
 
 		isRunning = true;
 		if (!newtrack) {
-			Toast toast = Toast.makeText(
-					context,
-					context.getResources().getString(
-							R.string.toast_gps_start), Toast.LENGTH_SHORT);
-			toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+			Toast toast = Toast.makeText(context, context.getResources()
+					.getString(R.string.toast_gps_start), Toast.LENGTH_SHORT);
+			toast.setGravity(Gravity.CENTER_VERTICAL
+					| Gravity.CENTER_HORIZONTAL, 0, 0);
 			toast.show();
 			track.continueTrack();
 		}
@@ -116,11 +114,11 @@ public class TrackManager {
 		mLocationManager.removeUpdates(mLocationListener);
 		mSensorManager.unregisterListener(mSensorListener);
 		isRunning = false;
-		Toast toast = Toast.makeText(
-				context,
-				context.getResources().getString(
-						R.string.toast_gps_pause), Toast.LENGTH_SHORT);
-		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		Toast toast = Toast.makeText(context,
+				context.getResources().getString(R.string.toast_gps_pause),
+				Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
+				0, 0);
 		toast.show();
 		track.pause();
 	}
@@ -204,7 +202,7 @@ public class TrackManager {
 			} else {
 				if (max > 0) {
 					steps++;
-					if(track == null || track.isPaused())
+					if (track == null || track.isPaused())
 						return;
 					track.addStep();
 				}
@@ -228,11 +226,11 @@ public class TrackManager {
 		public synchronized void onLocationChanged(Location location) {
 			if (trackid == -1 || track == null || track.isPaused())
 				return;
-			
-			if (!mDatabase.isOpen()){
+
+			if (!mDatabase.isOpen()) {
 				mDatabase = dbManager.getWritableDatabase();
 			}
-			
+
 			track.addLocation(location, sql);
 		}
 
@@ -257,12 +255,13 @@ public class TrackManager {
 
 	@Override
 	protected void finalize() throws Throwable {
-		//Datenbank wird erst dann geschlossen, wenn das Objekt nicht mehr besteht
+		// Datenbank wird erst dann geschlossen, wenn das Objekt nicht mehr
+		// besteht
 		mDatabase.close();
 
 		super.finalize();
 	}
-	
+
 	/**
 	 * generiert ein Track mit der angegeben ID aus der Datenbank alle
 	 * Statstiken werden mitgeneriert
@@ -281,13 +280,15 @@ public class TrackManager {
 		Cursor cursor = mDatabase.rawQuery(sql, null);
 
 		while (cursor.moveToNext()) {
-			result = new Track(cursor.getInt(0),cursor.getLong(1),cursor.getLong(2) ,cursor.getInt(3));
+			result = new Track(cursor.getInt(0), cursor.getLong(1),
+					cursor.getLong(2), cursor.getInt(3));
 		}
 
 		cursor.close();
 		mDatabase.close();
 
-		ArrayList<LocationAndSteps> loc = LocationReader.getLocations(context, id);
+		ArrayList<LocationAndSteps> loc = LocationReader.getLocations(context,
+				id);
 
 		for (Location l : loc)
 			result.addLocation(l, null);
@@ -318,7 +319,8 @@ public class TrackManager {
 
 		while (cursor.moveToNext()) {
 			result.add(new Track(cursor.getInt(0), cursor.getLong(1), cursor
-					.getFloat(2), cursor.getLong(3), cursor.getInt(4),cursor.getInt(5)));
+					.getFloat(2), cursor.getLong(3), cursor.getInt(4), cursor
+					.getInt(5)));
 		}
 
 		cursor.close();
@@ -342,13 +344,12 @@ public class TrackManager {
 				R.string.db_delete_location)
 				+ trackid);
 		mDatabase.close();
-		
-		Toast toast = Toast.makeText(
-				context,
-				context.getResources().getString(
-						R.string.toast_track_deleted)
+
+		Toast toast = Toast.makeText(context,
+				context.getResources().getString(R.string.toast_track_deleted)
 						+ trackid, Toast.LENGTH_SHORT);
-		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
+				0, 0);
 		toast.show();
 	}
 
@@ -369,16 +370,19 @@ public class TrackManager {
 		sql.bindString(2, note);
 		sql.bindLong(3, trackid);
 		sql.execute();
-		
+
 		mDatabase.close();
 	}
 
-	public static void selectRatingAndNote(int trackid,RatingBar rb, TextView tv_note) {
+	public static void selectRatingAndNote(int trackid, RatingBar rb,
+			TextView tv_note) {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
 
 		Cursor cursor = mDatabase.rawQuery(
-				context.getResources().getString(R.string.db_select_rating_and_note)+ trackid, null);
+				context.getResources().getString(
+						R.string.db_select_rating_and_note)
+						+ trackid, null);
 		while (cursor.moveToNext()) {
 			rb.setRating((float) cursor.getDouble(0));
 			tv_note.setText(cursor.getString(1));

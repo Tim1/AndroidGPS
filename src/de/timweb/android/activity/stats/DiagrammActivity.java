@@ -41,7 +41,8 @@ public class DiagrammActivity extends Activity {
 
 			graphDistance = (GraphLiveView) findViewById(R.id.view_da_graphview_Distance);
 			graphDistance.setVisibility(View.VISIBLE);
-			graphDistance.setText(getResources().getString(R.string.graph_distance));
+			graphDistance.setText(getResources().getString(
+					R.string.graph_distance));
 			graphDistance.setValueArrayList(stats.getDistanceValues());
 
 			break;
@@ -50,13 +51,15 @@ public class DiagrammActivity extends Activity {
 
 			graphHeight = (GraphLiveView) findViewById(R.id.view_da_graphview_Height);
 			graphHeight.setVisibility(View.VISIBLE);
-			graphHeight.setText(getResources().getString(R.string.graph_heigth));
+			graphHeight
+					.setText(getResources().getString(R.string.graph_heigth));
 			graphHeight.setValueArrayList(stats.getHeightValues());
 
 			if (track.getModus() == 0) {
 				graphSteps = (GraphLiveView) findViewById(R.id.view_da_graphview_Steps);
 				graphSteps.setVisibility(View.VISIBLE);
-				graphSteps.setText(getResources().getString(R.string.graph_steps));
+				graphSteps.setText(getResources().getString(
+						R.string.graph_steps));
 				graphSteps.setValueArrayList(stats.getStepValues());
 			}
 			break;

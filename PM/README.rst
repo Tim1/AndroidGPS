@@ -65,7 +65,7 @@ Analyse:
 - fehlender Blueprint (Enterprise Architektur)
 - Vertrag (Cost-plus-award-fee)
 - Projektleitung:
-	- unerfahrener Projektmanager
+	- unerfahrener Projektmanager (Special Agent Depew)
 	- kein CIO --> ständig wechselnde Personal
 	- Matthew Patton
 - ProjektVerlauf:

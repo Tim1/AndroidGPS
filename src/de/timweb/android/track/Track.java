@@ -46,9 +46,9 @@ public class Track {
 	 *            Starttime des Tracks
 	 * @param distance
 	 *            in m
-	 * @param time 
+	 * @param time
 	 */
-	Track(int id,long date, float distance,long time,int modus, int steps){
+	Track(int id, long date, float distance, long time, int modus, int steps) {
 		this._id = id;
 		this.starttime = date;
 		this.distance = distance;
@@ -56,52 +56,52 @@ public class Track {
 		this.modus = modus;
 		this.steps = steps;
 	}
-	
-	Track(int id, long date, long time ,int modus){
-		this(id,date,0,time,modus,0);
+
+	Track(int id, long date, long time, int modus) {
+		this(id, date, 0, time, modus, 0);
 	}
-	
+
 	Track(int id, int modus) {
-		this(id,System.currentTimeMillis(),0,0,modus,0);
-//		this._id = id;
-//		this.modus = modus;
-//		starttime = System.currentTimeMillis();
+		this(id, System.currentTimeMillis(), 0, 0, modus, 0);
+		// this._id = id;
+		// this.modus = modus;
+		// starttime = System.currentTimeMillis();
 	}
 
 	public void addLocation(Location location, SQLiteStatement sql) {
-		if(isPaused)
+		if (isPaused)
 			return;
 
 		float distanceDelta = 0;
 		currentSpeed = location.getSpeed();
 		if (locations.size() > 0) {
-			float distanceToLast = locations.get(locations.size() - 1).distanceTo(
-					location);
+			float distanceToLast = locations.get(locations.size() - 1)
+					.distanceTo(location);
 			// sehr kleine Entfernungen nicht beruecksichtigen
 			if (distanceToLast < location.getAccuracy())
 				return;
 
-			distanceDelta = locations.get(locations.size() - 1)
-			.distanceTo(location);
+			distanceDelta = locations.get(locations.size() - 1).distanceTo(
+					location);
 			distance += distanceDelta;
 		} else {
 			// starttime = System.currentTimeMillis();
 		}
 
 		int stepsDiff;
-		if(location instanceof LocationAndSteps){
+		if (location instanceof LocationAndSteps) {
 			stepsDiff = ((LocationAndSteps) location).getSteps();
-		}else{
-			
-			//DEBGUG: Debug Schritte simulieren
-//			steps += (Math.random()*10);
-			
-			stepsDiff = steps - stepsOld; 
+		} else {
+
+			// DEBGUG: Debug Schritte simulieren
+			// steps += (Math.random()*10);
+
+			stepsDiff = steps - stepsOld;
 			stepsOld = steps;
 		}
-		
+
 		stats.addStepDistance(stepsDiff, distanceDelta);
-		stats.addSpeed(location.getSpeed()*3.6f);
+		stats.addSpeed(location.getSpeed() * 3.6f);
 		stats.addAltitude((float) location.getAltitude());
 		stats.addDistance(distanceDelta);
 
@@ -141,15 +141,14 @@ public class Track {
 
 		sql.executeInsert();
 
-		Toast toast = Toast.makeText(
-				context,
-				context.getResources().getString(
-						R.string.toast_track_wrote), Toast.LENGTH_SHORT);
-		
-		toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+		Toast toast = Toast.makeText(context,
+				context.getResources().getString(R.string.toast_track_wrote),
+				Toast.LENGTH_SHORT);
+
+		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
+				0, 0);
 		toast.show();
 	}
-	
 
 	/**
 	 * @return distance of track in meter
@@ -157,25 +156,25 @@ public class Track {
 	public double getDistance() {
 		return distance;
 	}
-	
+
 	/**
 	 * @return zurueckgelegte Distanz (Format: "12.345 km")
 	 */
-	public String getFormatedDistance(){
+	public String getFormatedDistance() {
 		NumberFormat format = new DecimalFormat("#0.000");
-		
-		return format.format(distance/1000)+" km";
+
+		return format.format(distance / 1000) + " km";
 	}
-	
+
 	/**
 	 * @return momentane Geschwinigkeit (Format: "12.3 km/h")
 	 */
-	public String getFormatedSpeed(){
+	public String getFormatedSpeed() {
 		NumberFormat format = new DecimalFormat("#0.0");
-		
-		return format.format(currentSpeed*3.6)+ " km/h";
+
+		return format.format(currentSpeed * 3.6) + " km/h";
 	}
-	
+
 	public int getID() {
 		return _id;
 	}
@@ -185,7 +184,7 @@ public class Track {
 	 * @return aktuelle geschwindigkeit in km/h
 	 */
 	public double getCurrentSpeed() {
-		return currentSpeed*3.6;
+		return currentSpeed * 3.6;
 	}
 
 	/**
@@ -193,23 +192,22 @@ public class Track {
 	 * @return formatierte Dauer des Tracks (Format: 00:12:34)
 	 */
 	public String getElapsedTime() {
-		long secTotal = 0;		
-		if(elapsedTime == 0)
-			secTotal = (System.currentTimeMillis() - starttime - pauseTime)/1000;
+		long secTotal = 0;
+		if (elapsedTime == 0)
+			secTotal = (System.currentTimeMillis() - starttime - pauseTime) / 1000;
 		else
-			secTotal = (elapsedTime - pauseTime)/1000;
-		
-		long hours = secTotal / (60*60);
-		long mins = (secTotal-(hours*60*60)) / 60;
-		long secs = (secTotal-(hours*60*60) - (mins*60));
+			secTotal = (elapsedTime - pauseTime) / 1000;
 
-		String strHour = hours < 10 ? "0"+hours : ""+hours;
-		String strMins = mins < 10 ? "0"+mins : ""+mins;
-		String strSecs = secs < 10 ? "0"+secs : ""+secs;
-		
-		return strHour+":"+strMins+":"+strSecs;
+		long hours = secTotal / (60 * 60);
+		long mins = (secTotal - (hours * 60 * 60)) / 60;
+		long secs = (secTotal - (hours * 60 * 60) - (mins * 60));
+
+		String strHour = hours < 10 ? "0" + hours : "" + hours;
+		String strMins = mins < 10 ? "0" + mins : "" + mins;
+		String strSecs = secs < 10 ? "0" + secs : "" + secs;
+
+		return strHour + ":" + strMins + ":" + strSecs;
 	}
-
 
 	/**
 	 * 
@@ -220,7 +218,7 @@ public class Track {
 	}
 
 	public void addStep() {
-		if(isPaused)
+		if (isPaused)
 			return;
 		steps++;
 	}
@@ -232,12 +230,12 @@ public class Track {
 		cal.setTimeInMillis(starttime);
 
 		result += cal.get(Calendar.DAY_OF_MONTH) + ".";
-		result += (cal.get(Calendar.MONTH)+1) + ".";
+		result += (cal.get(Calendar.MONTH) + 1) + ".";
 		result += cal.get(Calendar.YEAR) + " ";
 
 		result += cal.get(Calendar.HOUR_OF_DAY) + ":";
 		int min = cal.get(Calendar.MINUTE);
-		result += min > 9 ? min :"0"+min;
+		result += min > 9 ? min : "0" + min;
 
 		return result;
 	}
@@ -250,7 +248,6 @@ public class Track {
 		return stats;
 	}
 
-
 	/**
 	 * startet die Zeitmessung wieder nachdem Pause vorbei ist
 	 */
@@ -260,7 +257,6 @@ public class Track {
 		isPaused = false;
 	}
 
-	
 	/**
 	 * pausiert die Zeitrechnung
 	 */
@@ -268,7 +264,7 @@ public class Track {
 		lastPause = System.currentTimeMillis();
 		isPaused = true;
 	}
-	
+
 	public boolean isPaused() {
 		return isPaused;
 	}

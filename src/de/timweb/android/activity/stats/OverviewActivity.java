@@ -43,8 +43,8 @@ public class OverviewActivity extends Activity {
 	private void setUpValues() {
 		((TextView) findViewById(R.id.tv_ov_dateEdit)).setText(track.getDate()
 				+ "");
-		((TextView) findViewById(R.id.tv_ov_timeEdit)).setText(track.getElapsedTime()
-				+ "");
+		((TextView) findViewById(R.id.tv_ov_timeEdit)).setText(track
+				.getElapsedTime() + "");
 		((TextView) findViewById(R.id.tv_ov_distanceEdit)).setText(track
 				.getFormatedDistance() + "");
 		((TextView) findViewById(R.id.tv_ov_stepEdit)).setText(track.getSteps()

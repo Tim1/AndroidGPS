@@ -2,13 +2,14 @@ package de.timweb.android.activity;
 
 import java.util.Locale;
 
+import de.timweb.android.R;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.RadioGroup;
-import de.timweb.android.R;
 
 public class PreferencesActivity extends Activity {
 
@@ -26,7 +27,6 @@ public class PreferencesActivity extends Activity {
 		editor = pref.edit();
 		dm = getResources().getDisplayMetrics();
 	}
-
 
 	@Override
 	protected void onResume() {

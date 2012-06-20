@@ -2,21 +2,23 @@ package de.timweb.android.util;
 
 import java.util.ArrayList;
 
+import de.timweb.android.R;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationManager;
 import android.widget.Toast;
-import de.timweb.android.R;
 
 /**
  * Zum Lesen der Locations aus der Datenbank (statische Klasse)
+ * 
  * @author Tim
- *
+ * 
  */
 public final class LocationReader {
-	public static class LocationAndSteps extends Location{
+	public static class LocationAndSteps extends Location {
 		private int steps;
 
 		public LocationAndSteps(String provider) {
@@ -26,43 +28,47 @@ public final class LocationReader {
 		public void setSteps(int steps) {
 			this.steps = steps;
 		}
-		
+
 		public int getSteps() {
 			return steps;
 		}
-		
+
 	}
 
 	/**
 	 * debugging
 	 */
-	public static void readAll(Context  context){
+	public static void readAll(Context context) {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase database = dbManager.getReadableDatabase();
-		
+
 		String sql = "select longitude from gps_location";
 		Cursor result = database.rawQuery(sql, null);
-		
+
 		String s = "";
-		while(result.moveToNext()){
-			s += result.getDouble(0)+"\n";
+		while (result.moveToNext()) {
+			s += result.getDouble(0) + "\n";
 		}
 		result.close();
 		database.close();
-		
+
 		Toast.makeText(context, s, Toast.LENGTH_LONG).show();
 	}
-	
-	public static ArrayList<LocationAndSteps> getLocations(Context context, int trackid){
+
+	public static ArrayList<LocationAndSteps> getLocations(Context context,
+			int trackid) {
 		ArrayList<LocationAndSteps> result = new ArrayList<LocationAndSteps>();
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase database = dbManager.getReadableDatabase();
-		
-		String sql = context.getResources().getString(R.string.db_select_location) + trackid;
+
+		String sql = context.getResources().getString(
+				R.string.db_select_location)
+				+ trackid;
 		Cursor cursor = database.rawQuery(sql, null);
-		
-		while(cursor.moveToNext()){
-			LocationAndSteps location = new LocationAndSteps(LocationManager.GPS_PROVIDER);
+
+		while (cursor.moveToNext()) {
+			LocationAndSteps location = new LocationAndSteps(
+					LocationManager.GPS_PROVIDER);
 			location.setTime(cursor.getLong(0));
 			location.setAccuracy(cursor.getFloat(1));
 			location.setLongitude(cursor.getDouble(2));
@@ -74,7 +80,7 @@ public final class LocationReader {
 		}
 		cursor.close();
 		database.close();
-		
+
 		return result;
 	}
 }

@@ -15,16 +15,15 @@ public class GraphLiveView extends View {
 	private Paint mPaint = new Paint();
 	private String text = "";
 
-	
 	private float minValue = 0;
 	private float maxValue = 0;
 	private ArrayList<Float> values = new ArrayList<Float>();
 	@SuppressWarnings("unused")
 	private Context context;
-	
+
 	private boolean isAnimated;
 	private long lastDraw;
-	
+
 	public GraphLiveView(Context context, AttributeSet att) {
 		super(context, att);
 		mPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
@@ -57,9 +56,9 @@ public class GraphLiveView extends View {
 			canvas.drawLine(x1, y1, x2, y2, mPaint);
 		}
 
-		if(isAnimated)
-			drawAnimation(canvas, width,height);
-		
+		if (isAnimated)
+			drawAnimation(canvas, width, height);
+
 		drawScale(canvas, width, height);
 
 	}
@@ -67,7 +66,7 @@ public class GraphLiveView extends View {
 	private void drawAnimation(Canvas canvas, int width, int height) {
 		@SuppressWarnings("unused")
 		int delta = (int) (System.currentTimeMillis() - lastDraw);
-		
+
 		lastDraw = System.currentTimeMillis();
 	}
 
@@ -85,16 +84,18 @@ public class GraphLiveView extends View {
 		float step = (maxValue - minValue) / 4f;
 
 		String pattern = "";
-		if(maxValue > 5)
+		if (maxValue > 5)
 			pattern = "#0.0";
 		else
 			pattern = "#0.00";
-		
+
 		NumberFormat format = new DecimalFormat(pattern);
 		canvas.drawText(format.format((3 * step + minValue)), 1, height / 4f,
 				mPaint);
-		canvas.drawText(format.format((2 * step + minValue)), 1, height / 2f, mPaint);
-		canvas.drawText(format.format((1 * step + minValue)), 1, height / 4f * 3, mPaint);
+		canvas.drawText(format.format((2 * step + minValue)), 1, height / 2f,
+				mPaint);
+		canvas.drawText(format.format((1 * step + minValue)), 1,
+				height / 4f * 3, mPaint);
 
 		canvas.drawText(text, 1, height - 4, mPaint);
 	}
@@ -127,10 +128,10 @@ public class GraphLiveView extends View {
 		this.text = text;
 	}
 
-	public void setAnimated(boolean animated){
+	public void setAnimated(boolean animated) {
 		this.isAnimated = animated;
 	}
-	
+
 	public void setContext(Context context) {
 		this.context = context;
 	}
