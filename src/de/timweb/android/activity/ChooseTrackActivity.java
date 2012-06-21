@@ -16,8 +16,12 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -34,6 +38,7 @@ public class ChooseTrackActivity extends ListActivity {
 	private ArrayList<Track> mTracks = null;
 	private TrackAdapter m_adapter;
 	private Runnable viewOrders;
+	private int position = 0;
 
 	private class TrackAdapter extends ArrayAdapter<Track> {
 
@@ -93,8 +98,19 @@ public class ChooseTrackActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.choosetrack);
-
 		setUpList();
+		getListView().setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			//um die position der langangeklicken view zu erhalten...mit getlistview.getselecteditemposition() kommt nur -1 heraus...
+            public boolean onItemLongClick(AdapterView<?> arg0, View v, int position,
+					long id) {
+//            	v.setBackgroundColor(0xffff0000);
+            	ChooseTrackActivity.this.position = position;
+//        		Toast.makeText(ChooseTrackActivity.this,"LOOONG"+this.position, Toast.LENGTH_SHORT).show();
+				return false;
+
+			}
+        });
 	}
 
 	public void setUpList() {
@@ -112,6 +128,7 @@ public class ChooseTrackActivity extends ListActivity {
 		m_ProgressDialog = ProgressDialog.show(ChooseTrackActivity.this,
 				getString(R.string.pd_txt_please_wait),
 				getString(R.string.pd_txt_loading_data), true);
+		registerForContextMenu(getListView());
 	}
 
 	private void getOrders() {
@@ -142,57 +159,49 @@ public class ChooseTrackActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		Intent intent = new Intent(this, StatisticActivity.class);
-
 		intent.putExtra("_id", mTracks.get(position).getID());
 		startActivity(intent);
 
 	}
-
+	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-
-		// TODO Informationen zum Track im Titel von Menu
-		// v.getId();
-		// menu.setHeaderIcon(icon);
-		// menu.setHeaderTitle(title)
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.choosetrack_context, menu);
 	}
-
+	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 				.getMenuInfo();
 		switch (item.getItemId()) {
-		case R.id.menu_delte:
+		case R.id.menu_delete:
 			Builder builder = new Builder(this);
 			builder.setTitle(R.string.delete_track)
 					.setIcon(android.R.drawable.ic_dialog_info)
-					.setMessage(R.string.sure_to_delete_track)
+					.setMessage(getString(R.string.sure_to_delete_track)+"\n"+mTracks.get(position).getDate()+"\n"+mTracks.get(position).getFormatedDistance()+"\n"+ mTracks.get(position).getElapsedTime())
 					.setPositiveButton(R.string.di_delete,
 							new DialogInterface.OnClickListener() {
 
 								public void onClick(DialogInterface dialog,
 										int which) {
-									// TODO ausgewaehlten Track rausfinden
-									// TrackManager.deleteTrack(getIntent().getIntExtra("_id",
-									// 0));
-									// finish();
+									Toast.makeText(ChooseTrackActivity.this, "Position in ListView:"+ position+"\n"+"Trackid: "+mTracks.get(position).getID(), Toast.LENGTH_SHORT).show();
+									TrackManager.deleteTrack(mTracks.get(position).getID());
+									setUpList();
 								}
 							}).setNegativeButton(android.R.string.cancel, null)
 					.show();
 
 			return true;
-			// case R.id.menu_note:
-			// Toast.makeText(this,R.string.menu_title_write_note,
-			// Toast.LENGTH_SHORT).show();
-			// return true;
 		default:
 			return super.onContextItemSelected(item);
 		}
 	}
+	
+	
+	
 
 	@Override
 	protected void onRestart() {
