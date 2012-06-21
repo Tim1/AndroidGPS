@@ -100,7 +100,7 @@ Was ist VCF?
 
 - Verwaltungssoftware für FBI-rmittlungsfälle
 - ersetzt veraltetes ACS
-- Weboberfläche
+- Weboberfläche, Forms können komfortabler gefüllt werden
 - Zugriff und Verteilung von Informationen schnell und zuverlässig
 - Auftragnehmer: Science Applications International Corp. (SAIC)
 - Dauer: 3 Jahre
@@ -115,7 +115,7 @@ Projektverlauf von VCF:
 
 - September 2000: Start von Trilogy
 - Oktober 2001: Start Virtual Case File
-- Dezember 2001: Neuausrichtung VCF
+- Dezember 2001: Neuausrichtung VCF: komplett neue Datenbank, Anwendung und GUI
 - Januar 2002: weitere $78 Mio für Trilogy um Projekt schneller zuenede zu bringen
 - Februar 2002: Joint Application Development Sessions mit Depew
 - Juni 2002: innerhalb nächsten 12 Monate wird CIO 5 mal neu besetzt
@@ -167,9 +167,11 @@ Analyse (PMA):
 
 Fazit:
 -------
-
-
-
+- Jedes Projekt kann schief gehen, auch Projekte der FBI.
+- Für solche großen Projekte ist ein professionelles Management unverzichtbar.
+- Verantworlichkeiten müssen kompetent sein um richtige Entscheidungen zu treffen.
+- Kommunikation zwischen Entwicklern und Kunden muss funktionieren.
+- ...
 
 Fragebogen
 ====================
@@ -177,9 +179,6 @@ Fragebogen
 
 Fragen
 ====================
-- 
-- 
-- 
 
 
 Quellen
