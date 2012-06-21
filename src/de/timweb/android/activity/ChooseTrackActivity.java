@@ -53,8 +53,6 @@ public class ChooseTrackActivity extends ListActivity {
 			if (v == null) {
 				LayoutInflater vi = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 				v = vi.inflate(R.layout.row, null);
-				// TODO
-				// registerForContextMenu(v);
 			}
 			Track track = mTracks.get(position);
 			if (track != null) {
@@ -104,9 +102,7 @@ public class ChooseTrackActivity extends ListActivity {
 			//um die position der langangeklicken view zu erhalten...mit getlistview.getselecteditemposition() kommt nur -1 heraus...
             public boolean onItemLongClick(AdapterView<?> arg0, View v, int position,
 					long id) {
-//            	v.setBackgroundColor(0xffff0000);
             	ChooseTrackActivity.this.position = position;
-//        		Toast.makeText(ChooseTrackActivity.this,"LOOONG"+this.position, Toast.LENGTH_SHORT).show();
 				return false;
 
 			}
