@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp" xmlns:tools="http://schemas.android.com/tools" tools:ignore="ContentDescription">
+    android:padding="5dp"
+    tools:ignore="ContentDescription" >
 
     <ImageView
         android:id="@+id/im_ov_modus"
@@ -14,7 +16,7 @@
         android:src="@drawable/ic_mode_car" />
 
     <ImageView
-        android:id="@+id/tv_ov_date"
+        android:id="@+id/im_ov_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
@@ -24,93 +26,31 @@
         android:id="@+id/tv_ov_dateEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_ov_date"
-        android:textSize="25dip" />
-
+        android:layout_alignBottom="@+id/im_ov_date"
+        android:layout_alignTop="@+id/im_ov_date"
+        android:layout_toRightOf="@+id/im_ov_date"
+        android:text="date"
+        android:textSize="20dip" />
+
     <ImageView
         android:id="@+id/im_ov_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_ov_date"
+        android:layout_below="@+id/im_ov_date"
         android:layout_marginRight="10dp"
         android:src="@drawable/ic_timer" />
-
-    <TextView
-        android:id="@+id/tv_ov_timeEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_ov_date"
-        android:layout_toRightOf="@+id/im_ov_timer"
-        android:textSize="25dip" />
-
-    <ImageView
-        android:id="@+id/im_ov_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_ov_timeEdit"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_distance" />
-
-    <TextView
-        android:id="@+id/tv_ov_distanceEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_ov_timeEdit"
-        android:layout_toRightOf="@+id/im_ov_distance"
-        android:textSize="25dip" />
-
-    <ImageView
-        android:id="@+id/im_ov_steps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_ov_distanceEdit"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_steps" />
-
-    <TextView
-        android:id="@+id/tv_ov_stepEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_ov_distanceEdit"
-        android:layout_toRightOf="@+id/im_ov_steps"
-        android:textSize="25dip" />
-
-    <View
-        android:id="@+id/view_line1"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/tv_ov_stepEdit"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#99FFFFFF" />
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view_line1"
-        android:layout_centerHorizontal="true" />
-
-    <View
-        android:id="@+id/view_line2"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_below="@+id/ratingBar"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:background="#99FFFFFF" />
 
     <TextView
         android:id="@+id/tv_ov_note_edit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/but_save_edit_note"
-        android:layout_below="@+id/view_line2"
-        android:layout_margin="10dp"
+        android:layout_alignLeft="@+id/but_save_edit_note"
+        android:layout_alignRight="@+id/but_save_edit_note"
+        android:layout_below="@+id/ratingBar"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="#22FFFFFF"
         android:onClick="onButtonClick"
         android:scrollbars="vertical"
@@ -121,7 +61,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/but_save_edit_note"
-        android:layout_below="@+id/view_line2"
         android:layout_margin="6dp"
         android:gravity="top"
         android:text="@string/et_txt_add_your_note"
@@ -132,8 +71,61 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="2dp"
+        android:layout_alignParentRight="true"
         android:onClick="onButtonClick"
         android:text="@string/bt_txt_edit_note" />
+
+    <ImageView
+        android:id="@+id/im_ov_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_ov_timer"
+        android:src="@drawable/ic_distance" />
+
+    <ImageView
+        android:id="@+id/im_ov_steps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_ov_distance"
+        android:src="@drawable/ic_steps" />
+
+    <TextView
+        android:id="@+id/tv_ov_timeEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/im_ov_timer"
+        android:layout_alignLeft="@+id/tv_ov_dateEdit"
+        android:layout_alignTop="@+id/im_ov_timer"
+        android:text="time"
+        android:textSize="20dip" />
+
+    <TextView
+        android:id="@+id/tv_ov_distanceEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_ov_timeEdit"
+        android:layout_below="@+id/tv_ov_timeEdit"
+        android:text="distance"
+        android:textSize="20dip" />
+
+    <TextView
+        android:id="@+id/tv_ov_stepEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_ov_distanceEdit"
+        android:layout_alignTop="@+id/im_ov_steps"
+        android:text="steps"
+        android:textSize="20dip" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/trackRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/im_ov_steps"
+        android:layout_below="@+id/im_ov_steps"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>
