@@ -34,7 +34,7 @@
     <!-- ChooseTrack Activity -->
     <string name="tv_txt_date">Date</string>
     <string name="tv_txt_status">Status</string>
-    <string name="pd_txt_please_wait">Pleas wait</string>
+    <string name="pd_txt_please_wait">Please wait</string>
     <string name="pd_txt_loading_data">loading Data&#8230;</string>
     <string name="main_no_items">No Tracks available</string>
     <string name="toast_no_locations_found">No Locations found</string>
@@ -42,7 +42,8 @@
     <!-- Statistic Activity -->
     <string name="delete_track">Delete Track</string>
     <string name="sure_to_delete_track">Are you sure you want to delete the track?</string>
-    <string name="menu_title_delete">delete</string>
+    <string name="menu_title_show">Show</string>
+    <string name="menu_title_delete">Delete</string>
     <string name="di_delete">Delete</string>
     <string name="txt_overview">Overview</string>
     <string name="txt_graph_1">Graph 1</string>
@@ -52,8 +53,8 @@
     <!-- Track Manager -->
     <string name="toast_track_deleted">Track deleted</string>
     <string name="toast_track_record_start">Start recording Track No\u0020</string>
-    <string name="toast_gps_start">GPS started</string>
-    <string name="toast_gps_pause">GPS paused</string>
+    <string name="toast_gps_start">Tracking started</string>
+    <string name="toast_gps_pause">Tracking paused</string>
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wrote in database</string>
@@ -70,7 +71,7 @@
     <!-- RunningeUpdaterTast -->
     <string name="graph_speed">Speed (in km/h)</string>
     <string name="graph_steps">Length of Steps (in m)</string>
-    <string name="graph_heigth">Difference in Altitude (in m)</string>
+    <string name="graph_heigth">Altitude (in m)</string>
     <string name="graph_distance">Distance between measure Points (in m)</string>
 
     <!-- GoogleMap Activity -->

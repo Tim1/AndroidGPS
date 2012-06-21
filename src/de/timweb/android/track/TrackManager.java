@@ -336,7 +336,7 @@ public class TrackManager {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
 		SQLiteStatement sql = mDatabase.compileStatement(context.getResources()
-				.getString(R.string.db_delete_track) + trackid);
+				.getString(R.string.db_delete_track));
 		sql.execute();
 
 		// delte from gps_location too
