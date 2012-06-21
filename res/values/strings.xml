@@ -50,6 +50,7 @@
     <string name="delete_track">Track Löschen</string>
     <string name="sure_to_delete_track">Wollen Sie den Track wirklich löschen?</string>
     <string name="menu_title_delete">Löschen</string>
+    <string name="menu_title_show">Anzeigen</string>
     <string name="di_delete">Löschen</string>
     <string name="txt_overview">Übersicht</string>
     <string name="txt_graph_1">Graph 1</string>
@@ -59,8 +60,8 @@
     <!-- Track Manager -->
     <string name="toast_track_deleted">Track gelöscht</string>
     <string name="toast_track_record_start">Beginn der Aufnahme vom Track\u0020</string>
-    <string name="toast_gps_start">GPS gestartet</string>
-    <string name="toast_gps_pause">GPS pausiert</string>
+    <string name="toast_gps_start">Tracking gestartet</string>
+    <string name="toast_gps_pause">Tracking pausiert</string>
 
     <!-- Track -->
     <string name="toast_track_wrote">Track wurde gespeichert</string>
@@ -77,7 +78,7 @@
     <!-- RunningeUpdaterTast -->
     <string name="graph_speed">Geschwindigkeit (in km/h)</string>
     <string name="graph_steps">Länge der Schritte (in m)</string>
-    <string name="graph_heigth">Differenz der Höhe (in m)</string>
+    <string name="graph_heigth">Höhenprofil (in m)</string>
     <string name="graph_distance">Distanz zwischen Messpunkten (in m)</string>
 
     <!-- GoogleMap Activity -->

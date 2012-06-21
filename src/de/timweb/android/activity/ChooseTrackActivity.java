@@ -173,6 +173,11 @@ public class ChooseTrackActivity extends ListActivity {
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
 				.getMenuInfo();
 		switch (item.getItemId()) {
+		case R.id.menu_show:
+			Intent intent = new Intent(this, StatisticActivity.class);
+			intent.putExtra("_id", mTracks.get(position).getID());
+			startActivity(intent);
+			return true;
 		case R.id.menu_delete:
 			Builder builder = new Builder(this);
 			builder.setTitle(R.string.delete_track)
