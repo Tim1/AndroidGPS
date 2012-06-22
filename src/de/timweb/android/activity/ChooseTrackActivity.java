@@ -2,9 +2,9 @@ package de.timweb.android.activity;
 
 import java.util.ArrayList;
 
+import android.app.AlertDialog.Builder;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,17 +16,13 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import de.timweb.android.R;
 import de.timweb.android.activity.stats.StatisticActivity;
 import de.timweb.android.track.Track;
@@ -170,8 +166,6 @@ public class ChooseTrackActivity extends ListActivity {
 	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item
-				.getMenuInfo();
 		switch (item.getItemId()) {
 		case R.id.menu_show:
 			Intent intent = new Intent(this, StatisticActivity.class);
@@ -188,7 +182,8 @@ public class ChooseTrackActivity extends ListActivity {
 
 								public void onClick(DialogInterface dialog,
 										int which) {
-									Toast.makeText(ChooseTrackActivity.this, "Position in ListView:"+ position+"\n"+"Trackid: "+mTracks.get(position).getID(), Toast.LENGTH_SHORT).show();
+									//DEBUG:
+									//Toast.makeText(ChooseTrackActivity.this, "Position in ListView:"+ position+"\n"+"Trackid: "+mTracks.get(position).getID(), Toast.LENGTH_SHORT).show();
 									TrackManager.deleteTrack(mTracks.get(position).getID());
 									setUpList();
 								}
