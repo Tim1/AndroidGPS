@@ -19,6 +19,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.timweb.android.R;
+import de.timweb.android.activity.stats.OverviewActivity;
 import de.timweb.android.util.DatabaseManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
@@ -336,7 +337,7 @@ public class TrackManager {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
 		SQLiteStatement sql = mDatabase.compileStatement(context.getResources()
-				.getString(R.string.db_delete_track)+trackid);
+				.getString(R.string.db_delete_track) + trackid);
 		sql.execute();
 
 		// delte from gps_location too
@@ -346,7 +347,8 @@ public class TrackManager {
 		mDatabase.close();
 
 		Toast toast = Toast.makeText(context,
-				context.getResources().getString(R.string.toast_track_deleted), Toast.LENGTH_SHORT);
+				context.getResources().getString(R.string.toast_track_deleted),
+				Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
 				0, 0);
 		toast.show();
@@ -385,6 +387,7 @@ public class TrackManager {
 		while (cursor.moveToNext()) {
 			rb.setRating((float) cursor.getDouble(0));
 			tv_note.setText(cursor.getString(1));
+
 		}
 		cursor.close();
 		mDatabase.close();

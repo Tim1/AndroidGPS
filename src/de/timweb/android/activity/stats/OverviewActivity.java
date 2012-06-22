@@ -1,14 +1,24 @@
 package de.timweb.android.activity.stats;
 
+import android.R.menu;
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.timweb.android.R;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
@@ -16,7 +26,6 @@ import de.timweb.android.track.TrackManager;
 public class OverviewActivity extends Activity {
 	private RatingBar rb;
 	private EditText et_note;
-	private Button but_note;
 	private TextView tv_note;
 	private Track track;
 	private boolean editable = false;
@@ -27,15 +36,17 @@ public class OverviewActivity extends Activity {
 		setContentView(R.layout.overview);
 		track = TrackManager.generateFromDatabase(this, getIntent()
 				.getIntExtra("_id", 0));
-		et_note = (EditText) findViewById(R.id.et_ov_note);
-		but_note = (Button) findViewById(R.id.but_save_edit_note);
 		rb = (RatingBar) findViewById(R.id.ratingBar);
 		tv_note = (TextView) findViewById(R.id.tv_ov_note_edit);
 		tv_note.setMovementMethod(new ScrollingMovementMethod());
+		et_note = (EditText) findViewById(R.id.et_ov_note);
 		TrackManager.selectRatingAndNote(getIntent().getIntExtra("_id", 0), rb,
 				tv_note);
 
+		et_note.setText(tv_note.getText().toString());
+
 		setIcon(track.getModus());
+		registerForContextMenu(tv_note);
 		setUpValues();
 
 	}
@@ -80,43 +91,55 @@ public class OverviewActivity extends Activity {
 		}
 	}
 
-	public void onButtonClick(View view) {
-		switch (view.getId()) {
-		case R.id.but_save_edit_note:
-			if (!isEditable()) {
-				tv_note.setVisibility(View.GONE);
-				et_note.setVisibility(View.VISIBLE);
-				et_note.setText(tv_note.getText().toString());
-				editable = true;
-				but_note.setText(R.string.bt_txt_save_note);
-			} else {
-				editable = false;
-				et_note.setVisibility(View.GONE);
-				tv_note.setVisibility(View.VISIBLE);
-				but_note.setText(R.string.bt_txt_edit_note);
-				TrackManager.insertRatingAndNote(
-						getIntent().getIntExtra("_id", 0), rb.getRating(),
-						et_note.getText().toString());
-				TrackManager.selectRatingAndNote(
-						getIntent().getIntExtra("_id", 0), rb, tv_note);
-			}
-			break;
-
-		default:
-			break;
-		}
-	}
-
-	private boolean isEditable() {
-		return editable;
-	}
-
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		TrackManager.insertRatingAndNote(getIntent().getIntExtra("_id", 0),
-				rb.getRating(), et_note.getText().toString());
 
+		TrackManager.insertRatingAndNote(getIntent().getIntExtra("_id", 0),
+				rb.getRating(), tv_note.getText().toString());
+
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.overview_context_menu, menu);
+		switch (v.getId()) {
+		case R.id.tv_ov_note_edit:
+			menu.findItem(R.id.menu_edit_note).setVisible(true);
+			menu.findItem(R.id.menu_save_note).setVisible(false);
+			break;
+		default:
+			menu.findItem(R.id.menu_edit_note).setVisible(false);
+			menu.findItem(R.id.menu_save_note).setVisible(true);
+			break;
+		}
+
+	}
+
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_edit_note:
+			editable = true;
+			tv_note.setVisibility(View.GONE);
+			et_note.setVisibility(View.VISIBLE);
+			registerForContextMenu(et_note);
+			return true;
+		case R.id.menu_save_note:
+			editable = false;
+			et_note.setVisibility(View.GONE);
+			tv_note.setVisibility(View.VISIBLE);
+			TrackManager.insertRatingAndNote(getIntent().getIntExtra("_id", 0),
+					rb.getRating(), et_note.getText().toString());
+			TrackManager.selectRatingAndNote(getIntent().getIntExtra("_id", 0),
+					rb, tv_note);
+			registerForContextMenu(tv_note);
+			return true;
+		default:
+			return super.onContextItemSelected(item);
+		}
 	}
 
 }
