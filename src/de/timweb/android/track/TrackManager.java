@@ -336,7 +336,7 @@ public class TrackManager {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
 		SQLiteStatement sql = mDatabase.compileStatement(context.getResources()
-				.getString(R.string.db_delete_track));
+				.getString(R.string.db_delete_track)+trackid);
 		sql.execute();
 
 		// delte from gps_location too
@@ -346,8 +346,7 @@ public class TrackManager {
 		mDatabase.close();
 
 		Toast toast = Toast.makeText(context,
-				context.getResources().getString(R.string.toast_track_deleted)
-						+ trackid, Toast.LENGTH_SHORT);
+				context.getResources().getString(R.string.toast_track_deleted), Toast.LENGTH_SHORT);
 		toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL,
 				0, 0);
 		toast.show();
