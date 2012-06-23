@@ -9,24 +9,11 @@
     <string name="tv_txt_start_activity">StartActivity</string>
     <string name="bt_txt_choose_track">Tracks anschauen</string>
     <string name="bt_txt_preferences">Einstellungen</string>
-    <string name="bt_txt_GPS_test">GPS TestActivity</string>
     <string name="bt_txt_go">Los geht\'s!</string>
 
     <!-- Running Activity -->
     <string name="close">Beenden</string>
     <string name="sure_to_close">Speichern der Einheit bevor Beenden?</string>
-    <string name="bt_txt_start">Starten</string>
-    <string name="bt_txt_pause">Pause</string>
-    <string name="bt_txt_pref">Einstellungen</string>
-    <string name="tv_txt_run_activity">Running Activity\n</string>
-    <string name="tv_txt_time">Zeit: \u0020</string>
-    <string name="tv_txt_distance">Distanz:\u0020</string>
-    <string name="tv_txt_steps">Schritte:\u0020</string>
-    <string name="bt_txt_stop">Stop</string>
-    <string name="tv_txt_speed">Geschw.:\u0020</string>
-    <string name="di_save">Speichern</string>
-    <string name="di_drop">Löschen</string>
-    <string name="di_back">Zurück</string>
     <string name="time" tools:ignore="MissingTranslation">00:00:00</string>
     <string name="speed" tools:ignore="MissingTranslation">0.0 km/h</string>
     <string name="distance" tools:ignore="MissingTranslation">0.0 km</string>
@@ -39,10 +26,8 @@
     <string name="rb_txt_lang_en">Englisch</string>
 
     <!-- ChooseTrack Activity -->
-    <string name="tv_txt_date">Datum</string>
-    <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Bitte Warten</string>
-    <string name="pd_txt_loading_data">Daten werden geladen&#8230;</string>
+    <string name="pd_txt_loading_data">Daten werden geladen…</string>
     <string name="main_no_items">Kein Tracks vorhanden</string>
     <string name="toast_no_locations_found">Keine Locations gefunden</string>
 
@@ -67,13 +52,8 @@
     <string name="toast_track_wrote">Track wurde gespeichert</string>
 
     <!-- Overview Activity -->
-    <string name="tv_txt_overview">Übersicht\n</string>
-    <string name="bt_txt_edit_note">Notiz ändern</string>
-    <string name="bt_txt_save_note">Notiz speichern</string>
     <string name="tv_txt_add_your_note">Notiz schreiben</string>
     <string name="et_txt_add_your_note">Notiz schreiben</string>
-    <string name="tv_txt_note">Notiz</string>
-    <string name="tv_txt_ratingbar">Bewertung</string>
 
     <!-- RunningeUpdaterTast -->
     <string name="graph_speed">Geschwindigkeit (in km/h)</string>
@@ -87,9 +67,9 @@
     <string name="di_satellite">Satellitenkarte</string>
     <string name="but_txt_set_accuracy">Genauigkeit stellen</string>
     <string name="txt_step_size">Schrittweite:\u0020</string>
-    
+
     <!-- Credits Activity -->
-    <string name="tv_credit1">Diese App wurde im Rahmen eines Projektes von oben genannten Personen für das Wahlfach &quot;Android&quot; an der Hochschule Furtwangen entwickelt.</string>
+    <string name="tv_credit1">Diese App wurde im Rahmen eines Projektes von oben genannten Personen für das Wahlfach "Android" an der Hochschule Furtwangen entwickelt.</string>
     <string name="tv_credit2">Weitere Infos und aktuelle Versionen dieser App auf: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Entwickelt von:</string>

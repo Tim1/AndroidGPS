@@ -6,24 +6,11 @@
     <string name="tv_txt_start_activity">StartActivity</string>
     <string name="bt_txt_choose_track">ChooseTracks</string>
     <string name="bt_txt_preferences">Preferences</string>
-    <string name="bt_txt_GPS_test">GPS TestActivity</string>
     <string name="bt_txt_go">Let\'s go!</string>
 
     <!-- Running Activity -->
     <string name="close">Exit</string>
     <string name="sure_to_close">Save the Track before exit?</string>
-    <string name="bt_txt_start">Start</string>
-    <string name="bt_txt_pause">Pause</string>
-    <string name="bt_txt_pref">Preferences</string>
-    <string name="tv_txt_run_activity">Running Activity\n</string>
-    <string name="tv_txt_time">Time:\u0020</string>
-    <string name="tv_txt_distance">Distance:\u0020</string>
-    <string name="tv_txt_steps">Steps:\u0020</string>
-    <string name="bt_txt_stop">Stop</string>
-    <string name="tv_txt_speed">Speed:\u0020</string>
-    <string name="di_save">Save</string>
-    <string name="di_drop">Delete</string>
-    <string name="di_back">Back</string>
 
     <!-- Preferences Activity -->
     <string name="tv_txt_pref_act">Preferences\n</string>
@@ -32,10 +19,8 @@
     <string name="rb_txt_lang_en">English</string>
 
     <!-- ChooseTrack Activity -->
-    <string name="tv_txt_date">Date</string>
-    <string name="tv_txt_status">Status</string>
     <string name="pd_txt_please_wait">Please wait</string>
-    <string name="pd_txt_loading_data">loading Data&#8230;</string>
+    <string name="pd_txt_loading_data">loading Data…</string>
     <string name="main_no_items">No Tracks available</string>
     <string name="toast_no_locations_found">No Locations found</string>
 
@@ -60,13 +45,8 @@
     <string name="toast_track_wrote">Track wrote in database</string>
 
     <!-- RateAndNote Activity -->
-    <string name="tv_txt_overview">Overview\n</string>
-    <string name="bt_txt_edit_note">Edit Note</string>
-    <string name="bt_txt_save_note">Save Note</string>
     <string name="tv_txt_add_your_note">write note</string>
     <string name="et_txt_add_your_note">write note</string>
-    <string name="tv_txt_note">Note</string>
-    <string name="tv_txt_ratingbar">Rating</string>
 
     <!-- RunningeUpdaterTast -->
     <string name="graph_speed">Speed (in km/h)</string>
@@ -82,10 +62,9 @@
     <string name="txt_step_size">Step Size:\u0020</string>
 
     <!-- Credits Activity -->
-    <string name="tv_credit1">This App was developed for the subject &quot;Android&quot; University Furtwangen.</string>
+    <string name="tv_credit1">This App was developed for the subject "Android" University Furtwangen.</string>
     <string name="tv_credit2">More info and new versions of this App: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Developed by:</string>
-    
-    
+
 </resources>

@@ -50,7 +50,6 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="15dp"
         android:background="#22FFFFFF"
-        android:onClick="onButtonClick"
         android:scrollbars="vertical"
         android:text="@string/tv_txt_add_your_note" />
 
