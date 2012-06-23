@@ -10,6 +10,9 @@
     <string name="bt_txt_choose_track">Tracks anschauen</string>
     <string name="bt_txt_preferences">Einstellungen</string>
     <string name="bt_txt_go">Los geht\'s!</string>
+    <string name="WLAN_disable">WLAN ausgeschaltet</string>
+    <string name="WLAN_enable">WLAN eingeschaltet</string>
+    <string name="toast_Wifi">Wifi kann nicht ein/ausgeschaltet werden</string>
 
     <!-- Running Activity -->
     <string name="close">Beenden</string>
@@ -67,11 +70,21 @@
     <string name="di_satellite">Satellitenkarte</string>
     <string name="but_txt_set_accuracy">Genauigkeit stellen</string>
     <string name="txt_step_size">Schrittweite:\u0020</string>
+    <string name="menu_title_mapstlye">Kartenansicht</string>
+    <string name="menu_title_accuracy">Genaugkeit</string>
 
     <!-- Credits Activity -->
     <string name="tv_credit1">Diese App wurde im Rahmen eines Projektes von oben genannten Personen für das Wahlfach "Android" an der Hochschule Furtwangen entwickelt.</string>
     <string name="tv_credit2">Weitere Infos und aktuelle Versionen dieser App auf: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Entwickelt von:</string>
+    <string name="tv_credits_version">Version:\u0020</string>
+    <string name="tv_credits_tim_schmiedl">Tim Schmiedl</string>
+    <string name="tv_credits_milos_babic">Milos Babic</string>
+    <string name="tv_credits_info">Info:\u0020</string>
+
+    <!-- MyOverlay -->
+    <string name="draw_start">Start</string>
+    <string name="draw_end">Ende</string>
 
 </resources>

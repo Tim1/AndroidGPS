@@ -340,7 +340,7 @@ public class TrackManager {
 				.getString(R.string.db_delete_track) + trackid);
 		sql.execute();
 
-		// delte from gps_location too
+		// delete from gps_location too
 		mDatabase.execSQL(context.getResources().getString(
 				R.string.db_delete_location)
 				+ trackid);

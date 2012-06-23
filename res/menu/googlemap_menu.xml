@@ -3,9 +3,11 @@
 
     <item
         android:id="@+id/menu_googlemap_accuracy"
-        android:title="Accuracy"/>
+        android:icon="@drawable/ic_menu_accuracy"
+        android:title="@string/menu_title_accuracy"/>
     <item
         android:id="@+id/menu_googlemap_mapstyle"
-        android:title="Map Style"/>
-   
+        android:icon="@drawable/ic_menu_map"
+        android:title="@string/menu_title_mapstlye"/>
+
 </menu>

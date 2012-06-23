@@ -63,15 +63,15 @@ public class StartActivity extends Activity {
 
 				String str;
 				if (before)
-					str = "Disable WLAN...";
+					str = getString(R.string.WLAN_disable);
 				else
-					str = "Enable WLAN...";
+					str = getString(R.string.WLAN_enable);
 
 				Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 
 			} catch (Exception e) {
 				Toast.makeText(this,
-						"Cannot start/stop Wifi = " + e.getMessage(),
+						getString(R.string.toast_Wifi) + e.getMessage(),
 						Toast.LENGTH_SHORT).show();
 			}
 			break;

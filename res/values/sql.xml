@@ -14,7 +14,9 @@
     <string name="db_delete_track">        DELETE FROM gps_track WHERE _id = </string>
     <string name="db_update_rating_and_note">        UPDATE gps_track SET rating = ?,note = ? WHERE _id = ? </string>
     <string name="db_select_rating_and_note">        SELECT rating, note FROM gps_track WHERE _id =</string>
-<string name="db_alterTable_3to4"> ALTER TABLE gps_location ADD steps  integer</string>
+    <string name="db_alterTable_3to4"> ALTER TABLE gps_location ADD steps  integer</string>
+    <string name="db_select_longitude"> SELECT LONGITUDE FROM gps_location</string>
+
     <string-array name="db_dropTable">
         <item>                            DROP TABLE gps_location</item>
         <item>                DROP TABLE gps_track</item>

@@ -95,14 +95,15 @@ public class ChooseTrackActivity extends ListActivity {
 		setUpList();
 		getListView().setOnItemLongClickListener(new OnItemLongClickListener() {
 
-			//um die position der langangeklicken view zu erhalten...mit getlistview.getselecteditemposition() kommt nur -1 heraus...
-            public boolean onItemLongClick(AdapterView<?> arg0, View v, int position,
-					long id) {
-            	ChooseTrackActivity.this.position = position;
+			// um die position der langangeklicken view zu erhalten...mit
+			// getlistview.getselecteditemposition() kommt nur -1 heraus...
+			public boolean onItemLongClick(AdapterView<?> arg0, View v,
+					int position, long id) {
+				ChooseTrackActivity.this.position = position;
 				return false;
 
 			}
-        });
+		});
 	}
 
 	public void setUpList() {
@@ -155,7 +156,7 @@ public class ChooseTrackActivity extends ListActivity {
 		startActivity(intent);
 
 	}
-	
+
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
@@ -163,7 +164,7 @@ public class ChooseTrackActivity extends ListActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.choosetrack_context, menu);
 	}
-	
+
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -176,15 +177,26 @@ public class ChooseTrackActivity extends ListActivity {
 			Builder builder = new Builder(this);
 			builder.setTitle(R.string.delete_track)
 					.setIcon(android.R.drawable.ic_dialog_info)
-					.setMessage(getString(R.string.sure_to_delete_track)+"\n"+mTracks.get(position).getDate()+"\n"+mTracks.get(position).getFormatedDistance()+"\n"+ mTracks.get(position).getElapsedTime())
+					.setMessage(
+							getString(R.string.sure_to_delete_track)
+									+ "\n"
+									+ mTracks.get(position).getDate()
+									+ "\n"
+									+ mTracks.get(position)
+											.getFormatedDistance() + "\n"
+									+ mTracks.get(position).getElapsedTime())
 					.setPositiveButton(R.string.di_delete,
 							new DialogInterface.OnClickListener() {
 
 								public void onClick(DialogInterface dialog,
 										int which) {
-									//DEBUG:
-									//Toast.makeText(ChooseTrackActivity.this, "Position in ListView:"+ position+"\n"+"Trackid: "+mTracks.get(position).getID(), Toast.LENGTH_SHORT).show();
-									TrackManager.deleteTrack(mTracks.get(position).getID());
+									// DEBUG:
+									// Toast.makeText(ChooseTrackActivity.this,
+									// "Position in ListView:"+
+									// position+"\n"+"Trackid: "+mTracks.get(position).getID(),
+									// Toast.LENGTH_SHORT).show();
+									TrackManager.deleteTrack(mTracks.get(
+											position).getID());
 									setUpList();
 								}
 							}).setNegativeButton(android.R.string.cancel, null)
@@ -195,9 +207,6 @@ public class ChooseTrackActivity extends ListActivity {
 			return super.onContextItemSelected(item);
 		}
 	}
-	
-	
-	
 
 	@Override
 	protected void onRestart() {

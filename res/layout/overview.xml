@@ -29,7 +29,6 @@
         android:layout_alignBottom="@+id/im_ov_date"
         android:layout_alignTop="@+id/im_ov_date"
         android:layout_toRightOf="@+id/im_ov_date"
-        android:text="date"
         android:textSize="20dip" />
 
     <ImageView
@@ -85,7 +84,6 @@
         android:layout_alignBottom="@+id/im_ov_timer"
         android:layout_alignLeft="@+id/tv_ov_dateEdit"
         android:layout_alignTop="@+id/im_ov_timer"
-        android:text="time"
         android:textSize="20dip" />
 
     <TextView
@@ -94,7 +92,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tv_ov_timeEdit"
         android:layout_below="@+id/tv_ov_timeEdit"
-        android:text="distance"
         android:textSize="20dip" />
 
     <TextView
@@ -103,7 +100,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tv_ov_distanceEdit"
         android:layout_alignTop="@+id/im_ov_steps"
-        android:text="steps"
         android:textSize="20dip" />
 
     <RatingBar

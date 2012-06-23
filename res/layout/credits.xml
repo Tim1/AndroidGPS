@@ -8,7 +8,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version: " />
+        android:text="@string/tv_credits_version" />
 
     <TextView
         android:id="@+id/tv_credits_version"
@@ -35,7 +35,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2"
         android:layout_marginLeft="30dp"
-        android:text="Tim Schmiedl" />
+        android:text="@string/tv_credits_tim_schmiedl" />
 
     <TextView
         android:id="@+id/textView4"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
-        android:text="Milos Babic" />
+        android:text="@string/tv_credits_milos_babic" />
 
     <TextView
         android:id="@+id/textView5"
@@ -53,7 +53,7 @@
         android:layout_below="@+id/textView4"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
-        android:text="Info:" />
+        android:text="@string/tv_credits_info" />
 
     <TextView
         android:id="@+id/textView6"

@@ -10,12 +10,14 @@ import android.graphics.Path;
 import android.graphics.Picture;
 import android.graphics.Point;
 import android.provider.MediaStore.Images;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
+import de.timweb.android.R;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
 
 public class MyOverlay extends Overlay {
@@ -63,7 +65,6 @@ public class MyOverlay extends Overlay {
 		mPaint.setStrokeWidth(4);
 		mPaint.setTextSize(30);
 
-		
 	}
 
 	@Override
@@ -74,12 +75,13 @@ public class MyOverlay extends Overlay {
 
 	private void drawPointsByStep(Canvas canvas, int step) {
 		for (Path path : pathArray)
-			path.reset(); // oder rewind(); ?
+			path.reset();
 
 		firstPoint = pointArray[0];
 		firstGeoPoint = gpArray[0];
 		mProjection.toPixels(firstGeoPoint, firstPoint);
-		canvas.drawText("Start", firstPoint.x, firstPoint.y, mPaint);
+		canvas.drawText(mcontext.getString(R.string.draw_start), firstPoint.x,
+				firstPoint.y, mPaint);
 		int firststep = step;
 
 		for (int i = 0; step < pointArray.length; i++) {
@@ -99,18 +101,21 @@ public class MyOverlay extends Overlay {
 		}
 
 		// draw till last point
-		mProjection.toPixels(gpArray[gpArray.length - 1],pointArray[gpArray.length - 1]);
+		mProjection.toPixels(gpArray[gpArray.length - 1],
+				pointArray[gpArray.length - 1]);
 		pathArray[pathArray.length - 1].moveTo(firstPoint.x, firstPoint.y);
-		pathArray[pathArray.length - 1].lineTo(pointArray[pointArray.length - 1].x,pointArray[pointArray.length - 1].y);
+		pathArray[pathArray.length - 1].lineTo(
+				pointArray[pointArray.length - 1].x,
+				pointArray[pointArray.length - 1].y);
 		canvas.drawPath(pathArray[pathArray.length - 1], mPaint);
-		canvas.drawText("Ende", pointArray[pointArray.length - 1].x,pointArray[pointArray.length - 1].y, mPaint);
-
+		canvas.drawText(mcontext.getString(R.string.draw_end),
+				pointArray[pointArray.length - 1].x,
+				pointArray[pointArray.length - 1].y, mPaint);
 
 	}
 
 	public void setStep(int step) {
-
-		this.step = new Integer(step);
+		this.step = step;
 	}
 
 }

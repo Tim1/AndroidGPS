@@ -42,7 +42,7 @@ public final class LocationReader {
 		DatabaseManager dbManager = new DatabaseManager(context);
 		SQLiteDatabase database = dbManager.getReadableDatabase();
 
-		String sql = "select longitude from gps_location";
+		String sql = context.getString(R.string.db_select_longitude);
 		Cursor result = database.rawQuery(sql, null);
 
 		String s = "";

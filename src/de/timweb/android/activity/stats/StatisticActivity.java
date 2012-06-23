@@ -67,8 +67,6 @@ public class StatisticActivity extends TabActivity {
 				.setContent(intent);
 		tabHost.addTab(spec);
 
-		// tabHost.setCurrentTab(2);
-
 	}
 
 	@Override

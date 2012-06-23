@@ -118,7 +118,6 @@ public class GoogleMapActivity extends MapActivity {
 			break;
 		case R.id.menu_googlemap_mapstyle:
 			if (hasLocations) {
-				showAccuracyMenu();
 				Builder builder = new Builder(this);
 				builder.setTitle(R.string.di_mapstyle)
 						.setNeutralButton(R.string.di_roadmap,
