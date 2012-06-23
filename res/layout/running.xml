@@ -28,7 +28,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_timer"
         android:text="@string/time"
-        android:textSize="25dip"
+        android:textSize="20dip"
         android:textStyle="bold" />
 
     <ImageView
@@ -46,7 +46,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_speed"
         android:text="@string/speed"
-        android:textSize="25dip" />
+        android:textSize="20dip" />
 
     <ImageView
         android:id="@+id/im_distance"
@@ -63,7 +63,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_distance"
         android:text="@string/distance"
-        android:textSize="25dip" />
+        android:textSize="20dip" />
 
     <ImageView
         android:id="@+id/im_steps"
@@ -80,7 +80,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/im_steps"
         android:text="@string/steps"
-        android:textSize="25dip" />
+        android:textSize="20dip" />
 
     <!-- GraphLiveView -->
 
