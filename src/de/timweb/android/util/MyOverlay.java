@@ -3,12 +3,15 @@ package de.timweb.android.util;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Picture;
 import android.graphics.Point;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.provider.MediaStore.Images;
 import android.widget.Toast;
 
@@ -80,10 +83,11 @@ public class MyOverlay extends Overlay {
 		firstPoint = pointArray[0];
 		firstGeoPoint = gpArray[0];
 		mProjection.toPixels(firstGeoPoint, firstPoint);
-		canvas.drawText(mcontext.getString(R.string.draw_start), firstPoint.x,
-				firstPoint.y, mPaint);
+//		canvas.drawText(mcontext.getString(R.string.draw_start), firstPoint.x,
+//				firstPoint.y, mPaint);
+		
+		
 		int firststep = step;
-
 		for (int i = 0; step < pointArray.length; i++) {
 			secGeoPoint = gpArray[step];
 			secPoint = pointArray[step];
@@ -108,9 +112,14 @@ public class MyOverlay extends Overlay {
 				pointArray[pointArray.length - 1].x,
 				pointArray[pointArray.length - 1].y);
 		canvas.drawPath(pathArray[pathArray.length - 1], mPaint);
-		canvas.drawText(mcontext.getString(R.string.draw_end),
-				pointArray[pointArray.length - 1].x,
-				pointArray[pointArray.length - 1].y, mPaint);
+		
+		Drawable d = mcontext.getResources().getDrawable(R.drawable.ic_pin_start);
+		Bitmap bmp = ((BitmapDrawable)d).getBitmap();
+		canvas.drawBitmap(bmp,pointArray[0].x-20,pointArray[0].y-65, mPaint);
+		
+		d = mcontext.getResources().getDrawable(R.drawable.ic_pin_ende);
+		bmp = ((BitmapDrawable)d).getBitmap();
+		canvas.drawBitmap(bmp, pointArray[pointArray.length - 1].x-20,pointArray[pointArray.length - 1].y-65, mPaint);
 
 	}
 
