@@ -48,7 +48,7 @@ Benutzerhilfe
 Die Bediehnung der App ist möglichst intuitiv gehalten. Um einen kompletten Überblich über alle Activities zu bekommen und
 so ein Eindruck von der Navigation zu erhalten gibt es folgendes Diagramm.
 
---> Diagramm (mit Activities) <--
+	--> Diagramm (mit Activities) <--
 
 
 Programm-Architekur (mit UML) 
@@ -66,13 +66,15 @@ Die Funktion der Klassen ist vermutlich schon teilweise aus dem Klassendiagramm 
 	- beinhaltet LocationLister (versorgt Track mit GPS-Daten); SensorEventListener (erkennt Schritte aus den Sensordaten, und sendet Schritte and Track)
 	- enthälst statische Methoden zum generieren von Tracks aus der Datenbank
 
-(Beschreibung der Architektur der App. Pakete, Trackmanager, Manifest etc.)
-UML:
-	UseCase
-	Klassendiagramm
-	Paket
 
---> ER-Diagramm <--
+UML:
+
+- UseCase
+- Klassendiagramm
+- Paket
+
+	--> ER-Diagramm <--
+
 Wie aus dem ER-Diagramm deutlich ist, besteht die Datenbank aus nur zwei Tabellen.
 Die Tabelle "gps_track" enthält die wichtigsten Daten welche schließlich in den Statistiken angezeigt werden.
 Die Tabelle "gps_location" beinhaltet alle Locations die je bei einem Tracking aufgenommen werden. Dies ist notwendig, da auf der GoogleMap der genaue Streckenverlauf augezeichnet wird. Außerdem sind die Locations essential um einen Track erneut zu generieren. Dis geschieht, indem die Locations genau wie bei der Live-Aufnahme mithilfe der "addLocation"-Methode zugespielt werden. Somit unterscheidet sich ein generierter Track nicht von einem Live-aufgenommen.
@@ -106,7 +108,32 @@ Hier sind einige der Punkte die wir für künftige Versionen geplant haben:
 
 Statistiken
 ====
-Lines of Code, Icons...
+Wenn man schon eine App zur Erfassung allerlei statistischer Daten entwickelt, dann muss es ja auch ein paar Statistiken über die App selber geben ;)
+
+Lines of Code
+--------------
+- insgesamt:
+	3088
+- src:	1870
+	- 159
+	- track:	493
+	- activity:	824
+	- util:		394
+
+- gen:	248
+- res:	970
+	- layout:		682
+	- values:		153
+	- values-en:	89
+	- menu:		46
+	
+Sonstiges
+----------
+- 6 Pakete
+- 34 Klassen
+- 121 Methoden
+- 110 Attribute
+
 
 
 Bugs, Issues
