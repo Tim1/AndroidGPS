@@ -19,7 +19,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.timweb.android.R;
-import de.timweb.android.activity.stats.OverviewActivity;
 import de.timweb.android.util.DatabaseManager;
 import de.timweb.android.util.LocationReader;
 import de.timweb.android.util.LocationReader.LocationAndSteps;
