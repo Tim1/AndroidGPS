@@ -29,6 +29,7 @@ import de.timweb.android.util.MyOverlay;
 
 public class GoogleMapActivity extends MapActivity {
 	/** Called when the activity is first created. */
+	@SuppressWarnings("rawtypes")
 	private List mapOverlays;
 	private Projection projection;
 	private MapController mc;
@@ -67,6 +68,7 @@ public class GoogleMapActivity extends MapActivity {
 		setUpGoogleMap();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void setUpGoogleMap() {
 		mLocations = LocationReader.getLocations(this,
 				getIntent().getIntExtra("_id", 0));

@@ -71,6 +71,10 @@
     <string name="tv_credit2">More info and new versions of this App: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Developed by:</string>
+    <string name="tv_credits_version">Version:\u0020</string>
+    <string name="tv_credits_tim_schmiedl">Tim Schmiedl</string>
+    <string name="tv_credits_milos_babic">Milos Babic</string>
+    <string name="tv_credits_info">Info:\u0020</string>
     
         <!-- MyOverlay -->
     <string name="draw_start">Start</string>

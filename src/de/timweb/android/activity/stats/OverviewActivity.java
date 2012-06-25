@@ -1,24 +1,17 @@
 package de.timweb.android.activity.stats;
 
-import android.R.menu;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.ContextMenu;
-import android.view.Menu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 import de.timweb.android.R;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
@@ -28,7 +21,6 @@ public class OverviewActivity extends Activity {
 	private EditText et_note;
 	private TextView tv_note;
 	private Track track;
-	private boolean editable = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,13 +114,11 @@ public class OverviewActivity extends Activity {
 	public boolean onContextItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_edit_note:
-			editable = true;
 			tv_note.setVisibility(View.GONE);
 			et_note.setVisibility(View.VISIBLE);
 			registerForContextMenu(et_note);
 			return true;
 		case R.id.menu_save_note:
-			editable = false;
 			et_note.setVisibility(View.GONE);
 			tv_note.setVisibility(View.VISIBLE);
 			TrackManager.insertRatingAndNote(getIntent().getIntExtra("_id", 0),
