@@ -4,7 +4,7 @@
     <!-- StartActivity -->
     <string name="choose_modus">Choose Modus</string>
     <string name="tv_txt_start_activity">StartActivity</string>
-    <string name="bt_txt_choose_track">ChooseTracks</string>
+    <string name="bt_txt_choose_track">Choose Track</string>
     <string name="bt_txt_preferences">Preferences</string>
     <string name="bt_txt_go">Let\'s go!</string>
     <string name="WLAN_disable">WLAN disabled</string>
@@ -67,7 +67,7 @@
     <string name="menu_title_accuracy">Accuracy</string>
 
     <!-- Credits Activity -->
-    <string name="tv_credit1">This App was developed for the subject "Android" University Furtwangen.</string>
+    <string name="tv_credit1">This App was developed for the subject \"Android\" at University Furtwangen.</string>
     <string name="tv_credit2">More info and new versions of this App: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Developed by:</string>

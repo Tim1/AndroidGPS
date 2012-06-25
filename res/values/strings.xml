@@ -74,7 +74,7 @@
     <string name="menu_title_accuracy">Genaugkeit</string>
 
     <!-- Credits Activity -->
-    <string name="tv_credit1">Diese App wurde im Rahmen eines Projektes von oben genannten Personen für das Wahlfach "Android" an der Hochschule Furtwangen entwickelt.</string>
+    <string name="tv_credit1">Diese App wurde im Rahmen eines Projektes von oben genannten Personen für das Wahlfach \"Android\" an der Hochschule Furtwangen entwickelt.</string>
     <string name="tv_credit2">Weitere Infos und aktuelle Versionen dieser App auf: </string>
     <string name="tv_credit_link">www.timweb.de/android</string>
     <string name="tv_credits_by">Entwickelt von:</string>
