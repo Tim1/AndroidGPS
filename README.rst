@@ -13,6 +13,7 @@ Ziele
 ====
 
 Mussziele:
+-----------
 
 - Protokollierung der Standorte, zurückgelegte Strecken und Höhen für jede Trainingseinheit.	
 - Trainingseinheiten speicherbar und für spätere Analyse wiederverwendbar.
@@ -20,7 +21,8 @@ Mussziele:
 - Schrittzähler implementieren.
 
 
-Kannziele:
+Kannziele
+----------
 
 - Googlemaps verbinden um weitere Rad/Joggingwege zu finden.
 - Statistik auf Computer übertragen.
@@ -30,6 +32,10 @@ Kannziele:
 Die Mussziele wurden alle eingehalten, auch die Kannziele (mit Ausnahme der Übertragung auf den Computer) wurden erfüllt.
 Zur Übertragung an den Computer siehe Weiterentwicklung
 
+Funktionalitäten als UseCase
+-----------------------------
+
+	--> UseCase-Diagramm <--
 
 Features
 ====
@@ -57,6 +63,8 @@ Um die App auch weiterentwickeln zu können, war uns eine solide und modulare Ar
 Zu den sicherlich wichtigsten Klassen gehören die Klassen "TrackManager" sowie "Track".
 Die Funktion der Klassen ist vermutlich schon teilweise aus dem Klassendiagramm auszulesen.
 
+	--> Klassen-Diagramm <--
+
 - Klasse "Track"
 	- stellt jeweils eine Laufstecke dar
 	- wird vom Trackmanager während der Aufnahme mit Daten versorgt (Methode: addLocation, addSteps)
@@ -66,14 +74,10 @@ Die Funktion der Klassen ist vermutlich schon teilweise aus dem Klassendiagramm 
 	- beinhaltet LocationLister (versorgt Track mit GPS-Daten); SensorEventListener (erkennt Schritte aus den Sensordaten, und sendet Schritte and Track)
 	- enthälst statische Methoden zum generieren von Tracks aus der Datenbank
 
-
-UML:
-
-- UseCase
-- Klassendiagramm
-- Paket
+ 
 
 	--> ER-Diagramm <--
+
 
 Wie aus dem ER-Diagramm deutlich ist, besteht die Datenbank aus nur zwei Tabellen.
 Die Tabelle "gps_track" enthält die wichtigsten Daten welche schließlich in den Statistiken angezeigt werden.
@@ -133,10 +137,12 @@ Sonstiges
 - 34 Klassen
 - 121 Methoden
 - 110 Attribute
+- 49 Icons
 
 
-
-Bugs, Issues
+Mögliche Verbesserungen
 ====
 - ungenauer Schrittzähler (vor allem beim Laufen), ist aber nicht ohne massiven Aufwand verbesserbar
 - ungenaue erste Location 
+- mehr Informationen (Icons) im MapView z.B. höchster Punkt der Strecke, maximale Geschwindigkeit etc.
+- bessere Performanz im MapView
