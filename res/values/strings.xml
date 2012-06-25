@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
     <string name="app_name" tools:ignore="MissingTranslation">BlueTrack</string>
-    <string name="app_version" tools:ignore="MissingTranslation">1</string>
+    <string name="app_version" tools:ignore="MissingTranslation">1.0</string>
 
     <!-- StartActivity -->
     <string name="choose_modus">Wähle Modus</string>
