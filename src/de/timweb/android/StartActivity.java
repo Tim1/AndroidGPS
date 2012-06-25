@@ -25,7 +25,7 @@ import de.timweb.android.activity.RunningActivity;
 import de.timweb.android.track.TrackManager;
 
 public class StartActivity extends Activity {
-	private static final boolean DEVELOPER_MODE = false;
+	public static final boolean DEVELOPER_MODE = false;
 	private ListView lv;
 	private UpdateTimerTask task;
 	private Timer timer;

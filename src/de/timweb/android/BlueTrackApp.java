@@ -9,7 +9,9 @@ import android.app.Application;
 public class BlueTrackApp extends Application {
 	@Override
 	public void onCreate() {
-		ACRA.init(this);
+		//Wenn nicht im DeveloperMode --> ACRA zum CrashReport verwenden
+		if(!StartActivity.DEVELOPER_MODE)
+			ACRA.init(this);
 		super.onCreate();
 	}
 }
