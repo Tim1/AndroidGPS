@@ -1,0 +1,73 @@
+Die Post-Mortem-Analyse ist im Allgemeinen eine Analyse, die nach dem Ende des zu analysierenden Ereignisses durchgeführt wird.
+
+FOLIE 2: Ziel
+    positive und negative Erfahrungen dokumentieren
+            Fehler erkennen
+            Erfahrungen vertiefen
+    Verbessern
+		Prozess
+		Vorgehensweise
+		Führung
+		
+		
+FOLIE 3: Nutzen & Schwierigkeiten
+
+    PMA kann frei gestaltet werden
+    Review von möglichst allen Mitgliedern
+    je nach Genauigkeit & Größe des Projekts zeitintensiv
+    Schwierig alle Mitglieder zusammen bekommen
+    personelle Konflikte (Schuld zuschieben)
+		
+		
+FOLIE 4: Ablauf
+
+    1. Ramenbedinungen (Dauer der PMA, welches Endergebniss? Umfang? Wer?)
+    2. Daten & Fakten zum Projekt
+    3. Analyse des Projektes, Erfahrung der Mitarbeiter im Projekt
+    4. Aufarbeiten wichtigster Erfahrungen
+    5. Abschlussbericht / Report
+		
+		
+FOLIE 5: Methoden
+
+    Interview
+    Gruppendiskussion
+    Fragebögen
+	
+	
+FOLIE 6: Fragebogen
+	
+	Planning
+	-	Were the group goals clear to you?
+	-	Were the development goals clear to you?
+	-	How complete do you think the planning was before the actual commencement of work?
+
+	             
+	Resources
+	-	Were there enough resources assigned to the project, given the schedule constraints?
+	-	Do you think resources were managed effectively once the project started?
+	
+	             
+	Project Management/Scheduling
+	-	Was the schedule realistic?
+	-	Did having a series of milestones help in making and monitoring the schedule?
+	-	How was project progress measured? Was this method adequate? How could it be improved?
+	-	How were changes managed late in the cycle?
+	
+	             
+	Development/Design/Specifications
+	-	Were there issues in the functional design and ownership?
+	-	Were there issues in the architectural design and ownership?
+	
+	             
+	Test
+	-	Were there issues in test interaction?
+	-	Was the quality of the product we shipped acceptable?
+	
+	 
+	Communication
+	-	Was communication between groups handled efficiently/effectively?
+	-	Was program management effective in resolving issues?
+	-	Were the status meetings effective?
+	-	Was communication with the external groups (component suppliers, content suppliers, OEMs, support, international) effective?
+		

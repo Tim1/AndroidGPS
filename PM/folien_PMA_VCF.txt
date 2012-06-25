@@ -1,0 +1,62 @@
+FOLIE 1: Planning
+			-	Were the group goals clear to you?
+			-	Were the development goals clear to you?
+			-	How complete do you think the planning was before the actual commencement of work?
+	Weboberfläche --> komplett neues system
+	fehlender Blueprint (Enterprise Architektur)
+	Vertrag (Cost-plus-award-fee):
+        alle Kosten werden bezahlt
+        keine Milestones definiert
+        keine Vertragsstrafen definiert
+
+
+==========================================================================	
+
+	             
+FOLIE 2: Resources
+			-	Were there enough resources assigned to the project, given the schedule constraints?
+			-	Do you think resources were managed effectively once the project started?
+	unerfahrener Projektmanager (Special Agent Depew), nur durch Beziehung zum Vorgesetzten an diese Position gekommen
+	kein Chief Information Officer (CIO) --> ständig wechselnde Personal
+	Matthew Patton als IT-Security Experte ignoriert.
+	
+==========================================================================	 
+	 
+	             
+FOLIE 3: Project Management/Scheduling
+			-	Was the schedule realistic?
+			-	Did having a series of milestones help in making and monitoring the schedule?
+			-	How was project progress measured? Was this method adequate? How could it be improved?
+			-	How were changes managed late in the cycle?
+	Zeitplan immer mehr nach vorne verschoben ( 11. September 2001)
+	ständige Änderungswünsche der Agenten (Dez 2002 - Dez 2003 400 Anforderungsänderungen)
+	Empfehlungsschreibungen aus Reports ignoriert (GAO)
+	  
+==========================================================================		  
+	             
+FOLIE 4: Development/Design/Specifications
+			-	Were there issues in the functional design and ownership?
+			-	Were there issues in the architectural design and ownership?
+			-	Was the developing process efficent?
+	(SAIC) 8 Teams parallel wegen Zeitdruck --> inkompatible Schnittstellen
+	Überspezifizierte Anforderungsheft
+	       
+==========================================================================		       
+	       
+	             
+FOLIE 5: Test
+			-	Were there issues in test interaction?
+			-	Was the quality of the product we shipped acceptable?
+	flash cutover (kein Plan B)
+	fehlende Planung der Testphase
+	 
+==========================================================================		 
+	 
+	 
+FOLIE 6: Communication
+			-	Was communication between groups handled efficiently/effectively?
+			-	Was program management effective in resolving issues?
+			-	Were the status meetings effective?
+			-	Was communication with the external groups (component suppliers, content suppliers, OEMs, support, international) effective?
+	FBI sehr von sich überzeugt (We're telling you how to do)
+	schlechte Kommunikation Developer <--> Agenten
