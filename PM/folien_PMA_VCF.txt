@@ -1,62 +1,166 @@
 FOLIE 1: Planning
+- War das Ziel klar?
+- War die Planung vor Arbeitsbeginn ausreichend?
+- Waren die Rahmenbedingungen genügend?
+* nach 9/11 komlett neues System
+* keine Planung des geänderten System
+* fehlender Blueprint
+* Cost-plus-award-free Vertrag
 			-	Were the group goals clear to you?
 			-	Were the development goals clear to you?
 			-	How complete do you think the planning was before the actual commencement of work?
+			
+	11. September --> von unspektakulärem System zu wichtigstem
+		in den Medien behandelt
+		trotz der enormen wichtigkeit so viele Fehler
 	Weboberfläche --> komplett neues system
+		3 Monate umsonst (Dezember 2001)
+		weitaus mehr Anforderungen & Kosten und das keine Planung
+		nur 22 Monate für komplett neues System
+		"from Scratch", kein Einbeziehen bestehender Software (eMail-System)
+		"Every time you write a line of code, you introduce bugs"
 	fehlender Blueprint (Enterprise Architektur)
+		Depew: "to feel our way in the dark" - sehen Probleme machen aber trotzdem weiter
+		Veraltete Hardware
 	Vertrag (Cost-plus-award-fee):
-        alle Kosten werden bezahlt
-        keine Milestones definiert
+        alle Kosten werden bezahlt (SAIC kann machen was will)
+        kein formaler Zeitplan, nichtmal Milestones definiert
         keine Vertragsstrafen definiert
-
 
 ==========================================================================	
 
 	             
 FOLIE 2: Resources
+- Waren die Mitarbeiter kompetent?
+- Wurden die Resourcen sinnvoll eingesetzt?
+* keine Erfahrung im IT-Management
+* unerfahrener Projektmanager (Depew)
+* Personalfluktuation
+* Probleme mit Mitarbeitern bei SAIC
+
 			-	Were there enough resources assigned to the project, given the schedule constraints?
 			-	Do you think resources were managed effectively once the project started?
-	unerfahrener Projektmanager (Special Agent Depew), nur durch Beziehung zum Vorgesetzten an diese Position gekommen
-	kein Chief Information Officer (CIO) --> ständig wechselnde Personal
-	Matthew Patton als IT-Security Experte ignoriert.
+	keine Erfahrung mit IT-Management (gute Manger im privaten Sektor)
+	unerfahrener Projektmanager (Special Agent Depew)
+		nur durch Beziehung zum Vorgesetzten an diese Position gekommen
+		spielt Kunde + ProjektManager gleichzeitig
+	Personalfluktuation
+		kein Chief Information Officer (CIO) 
+		ständig wechselnde Personal (Sommer 2002, CIO: Dies -> Tanner -> Church, Chiaradio -> Lowery -> John?)
+	SAIC sucht hilfe 
+		Patton meldet sich
+		200 Programmer, mit ein paar Dutzend möglich gewesen --> Quantität statt Qualität
+		da geheimes Material erst Background-Check vom FBI, bevor man mit den Daten arbeiten darf
 	
 ==========================================================================	 
 	 
 	             
 FOLIE 3: Project Management/Scheduling
+- War der Zeitplan realistisch?
+- Wie wurde mit Änderungswünschen umgegangen?
+- Wurden Managementaufgaben gut umgesetzt?
+* vorverlegt Zeitplan unrealistisch
+* "shooting from the hip", "asking the impossible"
+* ständige Änderungswünsche
+* Empfehlungen ignoriert
+
 			-	Was the schedule realistic?
 			-	Did having a series of milestones help in making and monitoring the schedule?
 			-	How was project progress measured? Was this method adequate? How could it be improved?
 			-	How were changes managed late in the cycle?
 	Zeitplan immer mehr nach vorne verschoben ( 11. September 2001)
+		Dezember 2003 statt Juni 2004 (6 Monate früher)
+		"as fast as possible", "shooting from the hip"
+		unrealistisch, 1. RULE: Faster, Cheaper, BETTER (killed s. 7)
+		Müller sieht sich teilweise schuldig
+		SAIC sagt nicht, dass Zeit nicht einhalbar ist ("asking the impossible")
+		Implementierung ab Dezember 2002 (nur noch 1 Jahr bis Release)
 	ständige Änderungswünsche der Agenten (Dez 2002 - Dez 2003 400 Anforderungsänderungen)
-	Empfehlungsschreibungen aus Reports ignoriert (GAO)
+	Empfehlungsschreibungen aus Reports ignoriert (GAO, Patton)
+		Matthew Patton als IT-Security Experte ignoriert.	
+		Sicherheit nicht als wichtig genug angesehen
+		Boss weist Patton ab, Begründung: FBI hat es nicht gefordert
 	  
 ==========================================================================		  
 	             
 FOLIE 4: Development/Design/Specifications
+- Wie sah der Arbeitsprozess aus? War er erfolgreich?
+- Wurden Anforderungen & Design erfolgreich umgesetzt?
+* 8 unabhängige Teams 
+* Anforderungen
+	* zu viele
+	* überspezifiert
+	* unvollständig & uneindeutig
+* ständige Änderungswünsche
+* "Trial & Error"
+
+
 			-	Were there issues in the functional design and ownership?
 			-	Were there issues in the architectural design and ownership?
 			-	Was the developing process efficent?
-	(SAIC) 8 Teams parallel wegen Zeitdruck --> inkompatible Schnittstellen
-	Überspezifizierte Anforderungsheft
+	(SAIC) 8 Teams parallel wegen Zeitdruck 
+		inkompatible Schnittstelle
+		mehrmals gleiche Funktion implementieren, inkonstistenzen
+		viel Managementaufwand
+	Anforderungen
+		Überspezifizierte Anforderungsheft
+			800 Seiten
+			"Whats and not the Hows"
+			"design before they know what the system should do"
+			--> Beispiel Patton (Button+eMail) <--
+		nicht vollständig
+		falsch, nicht eindeutig
+		keine Einschränkung (SAIC), "enough is enough"
+		--> am ENDE: manche Anforderungen nicht umgesetzt, manche Sachen umgesetzt, die keine Anforderung waren
+	spiralmodell mit viel einbeziehung des Kunden (FBI)
+		wurde zu "Trial and Error"	
+		"this isn't what i meant"
+		ständige Änderungswünsche
+		BEISPIEL änderungswunsch (killed s. 11)
+	
 	       
 ==========================================================================		       
 	       
 	             
 FOLIE 5: Test
+- Wurde genug Zeit eingeplant?
+- Gab es einen genauen Testplan?
+* lange Verzögerung
+* Flash-Cutover (ohne Plan B)
+* zu wenig Zeit eingeplant
+* späte SPR & Bugfixes
+
+
 			-	Were there issues in test interaction?
 			-	Was the quality of the product we shipped acceptable?
-	flash cutover (kein Plan B)
+	Test lange nicht möglich (Part 1-2 von Trilogy auch verspätet), da keine Infrastruktur
 	fehlende Planung der Testphase
+	zu wenig Zeit eingeplant (Herbst 2003)
+	Bei Bugfixes --> alle 8 Teams müssen es machen
+	flash cutover
+		potenzielle Gefahr des komplett versagen
+		kein Plan B
+	erst jetzt SPR (Software problem reports)
+		"A month before delivery, you don't have SPRs. You're make things pretty. Your're changing colors."
 	 
 ==========================================================================		 
 	 
 	 
 FOLIE 6: Communication
+- War die Kommunikation effizient?
+- Wie wurden Konflikte behandelt?
+* FBI sehr von sich überzeugt
+* mangelnde Kommunikation zwischen Entwickler und Agenten
+* Frustration und Schuldumherschieben
+* Streit über Anforderungen
+
+
 			-	Was communication between groups handled efficiently/effectively?
 			-	Was program management effective in resolving issues?
 			-	Were the status meetings effective?
 			-	Was communication with the external groups (component suppliers, content suppliers, OEMs, support, international) effective?
-	FBI sehr von sich überzeugt (We're telling you how to do)
+	FBI sehr von sich überzeugt ("We're telling you how to do it")
 	schlechte Kommunikation Developer <--> Agenten
+		Frustration 
+		Schuld hin und herschieben
+	Streit ob Anforderungen umgesetzt oder nicht
