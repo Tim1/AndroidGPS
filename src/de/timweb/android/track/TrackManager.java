@@ -304,9 +304,8 @@ public class TrackManager {
 	 * @param modusfilter
 	 *            Filter um nach veschieden Modi zu sortieren
 	 *            (Track.MODE_JOGGING etc.)
-	 * @return
+	 * @return ArrayListe mit allen (Lite)Tracks
 	 */
-
 	public static ArrayList<Track> getLiteTrackArray(Context context,
 			int modusfilter) {
 		ArrayList<Track> result = new ArrayList<Track>();
@@ -327,6 +326,35 @@ public class TrackManager {
 		mDatabase.close();
 		return result;
 	}
+	
+	/**
+	 * erstellt leichtgewichtigen Track aus der
+	 * Datenbank Statisiken & Co. werden NICHT mitgeneriert und können nicht
+	 * verwendet werden
+	 * 
+	 * @param trackid - ID des tracks
+	 * @return (Lite)Tracks
+	 */
+	public static Track getLiteTrack(Context context,
+			int trackid) {
+		DatabaseManager dbManager = new DatabaseManager(context);
+		SQLiteDatabase mDatabase = dbManager.getWritableDatabase();
+		String sql = context.getString(R.string.db_select_track_light) + trackid;
+
+		Cursor cursor = mDatabase.rawQuery(sql, null);
+
+		Track result = null;
+		while (cursor.moveToNext()) {
+			result = new Track(cursor.getInt(0), cursor.getLong(1), cursor
+					.getFloat(2), cursor.getLong(3), cursor.getInt(4), cursor
+					.getInt(5));
+		}
+
+		cursor.close();
+		mDatabase.close();
+		return result;
+	}
+	
 
 	public static void setContext(Context context) {
 		TrackManager.context = context;

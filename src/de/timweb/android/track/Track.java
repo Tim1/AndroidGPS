@@ -223,6 +223,18 @@ public class Track {
 		steps++;
 	}
 
+	public String getDay(){
+		String result = "";
+		
+		final Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(starttime);
+		
+		result += cal.get(Calendar.DAY_OF_MONTH) + ".";
+		result += (cal.get(Calendar.MONTH) + 1) + ".";
+		result += cal.get(Calendar.YEAR);
+		return result;
+	}
+	
 	public String getDate() {
 		String result = "";
 

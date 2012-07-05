@@ -23,8 +23,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.timweb.android.R;
 import de.timweb.android.activity.stats.StatisticActivity;
+import de.timweb.android.gpx.GPXExporter;
 import de.timweb.android.track.Track;
 import de.timweb.android.track.TrackManager;
 
@@ -172,6 +174,11 @@ public class ChooseTrackActivity extends ListActivity {
 			Intent intent = new Intent(this, StatisticActivity.class);
 			intent.putExtra("_id", mTracks.get(position).getID());
 			startActivity(intent);
+			return true;
+		case R.id.menu_gpx:
+			int trackid = mTracks.get(position).getID();
+			GPXExporter.writeToGPXFile(trackid, this);
+			Toast.makeText(this, "Exporting...", Toast.LENGTH_SHORT).show();
 			return true;
 		case R.id.menu_delete:
 			Builder builder = new Builder(this);

@@ -26,12 +26,13 @@
     <string name="pd_txt_loading_data">loading Data…</string>
     <string name="main_no_items">No Tracks available</string>
     <string name="toast_no_locations_found">No Locations found</string>
+    <string name="menu_title_show">Show</string>
+    <string name="menu_title_delete">Delete</string>
+    <string name="menu_title_gpx">Export to SD-Card</string>
 
     <!-- Statistic Activity -->
     <string name="delete_track">Delete Track</string>
     <string name="sure_to_delete_track">Are you sure you want to delete the track?</string>
-    <string name="menu_title_show">Show</string>
-    <string name="menu_title_delete">Delete</string>
     <string name="di_delete">Delete</string>
     <string name="txt_overview">Overview</string>
     <string name="txt_graph_1">Graph 1</string>
