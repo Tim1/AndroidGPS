@@ -9,3 +9,27 @@ Diese Tracks werden mit vielen weiteren Informationen wie z.B Anzahl der Schritt
 Jogger und Fahrradfahrer können somit ihre Trainingserfolge beobachten.
 Weiterhin kann man sich die genau zurückgelegte Strecke später mithilfe von Google-Maps metergenau abzeigen lassen um so auch eventuell beim nächstem Mal neue Strecken zu erkunden.
 
+
+Change-Log
+===========
+1.0.1
+-----
+* add GPX-Exporter
+
+
+1.0
+----
+* add ACRA
+* add Contextmenu in ChooseTrack-Activity
+* fixed smaller Bugs
+* fixed Layout
+* add Documentation
+
+
+0.9
+----
+* initial Version
+* add Live-Statistics
+* add GoogleMap to view Track
+* add Start/Pause/Stop
+* add Credits
