@@ -80,5 +80,6 @@
         <!-- MyOverlay -->
     <string name="draw_start">Start</string>
     <string name="draw_end">End</string>
+    <string name="tx_builddate">Build on:\u0020</string>
 
 </resources>
