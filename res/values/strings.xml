@@ -3,6 +3,7 @@
 
     <string name="app_name" tools:ignore="MissingTranslation">BlueTrack</string>
     <string name="app_version" tools:ignore="MissingTranslation">1.0</string>
+    <string name="app_date" tools:ignore="MissingTranslation">05.07.2012</string>
 
     <!-- StartActivity -->
     <string name="choose_modus">Wähle Modus</string>
@@ -87,5 +88,6 @@
     <!-- MyOverlay -->
     <string name="draw_start">Start</string>
     <string name="draw_end">Ende</string>
+    <string name="tx_builddate">Build on: </string>
 
 </resources>

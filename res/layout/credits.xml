@@ -8,12 +8,16 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/tv_credits_version" />
 
     <TextView
         android:id="@+id/tv_credits_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView1"
         android:text="@string/app_version" />
@@ -23,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/textView7"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:text="@string/tv_credits_by" />
@@ -81,5 +85,26 @@
         android:layout_alignRight="@+id/TextView01"
         android:layout_below="@+id/TextView01"
         android:text="@string/tv_credit_link" android:autoLink="web"/>
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="@string/tx_builddate" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_credits_version"
+        android:layout_toRightOf="@+id/TextView03"
+        android:text="@string/app_date" />
+
     
 </RelativeLayout>
