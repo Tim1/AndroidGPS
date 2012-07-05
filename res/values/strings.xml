@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
 
     <string name="app_name" tools:ignore="MissingTranslation">BlueTrack</string>
-    <string name="app_version" tools:ignore="MissingTranslation">1.0</string>
+    <string name="app_version" tools:ignore="MissingTranslation">1.0.1</string>
     <string name="app_date" tools:ignore="MissingTranslation">05.07.2012</string>
 
     <!-- StartActivity -->
