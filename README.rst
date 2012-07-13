@@ -9,6 +9,7 @@ Diese Tracks werden mit vielen weiteren Informationen wie z.B Anzahl der Schritt
 Jogger und Fahrradfahrer können somit ihre Trainingserfolge beobachten.
 Weiterhin kann man sich die genau zurückgelegte Strecke später mithilfe von Google-Maps metergenau abzeigen lassen um so auch eventuell beim nächstem Mal neue Strecken zu erkunden.
 
+Crash-Report: https://docs.google.com/spreadsheet/ccc?key=0AlTrujEd-6AQdC1VZzBtSzZzclJYdVFtQzhmYWptWGc#gid=0
 
 Change-Log
 ===========
