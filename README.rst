@@ -34,3 +34,11 @@ Change-Log
 * add GoogleMap to view Track
 * add Start/Pause/Stop
 * add Credits
+
+
+Checkliste vor neuer Version
+===============================
+
+* Versionnummer und Builddate gesetzt?
+* DeveloperMode ausgeschalten?
+* Change-Log update?
